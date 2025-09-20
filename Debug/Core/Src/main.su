@@ -1,5 +1,6 @@
-../Core/Src/main.c:77:5:main	8	static
-../Core/Src/main.c:125:6:SystemClock_Config	88	static
-../Core/Src/main.c:172:13:MX_UART5_Init	8	static
-../Core/Src/main.c:205:13:MX_GPIO_Init	48	static
-../Core/Src/main.c:251:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:68:6:send_broadcast_hello	32	static
+../Core/Src/main.c:102:5:main	8	static
+../Core/Src/main.c:154:6:SystemClock_Config	88	static
+../Core/Src/main.c:201:13:MX_UART5_Init	8	static
+../Core/Src/main.c:234:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:280:6:Error_Handler	4	static,ignoring_inline_asm

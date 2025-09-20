@@ -22,7 +22,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "lwip/dhcp.h"
 #include "lwip/netif.h"
 #include "lwip/tcpip.h"
 #include "ethernetif.h"
@@ -66,8 +65,34 @@ static void MX_UART5_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void send_broadcast_hello(void)
+{
+    struct udp_pcb *upcb;
+    struct pbuf *p;
+    ip_addr_t dest_ip;
+    const char *msg = "Hello World from STM32F407";
 
+    /* Create new UDP control block  */
+    upcb = udp_new();
+    if (upcb == NULL) return;
 
+    /* Set destination to broadcast */
+    IP4_ADDR(&dest_ip, 192, 168, 1, 100);  // Adjust subnet
+
+    /* Bind to any port (not strictly necessary for TX-only) */
+    udp_bind(upcb, IP_ADDR_ANY, 0);
+
+    /* Allocate pbuf */
+    p = pbuf_alloc(PBUF_TRANSPORT, strlen(msg), PBUF_RAM);
+    if (p != NULL)
+    {
+        memcpy(p->payload, msg, strlen(msg));
+        udp_sendto(upcb, p, &dest_ip, 5005);  // send to port 5005
+        pbuf_free(p);
+    }
+
+    udp_remove(upcb);
+}
 /* USER CODE END 0 */
 
 /**
@@ -103,7 +128,6 @@ int main(void)
   MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
   netif_set_up(&gnetif);       // bring interface up
-  dhcp_start(&gnetif);
   HAL_GPIO_WritePin(LED_PORT, LED_BLUE_PIN, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
@@ -111,6 +135,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	    MX_LWIP_Process(); // important: handles incoming/outgoing packets
+
+	    send_broadcast_hello();
+	    HAL_GPIO_TogglePin(LED_PORT, LED_GREEN_PIN);
+	    HAL_Delay(1000);   // every 1 second
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
