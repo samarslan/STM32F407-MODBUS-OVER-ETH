@@ -18,11 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
+#include "lwip.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lwip/dhcp.h"
+#include "lwip/netif.h"
+#include "lwip/tcpip.h"
+#include "ethernetif.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,39 +40,25 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define LDGREEN_PORT GPIOD
-#define LDGREEN_PIN  GPIO_PIN_12
+#define LED_PORT        GPIOD
+#define LED_GREEN_PIN   GPIO_PIN_12
+#define LED_ORANGE_PIN  GPIO_PIN_13
+#define LED_RED_PIN     GPIO_PIN_14
+#define LED_BLUE_PIN    GPIO_PIN_15
 
-#define LDORANGE_PORT GPIOD
-#define LDORANGE_PIN  GPIO_PIN_13
-
-#define LDRED_PORT GPIOD
-#define LDRED_PIN  GPIO_PIN_14
-
-#define LDBLUE_PORT GPIOD
-#define LDBLUE_PIN  GPIO_PIN_15
-
-#define DEBUG_PRINT(str) HAL_UART_Transmit(&huart5, (uint8_t*)str, strlen(str), HAL_MAX_DELAY)
+//#define DEBUG_PRINT(str) HAL_UART_Transmit(&huart5, (uint8_t*)str, strlen(str), HAL_MAX_DELAY)
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-
-ETH_TxPacketConfig TxConfig;
-ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT]; /* Ethernet Rx DMA Descriptors */
-ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT]; /* Ethernet Tx DMA Descriptors */
-
-ETH_HandleTypeDef heth;
-
 UART_HandleTypeDef huart5;
 
 /* USER CODE BEGIN PV */
-
+extern struct netif gnetif;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_ETH_Init(void);
 static void MX_UART5_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -77,6 +66,7 @@ static void MX_UART5_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 
 /* USER CODE END 0 */
 
@@ -109,32 +99,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ETH_Init();
   MX_UART5_Init();
+  MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
-  HAL_StatusTypeDef ethStatus;
-
-  ethStatus = HAL_ETH_Start(&heth);
-  if (ethStatus == HAL_OK)
-  {
-      HAL_GPIO_WritePin(LDGREEN_PORT, LDGREEN_PIN, GPIO_PIN_SET);
-      HAL_GPIO_WritePin(LDRED_PORT, LDRED_PIN, GPIO_PIN_RESET);
-      DEBUG_PRINT("ETH MAC START OK\r\n");
-  }
-  else
-  {
-      HAL_GPIO_WritePin(LDGREEN_PORT, LDGREEN_PIN, GPIO_PIN_RESET);
-      HAL_GPIO_WritePin(LDRED_PORT, LDRED_PIN, GPIO_PIN_SET);
-      DEBUG_PRINT("ETH MAC START FAIL\r\n");
-  }
+  netif_set_up(&gnetif);       // bring interface up
+  dhcp_start(&gnetif);
+  HAL_GPIO_WritePin(LED_PORT, LED_BLUE_PIN, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_GPIO_TogglePin(LDBLUE_PORT, LDBLUE_PIN);
-	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -186,55 +162,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief ETH Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_ETH_Init(void)
-{
-
-  /* USER CODE BEGIN ETH_Init 0 */
-
-  /* USER CODE END ETH_Init 0 */
-
-   static uint8_t MACAddr[6];
-
-  /* USER CODE BEGIN ETH_Init 1 */
-
-  /* USER CODE END ETH_Init 1 */
-  heth.Instance = ETH;
-  MACAddr[0] = 0x00;
-  MACAddr[1] = 0x80;
-  MACAddr[2] = 0xE1;
-  MACAddr[3] = 0x00;
-  MACAddr[4] = 0x00;
-  MACAddr[5] = 0x00;
-  heth.Init.MACAddr = &MACAddr[0];
-  heth.Init.MediaInterface = HAL_ETH_RMII_MODE;
-  heth.Init.TxDesc = DMATxDscrTab;
-  heth.Init.RxDesc = DMARxDscrTab;
-  heth.Init.RxBuffLen = 1524;
-
-  /* USER CODE BEGIN MACADDRESS */
-
-  /* USER CODE END MACADDRESS */
-
-  if (HAL_ETH_Init(&heth) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  memset(&TxConfig, 0 , sizeof(ETH_TxPacketConfig));
-  TxConfig.Attributes = ETH_TX_PACKETS_FEATURES_CSUM | ETH_TX_PACKETS_FEATURES_CRCPAD;
-  TxConfig.ChecksumCtrl = ETH_CHECKSUM_IPHDR_PAYLOAD_INSERT_PHDR_CALC;
-  TxConfig.CRCPadCtrl = ETH_CRC_PAD_INSERT;
-  /* USER CODE BEGIN ETH_Init 2 */
-
-  /* USER CODE END ETH_Init 2 */
-
 }
 
 /**
