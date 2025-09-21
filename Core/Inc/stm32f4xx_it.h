@@ -56,7 +56,6 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 void EXTI0_IRQHandler(void);
-void UART5_IRQHandler(void);
 void ETH_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 

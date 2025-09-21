@@ -1,8 +1,7 @@
-../Core/Src/main.c:75:6:send_hello_udp	3
-../Core/Src/main.c:90:13:udp_rx_callback	3
-../Core/Src/main.c:115:5:main	4
-../Core/Src/main.c:180:6:SystemClock_Config	3
-../Core/Src/main.c:227:13:MX_UART5_Init	2
-../Core/Src/main.c:260:13:MX_GPIO_Init	1
-../Core/Src/main.c:299:6:HAL_GPIO_EXTI_Callback	4
-../Core/Src/main.c:322:6:Error_Handler	1
+../Core/Src/main.c:73:6:send_hello_udp	3
+../Core/Src/main.c:88:13:udp_rx_callback	3
+../Core/Src/main.c:113:5:main	4
+../Core/Src/main.c:176:6:SystemClock_Config	3
+../Core/Src/main.c:223:13:MX_GPIO_Init	1
+../Core/Src/main.c:262:6:HAL_GPIO_EXTI_Callback	4
+../Core/Src/main.c:285:6:Error_Handler	1
