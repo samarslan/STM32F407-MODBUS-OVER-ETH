@@ -1,7 +1,10 @@
-../Core/Src/main.c:73:6:send_hello_udp	24	static
-../Core/Src/main.c:88:13:udp_rx_callback	48	static
-../Core/Src/main.c:113:5:main	16	static
-../Core/Src/main.c:176:6:SystemClock_Config	88	static
-../Core/Src/main.c:223:13:MX_GPIO_Init	48	static
-../Core/Src/main.c:262:6:HAL_GPIO_EXTI_Callback	24	static
-../Core/Src/main.c:285:6:Error_Handler	4	static,ignoring_inline_asm
+../Core/Src/main.c:75:14:tcp_connected	24	static
+../Core/Src/main.c:89:6:start_tcp_connection	8	static
+../Core/Src/main.c:101:6:send_hello_tcp	24	static
+../Core/Src/main.c:127:5:main	16	static
+../Core/Src/main.c:187:6:SystemClock_Config	88	static
+../Core/Src/main.c:234:13:MX_UART4_Init	8	static
+../Core/Src/main.c:267:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:306:13:tcp_error_callback	16	static
+../Core/Src/main.c:312:6:HAL_GPIO_EXTI_Callback	24	static
+../Core/Src/main.c:335:6:Error_Handler	4	static,ignoring_inline_asm

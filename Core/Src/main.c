@@ -22,10 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "lwip/netif.h"
-#include "lwip/udp.h"
-#include "lwip/pbuf.h"
-#include "ethernetif.h"
+#include "lwip/tcp.h"
 #include <string.h>
 /* USER CODE END Includes */
 
@@ -47,63 +44,80 @@
 #define LED_RED_PIN     GPIO_PIN_14
 #define LED_BLUE_PIN    GPIO_PIN_15
 
-//#define DEBUG_PRINT(str) HAL_UART_Transmit(&huart5, (uint8_t*)str, strlen(str), HAL_MAX_DELAY)
+#define DEBUG_PRINT(str) HAL_UART_Transmit(&huart4, (uint8_t*)str, strlen(str), 1000)
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
-extern struct netif gnetif;
-
-static struct udp_pcb *hello_upcb;
+static struct tcp_pcb *hello_tpcb;
 static ip_addr_t dest_ip;
 
-volatile int broadcastUDPFlag = 0;
+volatile int broadcastTCPFlag = 0;
+uint32_t lastSend = 0;
+
+char dbg_buf[64];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
-void send_hello_udp(void);
+static void tcp_error_callback(void *arg, err_t err);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void send_hello_udp(void)
+
+
+static err_t tcp_connected(void *arg, struct tcp_pcb *tpcb, err_t err)
 {
-	if (hello_upcb == NULL) return;
+    if (err == ERR_OK) {
+        hello_tpcb = tpcb;
+        snprintf(dbg_buf, sizeof(dbg_buf), "tcp_connected: OK (err=%d)\r\n", err);
+        DEBUG_PRINT(dbg_buf);
+    } else {
+        snprintf(dbg_buf, sizeof(dbg_buf), "tcp_connected: FAILED (err=%d)\r\n", err);
+        DEBUG_PRINT(dbg_buf);
+    }
+    return err;
+}
 
-	const char *msg = "Hello World from STM32F407";
-	struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, strlen(msg), PBUF_RAM);
-	if (p != NULL) {
-		memcpy(p->payload, msg, strlen(msg));
-		udp_sendto(hello_upcb, p, &dest_ip, 5005);
-		pbuf_free(p);
 
-		HAL_GPIO_TogglePin(LED_PORT, LED_GREEN_PIN);
+void start_tcp_connection(void)
+{
+	hello_tpcb = tcp_new();
+	if (hello_tpcb != NULL) {
+		IP4_ADDR(&dest_ip, 192,168,1,100); // your PC IP
+		tcp_connect(hello_tpcb, &dest_ip, 502, tcp_connected);
+		tcp_err(hello_tpcb, tcp_error_callback);
+	} else {
+		Error_Handler();
 	}
 }
 
-static void udp_rx_callback(void *arg, struct udp_pcb *pcb,
-                            struct pbuf *p, const ip_addr_t *addr, u16_t port)
+void send_hello_tcp(void)
 {
-    if (p != NULL) {
-        // Copy incoming data into buffer
-        char buffer[16] = {0};  // big enough for "Hi!" + null terminator
-        u16_t len = (p->tot_len < sizeof(buffer)-1) ? p->tot_len : sizeof(buffer)-1;
+    if (hello_tpcb == NULL) return;
 
-        pbuf_copy_partial(p, buffer, len, 0);
+    const char *msg = "Hello World from STM32F407\r\n";
+    err_t err = tcp_write(hello_tpcb, msg, strlen(msg), TCP_WRITE_FLAG_COPY);
 
-        // Check if it's exactly "Hi!"
-        if (strcmp(buffer, "Hi!") == 0) {
-            HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);  // light red LED
-        }
-
-        // Free memory or you’ll leak
-        pbuf_free(p);
+    if (err == ERR_OK) {
+        tcp_output(hello_tpcb);
+        HAL_GPIO_TogglePin(LED_PORT, LED_BLUE_PIN);
+    }
+    else if (err == ERR_ABRT || err == ERR_RST || err == ERR_CLSD) {
+        hello_tpcb = NULL;
+        HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
+    }
+    else {
+        HAL_GPIO_TogglePin(LED_PORT, LED_ORANGE_PIN);
     }
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -114,7 +128,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	uint8_t data = 111;
 
+	HAL_UART_Transmit(&huart4, &data, 1, 1000);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -136,32 +152,27 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_LWIP_Init();
+  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
+	HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_RESET);
 
-	hello_upcb = udp_new();
-	if (hello_upcb != NULL) {
-	    udp_bind(hello_upcb, IP_ADDR_ANY, 5005);
-	    udp_recv(hello_upcb, udp_rx_callback, NULL);  // register RX handler
-	    IP4_ADDR(&dest_ip, 192,168,1,100);            // still used for send
-	}else{
-		Error_Handler();
-	}
-
-	HAL_GPIO_WritePin(LED_PORT, LED_BLUE_PIN, GPIO_PIN_SET);
-
+	start_tcp_connection();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	uint32_t lastSend = 0;
 	while (1)
 	{
-		MX_LWIP_Process(); // important: handles incoming/outgoing packets
+		MX_LWIP_Process();
 
-		if (broadcastUDPFlag && HAL_GetTick() - lastSend >= 1000) {
-			send_hello_udp();
-			lastSend = HAL_GetTick();
-		}
+		    if (broadcastTCPFlag && hello_tpcb && HAL_GetTick() - lastSend >= 2000) {
+		        send_hello_tcp();
+		        lastSend = HAL_GetTick();
+		    }
+		    else if (broadcastTCPFlag && !hello_tpcb) {
+		        // try to reconnect if lost
+		        start_tcp_connection();
+		    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -216,6 +227,39 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief UART4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART4_Init(void)
+{
+
+  /* USER CODE BEGIN UART4_Init 0 */
+
+  /* USER CODE END UART4_Init 0 */
+
+  /* USER CODE BEGIN UART4_Init 1 */
+
+  /* USER CODE END UART4_Init 1 */
+  huart4.Instance = UART4;
+  huart4.Init.BaudRate = 115200;
+  huart4.Init.WordLength = UART_WORDLENGTH_8B;
+  huart4.Init.StopBits = UART_STOPBITS_1;
+  huart4.Init.Parity = UART_PARITY_NONE;
+  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart4.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART4_Init 2 */
+
+  /* USER CODE END UART4_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -259,22 +303,28 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void tcp_error_callback(void *arg, err_t err)
+{
+    hello_tpcb = NULL; // connection lost
+    HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-    static uint32_t lastPress = 0;
+	static uint32_t lastPress = 0;
 
-    if (GPIO_Pin == GPIO_PIN_0) {
-        uint32_t now = HAL_GetTick();
-        if (now - lastPress > 100) {
-            broadcastUDPFlag ^= 1;    // toggle flag
-            if (broadcastUDPFlag) {
-                HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_SET);
-            } else {
-                HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_RESET);
-            }
-            lastPress = now;
-        }
-    }
+	if (GPIO_Pin == GPIO_PIN_0) {
+		uint32_t now = HAL_GetTick();
+		if (now - lastPress > 200) {
+			broadcastTCPFlag ^= 1;    // toggle flag
+			if (broadcastTCPFlag) {
+			//	HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_SET); // orange = ON
+			} else {
+			//	HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_RESET); // off
+			}
+			lastPress = now;
+		}
+	}
 }
 /* USER CODE END 4 */
 
