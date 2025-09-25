@@ -1,0 +1,5 @@
+../Core/Src/tcp_check.c:15:7:tcp_check_sent	1
+../Core/Src/tcp_check.c:21:7:tcp_check_connected	2
+../Core/Src/tcp_check.c:34:6:tcp_check_error	1
+../Core/Src/tcp_check.c:41:6:tcp_check_start_connection	2
+../Core/Src/tcp_check.c:56:6:tcp_check_send_hello	8

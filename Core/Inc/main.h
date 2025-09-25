@@ -46,7 +46,17 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+#define LED_PORT        GPIOD
+#define LED_GREEN_PIN   GPIO_PIN_12
+#define LED_ORANGE_PIN  GPIO_PIN_13
+#define LED_RED_PIN     GPIO_PIN_14
+#define LED_BLUE_PIN    GPIO_PIN_15
 
+#define DEBUG_PRINTF(fmt, ...) \
+    do { \
+        int len = snprintf(dbg_buf, sizeof(dbg_buf), fmt, ##__VA_ARGS__); \
+        HAL_UART_Transmit(&huart4, (uint8_t*)dbg_buf, len, 1000); \
+    } while (0)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -59,7 +69,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 
 /* USER CODE BEGIN Private defines */
-
+extern UART_HandleTypeDef huart4;
+extern char dbg_buf[64];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
