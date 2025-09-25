@@ -44,7 +44,11 @@
 #define LED_RED_PIN     GPIO_PIN_14
 #define LED_BLUE_PIN    GPIO_PIN_15
 
-#define DEBUG_PRINT(str) HAL_UART_Transmit(&huart4, (uint8_t*)str, strlen(str), 1000)
+#define DEBUG_PRINTF(fmt, ...)                                     \
+    do {                                                           \
+        int len = snprintf(dbg_buf, sizeof(dbg_buf), fmt, ##__VA_ARGS__); \
+        HAL_UART_Transmit(&huart4, (uint8_t*)dbg_buf, len, 1000);  \
+    } while (0)
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -70,17 +74,47 @@ static void tcp_error_callback(void *arg, err_t err);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void dump_tcp_buffers(struct tcp_pcb *tpcb)
+{
+    if (!tpcb) {
+        DEBUG_PRINTF("dump_tcp_buffers: NULL pcb\r\n");
+        return;
+    }
+
+    struct pbuf *q;
+
+    DEBUG_PRINTF("---- TCP BUFFER DUMP ----\r\n");
+
+    DEBUG_PRINTF("unacked:\r\n");
+    for (q = tpcb->unacked; q != NULL; q = q->next) {
+        DEBUG_PRINTF("  len=%d tot_len=%d\r\n", q->len, q->tot_len);
+        HAL_UART_Transmit(&huart4, q->payload, q->len, 1000);
+    }
+
+    DEBUG_PRINTF("\r\nunsent:\r\n");
+    for (q = tpcb->unsent; q != NULL; q = q->next) {
+        DEBUG_PRINTF("  len=%d tot_len=%d\r\n", q->len, q->tot_len);
+        HAL_UART_Transmit(&huart4, q->payload, q->len, 1000);
+    }
+
+    DEBUG_PRINTF("\r\n---- END DUMP ----\r\n");
+}
+
+static err_t tcp_sent_callback(void *arg, struct tcp_pcb *tpcb, u16_t len) {
+    DEBUG_PRINTF("tcp_sent: acked %u bytes\r\n", (unsigned)len);
+    return ERR_OK;
+}
 
 
 static err_t tcp_connected(void *arg, struct tcp_pcb *tpcb, err_t err)
 {
     if (err == ERR_OK) {
         hello_tpcb = tpcb;
-        snprintf(dbg_buf, sizeof(dbg_buf), "tcp_connected: OK (err=%d)\r\n", err);
-        DEBUG_PRINT(dbg_buf);
+        tcp_sent(tpcb, tcp_sent_callback);   // register callback
+        DEBUG_PRINTF("tcp_connected: OK (err=%d)\r\n", err);
     } else {
-        snprintf(dbg_buf, sizeof(dbg_buf), "tcp_connected: FAILED (err=%d)\r\n", err);
-        DEBUG_PRINT(dbg_buf);
+        DEBUG_PRINTF("tcp_connected: FAILED (err=%d)\r\n", err);
+        hello_tpcb = NULL;
     }
     return err;
 }
@@ -88,32 +122,53 @@ static err_t tcp_connected(void *arg, struct tcp_pcb *tpcb, err_t err)
 
 void start_tcp_connection(void)
 {
-	hello_tpcb = tcp_new();
-	if (hello_tpcb != NULL) {
-		IP4_ADDR(&dest_ip, 192,168,1,100); // your PC IP
-		tcp_connect(hello_tpcb, &dest_ip, 502, tcp_connected);
-		tcp_err(hello_tpcb, tcp_error_callback);
-	} else {
-		Error_Handler();
-	}
+    hello_tpcb = tcp_new();
+    if (hello_tpcb != NULL) {
+        IP4_ADDR(&dest_ip, 192,168,1,100); // adjust to your PC IP
+        DEBUG_PRINTF("start_tcp_connection: trying %s:%d\r\n", ipaddr_ntoa(&dest_ip), 502);
+        tcp_err(hello_tpcb, tcp_error_callback);
+        tcp_connect(hello_tpcb, &dest_ip, 502, tcp_connected);
+    } else {
+        DEBUG_PRINTF("start_tcp_connection: tcp_new failed!\r\n");
+        Error_Handler();
+    }
 }
 
 void send_hello_tcp(void)
 {
-    if (hello_tpcb == NULL) return;
+    if (hello_tpcb == NULL) {
+        DEBUG_PRINTF("send_hello_tcp: no active PCB\r\n");
+        return;
+    }
 
     const char *msg = "Hello World from STM32F407\r\n";
+    u16_t msg_len = strlen(msg);
+
+    if (tcp_sndbuf(hello_tpcb) < msg_len) {
+        DEBUG_PRINTF("send_hello_tcp: not enough sndbuf (%d available, %d needed)\r\n",
+                     tcp_sndbuf(hello_tpcb), msg_len);
+        return; // skip this cycle
+    }
+
     err_t err = tcp_write(hello_tpcb, msg, strlen(msg), TCP_WRITE_FLAG_COPY);
 
     if (err == ERR_OK) {
         tcp_output(hello_tpcb);
+        DEBUG_PRINTF("send_hello_tcp: sent OK (%d bytes)\r\n", strlen(msg));
         HAL_GPIO_TogglePin(LED_PORT, LED_BLUE_PIN);
     }
+    else if (err == ERR_MEM) {
+        DEBUG_PRINTF("send_hello_tcp: ERR_MEM, flushing\r\n");
+        tcp_output(hello_tpcb);  // try to flush
+    }
     else if (err == ERR_ABRT || err == ERR_RST || err == ERR_CLSD) {
+        DEBUG_PRINTF("send_hello_tcp: connection closed (err=%d)\r\n", err);
         hello_tpcb = NULL;
         HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
     }
     else {
+        DEBUG_PRINTF("send_hello_tcp: unexpected err=%d\r\n", err);
+        dump_tcp_buffers(hello_tpcb);
         HAL_GPIO_TogglePin(LED_PORT, LED_ORANGE_PIN);
     }
 }
@@ -128,9 +183,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	uint8_t data = 111;
+	uint8_t data = 65;
 
-	HAL_UART_Transmit(&huart4, &data, 1, 1000);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -163,16 +217,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		MX_LWIP_Process();
+	    MX_LWIP_Process();      // bring in Ethernet frames
+	    sys_check_timeouts();   // let lwIP process TCP timers, ACKs, retransmits
 
-		    if (broadcastTCPFlag && hello_tpcb && HAL_GetTick() - lastSend >= 2000) {
-		        send_hello_tcp();
-		        lastSend = HAL_GetTick();
-		    }
-		    else if (broadcastTCPFlag && !hello_tpcb) {
-		        // try to reconnect if lost
-		        start_tcp_connection();
-		    }
+	    if (broadcastTCPFlag && hello_tpcb && HAL_GetTick() - lastSend >= 2000) {
+	        if (tcp_sndbuf(hello_tpcb) > 64) {  // at least 64 bytes free
+	            send_hello_tcp();
+	            lastSend = HAL_GetTick();
+	        }
+	    }
+	    else if (broadcastTCPFlag && !hello_tpcb) {
+	        start_tcp_connection();
+	    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -305,6 +361,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 static void tcp_error_callback(void *arg, err_t err)
 {
+    DEBUG_PRINTF("tcp_error_callback: err=%d\r\n", err);
     hello_tpcb = NULL; // connection lost
     HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
 }
