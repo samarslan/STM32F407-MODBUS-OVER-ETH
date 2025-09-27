@@ -35,4 +35,10 @@ Middlewares/Third_Party/LwIP/src/core/ipv4 \
 Middlewares/Third_Party/LwIP/src/core/ipv6 \
 Middlewares/Third_Party/LwIP/src/netif \
 Middlewares/Third_Party/LwIP/src/netif/ppp \
+Middlewares/Third_Party/modbus/ascii \
+Middlewares/Third_Party/modbus/functions \
+Middlewares/Third_Party/modbus \
+Middlewares/Third_Party/modbus/port \
+Middlewares/Third_Party/modbus/rtu \
+Middlewares/Third_Party/modbus/tcp \
 

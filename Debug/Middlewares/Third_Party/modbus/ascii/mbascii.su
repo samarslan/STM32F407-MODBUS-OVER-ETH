@@ -1,0 +1,11 @@
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:106:1:eMBASCIIInit	32	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:129:1:eMBASCIIStart	8	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:141:1:eMBASCIIStop	8	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:150:1:eMBASCIIReceive	32	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:183:1:eMBASCIISend	24	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:220:1:xMBASCIIReceiveFSM	16	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:329:1:xMBASCIITransmitFSM	16	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:409:1:xMBASCIITimerT1SExpired	8	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:433:1:prvucMBCHAR2BIN	16	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:450:1:prvucMBBIN2CHAR	16	static
+../Middlewares/Third_Party/modbus/ascii/mbascii.c:470:1:prvucMBLRC	24	static

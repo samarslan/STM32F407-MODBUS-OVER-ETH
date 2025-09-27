@@ -49,8 +49,7 @@
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
-static uint32_t lastSend = 0;
-volatile int broadcastTCPFlag = 0;
+
 
 char dbg_buf[64];
 /* USER CODE END PV */
@@ -99,22 +98,16 @@ int main(void)
 	MX_LWIP_Init();
 	MX_UART4_Init();
 	/* USER CODE BEGIN 2 */
-	tcp_check_start_connection();
-	DEBUG_PRINTF("System init complete, TCP connection started\r\n");
+
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		MX_LWIP_Process();
-		sys_check_timeouts();
 
-		if (broadcastTCPFlag && HAL_GetTick() - lastSend >= 2000)
-		{
-			tcp_check_send_hello();
-			lastSend = HAL_GetTick();
-		}
+
+
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
@@ -245,23 +238,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	static uint32_t lastPress = 0;
 
-	if (GPIO_Pin == GPIO_PIN_0) {
-		uint32_t now = HAL_GetTick();
-		if (now - lastPress > 200) {
-			broadcastTCPFlag ^= 1;    // toggle flag
-			if (broadcastTCPFlag) {
-				//	HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_SET); // orange = ON
-			} else {
-				//	HAL_GPIO_WritePin(LED_PORT, LED_ORANGE_PIN, GPIO_PIN_RESET); // off
-			}
-			lastPress = now;
-		}
-	}
-}
 /* USER CODE END 4 */
 
 /**

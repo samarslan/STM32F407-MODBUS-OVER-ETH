@@ -9,6 +9,12 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Middlewares/Third_Party/modbus/tcp/subdir.mk
+-include Middlewares/Third_Party/modbus/rtu/subdir.mk
+-include Middlewares/Third_Party/modbus/port/subdir.mk
+-include Middlewares/Third_Party/modbus/functions/subdir.mk
+-include Middlewares/Third_Party/modbus/ascii/subdir.mk
+-include Middlewares/Third_Party/modbus/subdir.mk
 -include Middlewares/Third_Party/LwIP/src/netif/ppp/subdir.mk
 -include Middlewares/Third_Party/LwIP/src/netif/subdir.mk
 -include Middlewares/Third_Party/LwIP/src/core/ipv6/subdir.mk
@@ -70,8 +76,8 @@ all: main-build
 main-build: STM32F407-MODBUS-OVER-ETH.elf secondary-outputs
 
 # Tool invocations
-STM32F407-MODBUS-OVER-ETH.elf STM32F407-MODBUS-OVER-ETH.map: $(OBJS) $(USER_OBJS) /Users/derslik3-07/STM32CubeIDE/workspace_1.19.0/STM32F407-MODBUS-OVER-ETH/STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32F407-MODBUS-OVER-ETH.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/derslik3-07/STM32CubeIDE/workspace_1.19.0/STM32F407-MODBUS-OVER-ETH/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407-MODBUS-OVER-ETH.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32F407-MODBUS-OVER-ETH.elf STM32F407-MODBUS-OVER-ETH.map: $(OBJS) $(USER_OBJS) C:\Users\arsla\STM32CubeIDE\workspace_1.19.0\STM32F407-MODBUS-OVER-ETH\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32F407-MODBUS-OVER-ETH.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\arsla\STM32CubeIDE\workspace_1.19.0\STM32F407-MODBUS-OVER-ETH\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32F407-MODBUS-OVER-ETH.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

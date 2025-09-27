@@ -33,7 +33,6 @@
 
 /* ----------------------- Platform includes --------------------------------*/
 #include "port.h"
-
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
 #include "mbconfig.h"

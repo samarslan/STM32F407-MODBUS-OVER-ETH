@@ -65,7 +65,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h \
- ../Core/Inc/main.h
+ ../Core/Inc/main.h ../Middlewares/Third_Party/modbus/include/mb.h \
+ ../Middlewares/Third_Party/modbus/port/port.h \
+ ../Middlewares/Third_Party/modbus/include/mbport.h \
+ ../Middlewares/Third_Party/modbus/include/mbproto.h \
+ ../Middlewares/Third_Party/modbus/include/mbport.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -135,3 +139,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h:
 ../Core/Inc/main.h:
+../Middlewares/Third_Party/modbus/include/mb.h:
+../Middlewares/Third_Party/modbus/port/port.h:
+../Middlewares/Third_Party/modbus/include/mbport.h:
+../Middlewares/Third_Party/modbus/include/mbproto.h:
+../Middlewares/Third_Party/modbus/include/mbport.h:
