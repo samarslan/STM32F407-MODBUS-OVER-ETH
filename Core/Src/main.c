@@ -66,18 +66,7 @@ static void MX_UART4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static void led_all_off(void)
-{
-    HAL_GPIO_WritePin(LED_PORT,
-                      LED_GREEN_PIN | LED_ORANGE_PIN | LED_RED_PIN | LED_BLUE_PIN,
-                      GPIO_PIN_RESET);
-}
 
-static void led_set(uint16_t pin)
-{
-    led_all_off();
-    HAL_GPIO_WritePin(LED_PORT, pin, GPIO_PIN_SET);
-}
 
 /* USER CODE END 0 */
 
@@ -113,37 +102,41 @@ int main(void)
 	MX_LWIP_Init();
 	MX_UART4_Init();
 	/* USER CODE BEGIN 2 */
-    eMBErrorCode err;
+	eMBErrorCode err;
+	err = eMBTCPInit(502);
+	if (err != MB_ENOERR) {
+		DEBUG_PRINTF("eMBTCPInit failed: %d\r\n", err);
+		LED_ON(LED_RED_PIN);
+		while (1); // hang on error
+	} else {
+		DEBUG_PRINTF("eMBTCPInit OK.\r\n");
+	}
 
-    DEBUG_PRINTF("System booted\r\n");
+	err = eMBEnable();
+	if (err != MB_ENOERR) {
+		DEBUG_PRINTF("eMBEnable failed: %d\r\n", err);
+		LED_ON(LED_RED_PIN);
+		while (1);
+	} else {
+		DEBUG_PRINTF("eMBEnable OK.\r\n");
+	}
+	Modbus_InitCallbacks();
+	DEBUG_PRINTF("Callbacks registered.\r\n");
 
-    // --- Step 1: Init Modbus TCP ---
-    err = eMBTCPInit(502);   // standard Modbus TCP port
-    if (err != MB_ENOERR) {
-        DEBUG_PRINTF("eMBTCPInit failed: %d\r\n", err);
-        HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
-        while (1) {}
-    }
-
-    // --- Step 2: Enable Modbus stack ---
-    err = eMBEnable();
-    if (err != MB_ENOERR) {
-        DEBUG_PRINTF("eMBEnable failed: %d\r\n", err);
-        HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
-        while (1) {}
-    }
-
-    DEBUG_PRINTF("Modbus TCP stack started\r\n");
-    HAL_GPIO_WritePin(LED_PORT, LED_GREEN_PIN, GPIO_PIN_SET);
-
+	Modbus_SetHolding(0, 65);
+	DEBUG_PRINTF("Holding[0] = 65 set.\r\n");
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-        MX_LWIP_Process();   // keep lwIP alive
-        eMBPoll();           // handle Modbus events
+		MX_LWIP_Process();
+
+		err = eMBPoll();
+		if (err != MB_ENOERR) {
+			DEBUG_PRINTF("eMBPoll error: %d\r\n", err);
+		}
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

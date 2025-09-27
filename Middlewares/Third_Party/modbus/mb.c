@@ -407,6 +407,7 @@ eMBPoll( void )
     if( eMBState != STATE_ENABLED )
     {
         return MB_EILLSTATE;
+
     }
 
     /* Check if there is a event available. If not return control to caller.

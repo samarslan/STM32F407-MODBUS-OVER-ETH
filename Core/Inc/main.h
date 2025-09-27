@@ -57,6 +57,11 @@ extern "C" {
         int len = snprintf(dbg_buf, sizeof(dbg_buf), fmt, ##__VA_ARGS__); \
         HAL_UART_Transmit(&huart4, (uint8_t*)dbg_buf, len, 1000); \
     } while (0)
+
+
+#define LED_ON(pin)     HAL_GPIO_WritePin(LED_PORT, pin, GPIO_PIN_SET)
+#define LED_OFF(pin)    HAL_GPIO_WritePin(LED_PORT, pin, GPIO_PIN_RESET)
+#define LED_TOGGLE(pin) HAL_GPIO_TogglePin(LED_PORT, pin)
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
