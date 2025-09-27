@@ -144,8 +144,14 @@ static err_t mb_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
     (void)arg; (void)tpcb;
 
     if (!p) {
+        err_t cerr = tcp_close(tpcb);
+        if (cerr != ERR_OK) {
+            tcp_abort(tpcb);
+            DEBUG_PRINTF(" -> remote closed, pcb aborted (err=%d)\r\n", cerr);
+        } else {
+            DEBUG_PRINTF(" -> remote closed, pcb closed\r\n");
+        }
         mb_client = NULL;
-        DEBUG_PRINTF(" -> remote closed\r\n");
         return ERR_OK;
     }
 
