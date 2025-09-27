@@ -1,0 +1,4 @@
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:12:14:eMBRegHoldingCB	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:17:14:eMBRegInputCB	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:22:14:eMBRegCoilsCB	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:27:14:eMBRegDiscreteCB	1

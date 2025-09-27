@@ -1,0 +1,5 @@
+../Middlewares/Third_Party/modbus/tcp/mbtcp.c:79:1:eMBTCPDoInit	24	static
+../Middlewares/Third_Party/modbus/tcp/mbtcp.c:91:1:eMBTCPStart	4	static
+../Middlewares/Third_Party/modbus/tcp/mbtcp.c:96:1:eMBTCPStop	8	static
+../Middlewares/Third_Party/modbus/tcp/mbtcp.c:103:1:eMBTCPReceive	40	static
+../Middlewares/Third_Party/modbus/tcp/mbtcp.c:135:1:eMBTCPSend	32	static

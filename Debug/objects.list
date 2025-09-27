@@ -114,6 +114,7 @@
 "./Middlewares/Third_Party/modbus/functions/mbfuncother.o"
 "./Middlewares/Third_Party/modbus/functions/mbutils.o"
 "./Middlewares/Third_Party/modbus/mb.o"
+"./Middlewares/Third_Party/modbus/modbus_callbacks.o"
 "./Middlewares/Third_Party/modbus/port/port.o"
 "./Middlewares/Third_Party/modbus/rtu/mbcrc.o"
 "./Middlewares/Third_Party/modbus/rtu/mbrtu.o"

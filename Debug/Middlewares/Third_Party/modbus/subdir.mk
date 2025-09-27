@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Middlewares/Third_Party/modbus/mb.c 
+../Middlewares/Third_Party/modbus/mb.c \
+../Middlewares/Third_Party/modbus/modbus_callbacks.c 
 
 OBJS += \
-./Middlewares/Third_Party/modbus/mb.o 
+./Middlewares/Third_Party/modbus/mb.o \
+./Middlewares/Third_Party/modbus/modbus_callbacks.o 
 
 C_DEPS += \
-./Middlewares/Third_Party/modbus/mb.d 
+./Middlewares/Third_Party/modbus/mb.d \
+./Middlewares/Third_Party/modbus/modbus_callbacks.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +24,7 @@ Middlewares/Third_Party/modbus/%.o Middlewares/Third_Party/modbus/%.su Middlewar
 clean: clean-Middlewares-2f-Third_Party-2f-modbus
 
 clean-Middlewares-2f-Third_Party-2f-modbus:
-	-$(RM) ./Middlewares/Third_Party/modbus/mb.cyclo ./Middlewares/Third_Party/modbus/mb.d ./Middlewares/Third_Party/modbus/mb.o ./Middlewares/Third_Party/modbus/mb.su
+	-$(RM) ./Middlewares/Third_Party/modbus/mb.cyclo ./Middlewares/Third_Party/modbus/mb.d ./Middlewares/Third_Party/modbus/mb.o ./Middlewares/Third_Party/modbus/mb.su ./Middlewares/Third_Party/modbus/modbus_callbacks.cyclo ./Middlewares/Third_Party/modbus/modbus_callbacks.d ./Middlewares/Third_Party/modbus/modbus_callbacks.o ./Middlewares/Third_Party/modbus/modbus_callbacks.su
 
 .PHONY: clean-Middlewares-2f-Third_Party-2f-modbus
 

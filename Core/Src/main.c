@@ -27,6 +27,7 @@
 #include "tcp_check.h"
 
 #include "mb.h"
+#include "mbtcp.h"
 #include "mbport.h"
 /* USER CODE END Includes */
 
@@ -59,11 +60,23 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static void led_all_off(void)
+{
+    HAL_GPIO_WritePin(LED_PORT,
+                      LED_GREEN_PIN | LED_ORANGE_PIN | LED_RED_PIN | LED_BLUE_PIN,
+                      GPIO_PIN_RESET);
+}
+
+static void led_set(uint16_t pin)
+{
+    led_all_off();
+    HAL_GPIO_WritePin(LED_PORT, pin, GPIO_PIN_SET);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -98,6 +111,28 @@ int main(void)
 	MX_LWIP_Init();
 	MX_UART4_Init();
 	/* USER CODE BEGIN 2 */
+    eMBErrorCode err;
+
+    DEBUG_PRINTF("System booted\r\n");
+
+    // --- Step 1: Init Modbus TCP ---
+    err = eMBTCPInit(502);   // standard Modbus TCP port
+    if (err != MB_ENOERR) {
+        DEBUG_PRINTF("eMBTCPInit failed: %d\r\n", err);
+        HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
+        while (1) {}
+    }
+
+    // --- Step 2: Enable Modbus stack ---
+    err = eMBEnable();
+    if (err != MB_ENOERR) {
+        DEBUG_PRINTF("eMBEnable failed: %d\r\n", err);
+        HAL_GPIO_WritePin(LED_PORT, LED_RED_PIN, GPIO_PIN_SET);
+        while (1) {}
+    }
+
+    DEBUG_PRINTF("Modbus TCP stack started\r\n");
+    HAL_GPIO_WritePin(LED_PORT, LED_GREEN_PIN, GPIO_PIN_SET);
 
 	/* USER CODE END 2 */
 
@@ -105,9 +140,8 @@ int main(void)
 	/* USER CODE BEGIN WHILE */
 	while (1)
 	{
-
-
-
+        MX_LWIP_Process();   // keep lwIP alive
+        eMBPoll();           // handle Modbus events
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */

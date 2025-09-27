@@ -57,7 +57,7 @@ PR_BEGIN_EXTERN_C
 
 /*! \brief If Modbus TCP support is enabled. */
 #ifndef MB_TCP_ENABLED
-#define MB_TCP_ENABLED                          (  0 )
+#define MB_TCP_ENABLED                          (  1 )
 #endif
 
 
