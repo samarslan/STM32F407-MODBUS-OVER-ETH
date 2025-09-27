@@ -25,6 +25,9 @@
 #include "main.h"
 #include "lwip.h"
 #include "tcp_check.h"
+
+#include "mb.h"
+#include "mbport.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
