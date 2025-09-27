@@ -29,6 +29,8 @@
 #include "mb.h"
 #include "mbtcp.h"
 #include "mbport.h"
+#include "modbus_callbacks.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

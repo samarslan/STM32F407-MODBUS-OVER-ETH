@@ -39,6 +39,7 @@ PR_BEGIN_EXTERN_C
 #include "mbport.h"
 #include "mbproto.h"
 
+
 /*! \defgroup modbus Modbus
  * \code #include "mb.h" \endcode
  *

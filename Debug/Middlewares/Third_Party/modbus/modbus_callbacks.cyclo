@@ -1,4 +1,7 @@
-../Middlewares/Third_Party/modbus/modbus_callbacks.c:12:14:eMBRegHoldingCB	1
-../Middlewares/Third_Party/modbus/modbus_callbacks.c:17:14:eMBRegInputCB	1
-../Middlewares/Third_Party/modbus/modbus_callbacks.c:22:14:eMBRegCoilsCB	1
-../Middlewares/Third_Party/modbus/modbus_callbacks.c:27:14:eMBRegDiscreteCB	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:28:13:apply_led_from_coil	5
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:51:6:Modbus_InitCallbacks	2
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:62:6:Modbus_UpdateCounter	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:72:1:eMBRegHoldingCB	7
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:109:1:eMBRegCoilsCB	10
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:168:1:eMBRegInputCB	1
+../Middlewares/Third_Party/modbus/modbus_callbacks.c:180:1:eMBRegDiscreteCB	1
