@@ -17,7 +17,7 @@
 
 /* ---- Modbus mapping ---- */
 #define REG_HOLDING_START   1
-#define REG_HOLDING_NREGS   1
+#define REG_HOLDING_NREGS   2	// [0]=counter, [1]=temperature
 
 #define REG_COIL_START      1
 #define REG_COIL_NCOILS     4
@@ -66,12 +66,6 @@ void Modbus_InitCallbacks(void)
     for (USHORT i = 0; i < REG_COIL_NCOILS; i++) {
         apply_led_from_coil(i, ucCoils[i]);
     }
-}
-
-/* Call from main loop/timer to increment the holding register */
-void Modbus_UpdateCounter(void)
-{
-    usHoldingRegs[0]++; /* 16-bit wrap-around is fine */
 }
 
 /* -------------------------------------------------------------------
