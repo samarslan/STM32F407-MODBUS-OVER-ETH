@@ -12,7 +12,7 @@
 #include "mb.h"
 #include "mbport.h"
 #include <string.h> /* memset */
-#include "main.h"
+#include "modbus_callbacks.h"
 
 
 /* ---- Modbus mapping ---- */

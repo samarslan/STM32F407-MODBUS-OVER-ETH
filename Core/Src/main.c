@@ -387,9 +387,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
         uint16_t temp_scaled = (uint16_t)(temperature * 10.0f);
 
         Modbus_SetHolding(1, temp_scaled);
-
-        DEBUG_PRINTF("ADC Raw=%lu | Vsense=%.3f V | Temp=%.2f C | Modbus=%u\r\n",
-                     raw, Vsense, temperature, temp_scaled);
     }
 }
 /* USER CODE END 4 */

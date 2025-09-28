@@ -36,7 +36,8 @@ Middlewares/Third_Party/modbus/modbus_callbacks.o: \
  ../Middlewares/Third_Party/modbus/port/port.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
  ../Middlewares/Third_Party/modbus/include/mbproto.h \
- ../Middlewares/Third_Party/modbus/include/mbport.h
+ ../Middlewares/Third_Party/modbus/include/mbport.h \
+ ../Middlewares/Third_Party/modbus/modbus_callbacks.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -75,3 +76,4 @@ Middlewares/Third_Party/modbus/modbus_callbacks.o: \
 ../Middlewares/Third_Party/modbus/include/mbport.h:
 ../Middlewares/Third_Party/modbus/include/mbproto.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:
+../Middlewares/Third_Party/modbus/modbus_callbacks.h:

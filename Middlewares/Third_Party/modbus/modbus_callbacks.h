@@ -12,7 +12,6 @@
 
 /* Init and background update */
 void Modbus_InitCallbacks(void);
-void Modbus_UpdateCounter(void);
 
 /* Encapsulation: Holding Registers */
 USHORT Modbus_GetHolding(USHORT index);
