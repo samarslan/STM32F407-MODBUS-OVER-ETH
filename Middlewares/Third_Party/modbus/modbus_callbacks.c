@@ -35,6 +35,11 @@ static USHORT usInputRegs[REG_INPUT_NREGS];
 static UCHAR  ucDiscreteInputs[REG_DISC_NDISCRETES];
 
 /* ---- Helpers ---- */
+
+static void Modbus_UpdateCounter(void){
+	usHoldingRegs[0]++;
+}
+
 static void apply_led_from_coil(USHORT coilIndex, UCHAR val)
 {
     /* coilIndex is 0-based index into ucCoils (0..3) */
@@ -73,9 +78,8 @@ void Modbus_InitCallbacks(void)
  * usAddress is 1-based (FreeModbus calls with address +1 in many flows)
  * ------------------------------------------------------------------*/
 eMBErrorCode
-eMBRegHoldingCB( UCHAR *pucBuffer, USHORT usAddress, USHORT usNRegs, eMBRegisterMode eMode )
+eMBRegHoldingCB(UCHAR *pucBuffer, USHORT usAddress, USHORT usNRegs, eMBRegisterMode eMode)
 {
-	LED_ON(LED_GREEN_PIN);
     /* range check */
     if ((usAddress < REG_HOLDING_START) ||
         (usAddress + usNRegs - 1) > (REG_HOLDING_START + REG_HOLDING_NREGS - 1)) {
@@ -88,6 +92,11 @@ eMBRegHoldingCB( UCHAR *pucBuffer, USHORT usAddress, USHORT usNRegs, eMBRegister
         /* copy register(s) to buffer (big-endian: high byte first) */
         for (USHORT i = 0; i < usNRegs; i++) {
             USHORT val = usHoldingRegs[iRegIndex + i];
+
+            /* If this is register 0, increment AFTER reading */
+            if ((iRegIndex + i) == 0) {
+            	Modbus_UpdateCounter();            }
+
             *pucBuffer++ = (UCHAR)(val >> 8);
             *pucBuffer++ = (UCHAR)(val & 0xFF);
         }
