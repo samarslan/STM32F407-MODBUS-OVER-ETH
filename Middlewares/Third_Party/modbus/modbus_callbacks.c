@@ -28,11 +28,11 @@
 #define REG_DISC_START     1
 #define REG_DISC_NDISCRETES 4
 /* ---- Storage ---- */
-static USHORT usHoldingRegs[REG_HOLDING_NREGS];
-static UCHAR  ucCoils[REG_COIL_NCOILS]; /* each entry 0 or 1 */
+static volatile USHORT usHoldingRegs[REG_HOLDING_NREGS];
+static volatile UCHAR  ucCoils[REG_COIL_NCOILS]; /* each entry 0 or 1 */
 
-static USHORT usInputRegs[REG_INPUT_NREGS];
-static UCHAR  ucDiscreteInputs[REG_DISC_NDISCRETES];
+static volatile USHORT usInputRegs[REG_INPUT_NREGS];
+static volatile UCHAR  ucDiscreteInputs[REG_DISC_NDISCRETES];
 
 /* ---- Helpers ---- */
 

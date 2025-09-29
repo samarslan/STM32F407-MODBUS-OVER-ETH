@@ -62,7 +62,8 @@ Middlewares/Third_Party/modbus/port/port.o: \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
- ../Middlewares/Third_Party/modbus/port/port.h
+ ../Middlewares/Third_Party/modbus/port/port.h \
+ ../Drivers/CMSIS/Include/cmsis_gcc.h
 ../Middlewares/Third_Party/LwIP/src/include/lwip/tcp.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h:
 ../LWIP/Target/lwipopts.h:
@@ -127,3 +128,4 @@ Middlewares/Third_Party/modbus/port/port.o: \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:
 ../Middlewares/Third_Party/modbus/port/port.h:
+../Drivers/CMSIS/Include/cmsis_gcc.h:

@@ -1,6 +1,7 @@
 Middlewares/Third_Party/modbus/functions/mbfuncother.o: \
  ../Middlewares/Third_Party/modbus/functions/mbfuncother.c \
  ../Middlewares/Third_Party/modbus/port/port.h \
+ ../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../Middlewares/Third_Party/modbus/include/mb.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
  ../Middlewares/Third_Party/modbus/include/mbproto.h \
@@ -8,6 +9,7 @@ Middlewares/Third_Party/modbus/functions/mbfuncother.o: \
  ../Middlewares/Third_Party/modbus/include/mbproto.h \
  ../Middlewares/Third_Party/modbus/include/mbconfig.h
 ../Middlewares/Third_Party/modbus/port/port.h:
+../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../Middlewares/Third_Party/modbus/include/mb.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:
 ../Middlewares/Third_Party/modbus/include/mbproto.h:

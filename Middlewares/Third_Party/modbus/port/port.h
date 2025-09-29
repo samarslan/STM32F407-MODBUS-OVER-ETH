@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include "cmsis_gcc.h"
 
 /* ----------------------- Basic types ------------------------------------- */
 #define BOOL    uint8_t
