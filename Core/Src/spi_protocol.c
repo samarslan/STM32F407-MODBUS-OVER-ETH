@@ -53,36 +53,27 @@ static inline void SPI_CS_High(void) {
 }
 
 /* Send command and receive response */
-static HAL_StatusTypeDef SPI_SendCommand(const char *cmd, char *response, uint16_t respSize) {
-    HAL_StatusTypeDef status;
-    uint16_t cmdLen = strlen(cmd);
+int SPI_SendCommand(const char *cmd, char *response, size_t maxLen) {
+    uint8_t txBuf[SPI_TX_BUFFER_SIZE] = {0};
+    uint8_t rxBuf[SPI_TX_BUFFER_SIZE] = {0};
 
-    if (cmdLen >= SPI_TX_BUFFER_SIZE) {
-        return HAL_ERROR;
+    strncpy((char *)txBuf, cmd, SPI_TX_BUFFER_SIZE - 1);
+
+    // Step 1: Send command, ignore response (slave is just receiving now)
+    if (HAL_SPI_TransmitReceive(&hspi1, txBuf, rxBuf, SPI_TX_BUFFER_SIZE, HAL_MAX_DELAY) != HAL_OK) {
+        return -1;
     }
 
-    /* Prepare TX buffer */
-    memset(txBuffer, 0, SPI_TX_BUFFER_SIZE);
-    memset(rxBuffer, 0, SPI_RX_BUFFER_SIZE);
-    strcpy((char *)txBuffer, cmd);
-
-    /* SPI transaction */
-    SPI_CS_Low();
-    HAL_Delay(1); // Small delay for slave to detect CS
-
-    status = HAL_SPI_TransmitReceive(&hspi1, txBuffer, rxBuffer,
-                                     SPI_TX_BUFFER_SIZE, SPI_TIMEOUT_MS);
-
-    HAL_Delay(1); // Small delay before releasing CS
-    SPI_CS_High();
-
-    if (status == HAL_OK && response != NULL) {
-        /* Copy response */
-        strncpy(response, (char *)rxBuffer, respSize - 1);
-        response[respSize - 1] = '\0';
+    // Step 2: Dummy transfer to fetch slave’s prepared response
+    memset(txBuf, 0, sizeof(txBuf));
+    memset(rxBuf, 0, sizeof(rxBuf));
+    if (HAL_SPI_TransmitReceive(&hspi1, txBuf, rxBuf, SPI_TX_BUFFER_SIZE, HAL_MAX_DELAY) != HAL_OK) {
+        return -1;
     }
 
-    return status;
+    strncpy(response, (char *)rxBuf, maxLen - 1);
+    response[maxLen - 1] = '\0';
+    return 0;
 }
 
 /* ----------------------------------------------------------------

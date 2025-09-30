@@ -30,6 +30,7 @@
 #include "mbtcp.h"
 #include "mbport.h"
 #include "modbus_callbacks.h"
+#include "spi_protocol.h"
 
 /* USER CODE END Includes */
 
@@ -140,6 +141,8 @@ int main(void)
 
 	Modbus_SetHolding(0, 65);
 	DEBUG_PRINTF("Holding[0] = 65 set.\r\n");
+
+	SPI_Protocol_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -407,7 +410,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = SPI_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(SPI_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PD12 PD13 PD14 PD15 */
