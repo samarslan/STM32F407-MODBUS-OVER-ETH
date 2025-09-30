@@ -1,0 +1,8 @@
+../Core/Src/spi_protocol.c:56:5:SPI_SendCommand	3
+../Core/Src/spi_protocol.c:83:6:SPI_Protocol_Init	1
+../Core/Src/spi_protocol.c:88:12:SPI_SetLED	8
+../Core/Src/spi_protocol.c:119:12:SPI_GetLEDStatus	4
+../Core/Src/spi_protocol.c:156:6:SPI_HandleModbusCoilWrite	7
+../Core/Src/spi_protocol.c:175:6:SPI_HandleModbusCoilRead	8
+../Core/Src/spi_protocol.c:195:6:SPI_TurnOffAllLEDs	1
+../Core/Src/spi_protocol.c:199:6:SPI_TurnOnAllLEDs	1
