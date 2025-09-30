@@ -4351,7 +4351,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
  .debug_macro   0x00000000      0xad8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
  .debug_line    0x00000000       0x57 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
- .debug_str     0x00000000     0x2eaa ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
+ .debug_str     0x00000000     0x2eae ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
  .comment       0x00000000       0x44 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
  .ARM.attributes
                 0x00000000       0x34 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o
@@ -23092,6 +23092,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .text          0x00000000        0x0 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .data          0x00000000        0x0 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .bss           0x00000000        0x0 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
@@ -23099,7 +23100,7 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x28 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_aranges
                 0x00000000       0x18 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
- .debug_macro   0x00000000      0x1c3 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .debug_macro   0x00000000      0x1cc ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000      0xad8 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x2a ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
@@ -23129,15 +23130,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
- .debug_line    0x00000000      0x684 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
- .debug_str     0x00000000     0x7b59 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .debug_line    0x00000000      0x645 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .debug_str     0x00000000     0x8549 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/modbus/ascii/mbascii.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
@@ -23203,6 +23206,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
@@ -23218,10 +23222,11 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
  .debug_macro   0x00000000      0xad8 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
  .debug_line    0x00000000       0x59 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
- .debug_str     0x00000000     0x2eac ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
+ .debug_str     0x00000000     0x2eb0 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/modbus/functions/mbfuncdiag.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
@@ -23287,10 +23292,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
@@ -23331,7 +23338,7 @@ Discarded input sections
  .debug_abbrev  0x00000000       0x28 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_aranges
                 0x00000000       0x18 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
- .debug_macro   0x00000000      0x1fd ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
+ .debug_macro   0x00000000      0x206 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000      0xad8 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x2a ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
@@ -23361,15 +23368,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
- .debug_line    0x00000000      0x64d ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
- .debug_str     0x00000000     0x7de7 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
+ .debug_line    0x00000000      0x60e ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
+ .debug_str     0x00000000     0x87d7 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/modbus/functions/mbfuncfile.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
@@ -23435,10 +23444,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
@@ -23504,10 +23515,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
@@ -23575,10 +23588,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/functions/mbutils.o
@@ -23649,8 +23664,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/functions/mbutils.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/functions/mbutils.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/functions/mbutils.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/mb.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/mb.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/mb.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/mb.o
@@ -23700,7 +23717,7 @@ Discarded input sections
                 0x00000000        0x4 ./Middlewares/Third_Party/modbus/mb.o
  .text.eMBInit  0x00000000       0x74 ./Middlewares/Third_Party/modbus/mb.o
  .text.eMBRegisterCB
-                0x00000000       0xd0 ./Middlewares/Third_Party/modbus/mb.o
+                0x00000000       0xd4 ./Middlewares/Third_Party/modbus/mb.o
  .text.eMBClose
                 0x00000000       0x38 ./Middlewares/Third_Party/modbus/mb.o
  .text.eMBDisable
@@ -23734,6 +23751,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/mb.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/mb.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/mb.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/mb.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/mb.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/mb.o
@@ -24190,6 +24208,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .text          0x00000000        0x0 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .data          0x00000000        0x0 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .bss           0x00000000        0x0 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
@@ -24205,7 +24224,7 @@ Discarded input sections
                 0x00000000       0x20 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_rnglists
                 0x00000000       0x13 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
- .debug_macro   0x00000000       0x7b ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .debug_macro   0x00000000       0x84 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000      0xad8 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000       0x8e ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
@@ -24214,13 +24233,15 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
- .debug_line    0x00000000      0x484 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
- .debug_str     0x00000000     0x3f64 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .debug_line    0x00000000      0x441 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .debug_str     0x00000000     0x4954 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .debug_frame   0x00000000       0x38 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/modbus/rtu/mbcrc.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
@@ -24292,13 +24313,13 @@ Discarded input sections
                 0x00000000       0x12 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .rodata.__func__.0
                 0x00000000       0x16 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
- .debug_info    0x00000000      0x68b ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
- .debug_abbrev  0x00000000      0x1e5 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_info    0x00000000      0x683 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_abbrev  0x00000000      0x1cf ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_aranges
                 0x00000000       0x58 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_rnglists
                 0x00000000       0x42 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
- .debug_macro   0x00000000      0x1d8 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_macro   0x00000000      0x1e1 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000      0xad8 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x2a ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
@@ -24328,15 +24349,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
- .debug_line    0x00000000      0x863 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
- .debug_str     0x00000000     0x7cd1 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_line    0x00000000      0x8aa ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .debug_str     0x00000000     0x86c1 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .comment       0x00000000       0x44 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .debug_frame   0x00000000      0x120 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
  .ARM.attributes
                 0x00000000       0x34 ./Middlewares/Third_Party/modbus/rtu/mbrtu.o
+ .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .group         0x00000000        0xc ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
@@ -24403,6 +24426,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .debug_macro   0x00000000      0x1df ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .debug_macro   0x00000000       0x22 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_macro   0x00000000       0xfb ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .debug_macro   0x00000000       0x58 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .debug_macro   0x00000000       0x88 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
  .debug_macro   0x00000000       0x8c ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
@@ -26831,7 +26855,7 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x27f28
+.debug_info     0x00000000    0x27f0e
  .debug_info    0x00000000     0x1b7f ./Core/Src/main.o
  .debug_info    0x00001b7f      0xa5b ./Core/Src/spi_protocol.o
  .debug_info    0x000025da     0x1513 ./Core/Src/stm32f4xx_hal_msp.o
@@ -26878,12 +26902,12 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_info    0x00024be9      0x1fe ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_info    0x00024de7      0x259 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_info    0x00025040      0x2e6 ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_info    0x00025326      0x81a ./Middlewares/Third_Party/modbus/mb.o
- .debug_info    0x00025b40      0x8f0 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_info    0x00026430     0x1860 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_info    0x00027c90      0x298 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_info    0x00025326      0x800 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_info    0x00025b26      0x8f0 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_info    0x00026416     0x1860 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_info    0x00027c76      0x298 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
-.debug_abbrev   0x00000000     0x6c40
+.debug_abbrev   0x00000000     0x6c4e
  .debug_abbrev  0x00000000      0x34b ./Core/Src/main.o
  .debug_abbrev  0x0000034b      0x245 ./Core/Src/spi_protocol.o
  .debug_abbrev  0x00000590      0x23c ./Core/Src/stm32f4xx_hal_msp.o
@@ -26930,10 +26954,10 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_abbrev  0x00006100       0xda ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_abbrev  0x000061da      0x103 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_abbrev  0x000062dd      0x108 ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_abbrev  0x000063e5      0x209 ./Middlewares/Third_Party/modbus/mb.o
- .debug_abbrev  0x000065ee      0x25d ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_abbrev  0x0000684b      0x2c9 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_abbrev  0x00006b14      0x12c ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_abbrev  0x000063e5      0x217 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_abbrev  0x000065fc      0x25d ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_abbrev  0x00006859      0x2c9 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_abbrev  0x00006b22      0x12c ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
 .debug_aranges  0x00000000     0x1fa0
  .debug_aranges
@@ -27138,218 +27162,218 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x000018e9       0x2b ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
-.debug_macro    0x00000000    0x315a4
- .debug_macro   0x00000000      0x6a1 ./Core/Src/main.o
- .debug_macro   0x000006a1      0xad8 ./Core/Src/main.o
- .debug_macro   0x00001179      0x2bb ./Core/Src/main.o
- .debug_macro   0x00001434       0x2e ./Core/Src/main.o
- .debug_macro   0x00001462       0x2f ./Core/Src/main.o
- .debug_macro   0x00001491       0x22 ./Core/Src/main.o
- .debug_macro   0x000014b3       0x8e ./Core/Src/main.o
- .debug_macro   0x00001541       0x51 ./Core/Src/main.o
- .debug_macro   0x00001592      0x103 ./Core/Src/main.o
- .debug_macro   0x00001695       0x6a ./Core/Src/main.o
- .debug_macro   0x000016ff      0x1df ./Core/Src/main.o
- .debug_macro   0x000018de       0x1c ./Core/Src/main.o
- .debug_macro   0x000018fa       0x22 ./Core/Src/main.o
- .debug_macro   0x0000191c       0xfb ./Core/Src/main.o
- .debug_macro   0x00001a17     0x1011 ./Core/Src/main.o
- .debug_macro   0x00002a28      0x11f ./Core/Src/main.o
- .debug_macro   0x00002b47    0x15ea5 ./Core/Src/main.o
- .debug_macro   0x000189ec       0x6d ./Core/Src/main.o
- .debug_macro   0x00018a59     0x3693 ./Core/Src/main.o
- .debug_macro   0x0001c0ec      0x190 ./Core/Src/main.o
- .debug_macro   0x0001c27c       0x5c ./Core/Src/main.o
- .debug_macro   0x0001c2d8      0x980 ./Core/Src/main.o
- .debug_macro   0x0001cc58      0x9e9 ./Core/Src/main.o
- .debug_macro   0x0001d641      0x115 ./Core/Src/main.o
- .debug_macro   0x0001d756      0x13e ./Core/Src/main.o
- .debug_macro   0x0001d894       0xa5 ./Core/Src/main.o
- .debug_macro   0x0001d939      0x174 ./Core/Src/main.o
- .debug_macro   0x0001daad      0x287 ./Core/Src/main.o
- .debug_macro   0x0001dd34       0x5f ./Core/Src/main.o
- .debug_macro   0x0001dd93      0x236 ./Core/Src/main.o
- .debug_macro   0x0001dfc9      0xb5b ./Core/Src/main.o
- .debug_macro   0x0001eb24      0x38b ./Core/Src/main.o
- .debug_macro   0x0001eeaf      0x176 ./Core/Src/main.o
- .debug_macro   0x0001f025       0xf9 ./Core/Src/main.o
- .debug_macro   0x0001f11e      0xb99 ./Core/Src/main.o
- .debug_macro   0x0001fcb7      0x12c ./Core/Src/main.o
- .debug_macro   0x0001fde3      0x21e ./Core/Src/main.o
- .debug_macro   0x00020001       0x2e ./Core/Src/main.o
- .debug_macro   0x0002002f      0x127 ./Core/Src/main.o
- .debug_macro   0x00020156       0x7e ./Core/Src/main.o
- .debug_macro   0x000201d4       0x89 ./Core/Src/main.o
- .debug_macro   0x0002025d      0x225 ./Core/Src/main.o
- .debug_macro   0x00020482      0x8ed ./Core/Src/main.o
- .debug_macro   0x00020d6f       0x4d ./Core/Src/main.o
- .debug_macro   0x00020dbc      0x2aa ./Core/Src/main.o
- .debug_macro   0x00021066      0x12d ./Core/Src/main.o
- .debug_macro   0x00021193       0x46 ./Core/Src/main.o
- .debug_macro   0x000211d9       0xa6 ./Core/Src/main.o
- .debug_macro   0x0002127f       0x16 ./Core/Src/main.o
- .debug_macro   0x00021295       0x10 ./Core/Src/main.o
- .debug_macro   0x000212a5       0x2a ./Core/Src/main.o
- .debug_macro   0x000212cf       0x61 ./Core/Src/main.o
- .debug_macro   0x00021330       0x43 ./Core/Src/main.o
- .debug_macro   0x00021373       0x34 ./Core/Src/main.o
- .debug_macro   0x000213a7       0x16 ./Core/Src/main.o
- .debug_macro   0x000213bd       0x3c ./Core/Src/main.o
- .debug_macro   0x000213f9      0x370 ./Core/Src/main.o
- .debug_macro   0x00021769       0x16 ./Core/Src/main.o
- .debug_macro   0x0002177f       0x4a ./Core/Src/main.o
- .debug_macro   0x000217c9       0x34 ./Core/Src/main.o
- .debug_macro   0x000217fd       0x10 ./Core/Src/main.o
- .debug_macro   0x0002180d       0x58 ./Core/Src/main.o
- .debug_macro   0x00021865       0x8e ./Core/Src/main.o
- .debug_macro   0x000218f3       0x1c ./Core/Src/main.o
- .debug_macro   0x0002190f      0x185 ./Core/Src/main.o
- .debug_macro   0x00021a94       0x16 ./Core/Src/main.o
- .debug_macro   0x00021aaa       0x29 ./Core/Src/main.o
- .debug_macro   0x00021ad3       0x1c ./Core/Src/main.o
- .debug_macro   0x00021aef       0x10 ./Core/Src/main.o
- .debug_macro   0x00021aff       0x1c ./Core/Src/main.o
- .debug_macro   0x00021b1b       0x16 ./Core/Src/main.o
- .debug_macro   0x00021b31      0x146 ./Core/Src/main.o
- .debug_macro   0x00021c77       0x10 ./Core/Src/main.o
- .debug_macro   0x00021c87       0x22 ./Core/Src/main.o
- .debug_macro   0x00021ca9       0x10 ./Core/Src/main.o
- .debug_macro   0x00021cb9       0x1c ./Core/Src/main.o
- .debug_macro   0x00021cd5       0x52 ./Core/Src/main.o
- .debug_macro   0x00021d27       0x10 ./Core/Src/main.o
- .debug_macro   0x00021d37       0x52 ./Core/Src/main.o
- .debug_macro   0x00021d89       0xc1 ./Core/Src/main.o
- .debug_macro   0x00021e4a       0x1c ./Core/Src/main.o
- .debug_macro   0x00021e66       0x3d ./Core/Src/main.o
- .debug_macro   0x00021ea3       0xc8 ./Core/Src/main.o
- .debug_macro   0x00021f6b       0x16 ./Core/Src/main.o
- .debug_macro   0x00021f81       0x10 ./Core/Src/main.o
- .debug_macro   0x00021f91       0x10 ./Core/Src/main.o
- .debug_macro   0x00021fa1       0x35 ./Core/Src/main.o
- .debug_macro   0x00021fd6       0x28 ./Core/Src/main.o
- .debug_macro   0x00021ffe       0x10 ./Core/Src/main.o
- .debug_macro   0x0002200e       0x17 ./Core/Src/main.o
- .debug_macro   0x00022025       0x10 ./Core/Src/main.o
- .debug_macro   0x00022035      0x460 ./Core/Src/main.o
- .debug_macro   0x00022495       0x43 ./Core/Src/main.o
- .debug_macro   0x000224d8       0x7c ./Core/Src/main.o
- .debug_macro   0x00022554       0x17 ./Core/Src/main.o
- .debug_macro   0x0002256b      0x118 ./Core/Src/main.o
- .debug_macro   0x00022683       0x19 ./Core/Src/main.o
- .debug_macro   0x0002269c      0x11f ./Core/Src/main.o
- .debug_macro   0x000227bb       0x82 ./Core/Src/main.o
- .debug_macro   0x0002283d       0x66 ./Core/Src/main.o
- .debug_macro   0x000228a3      0x772 ./Core/Src/main.o
- .debug_macro   0x00023015       0x10 ./Core/Src/main.o
- .debug_macro   0x00023025       0x10 ./Core/Src/main.o
- .debug_macro   0x00023035       0x3f ./Core/Src/main.o
- .debug_macro   0x00023074       0x25 ./Core/Src/main.o
- .debug_macro   0x00023099      0x15b ./Core/Src/main.o
- .debug_macro   0x000231f4       0x22 ./Core/Src/main.o
- .debug_macro   0x00023216       0x10 ./Core/Src/main.o
- .debug_macro   0x00023226       0xb3 ./Core/Src/main.o
- .debug_macro   0x000232d9       0x6a ./Core/Src/main.o
- .debug_macro   0x00023343      0x1bd ./Core/Src/main.o
- .debug_macro   0x00023500       0x10 ./Core/Src/main.o
- .debug_macro   0x00023510      0x169 ./Core/Src/main.o
- .debug_macro   0x00023679      0x12f ./Core/Src/main.o
- .debug_macro   0x000237a8       0xa0 ./Core/Src/main.o
- .debug_macro   0x00023848       0x28 ./Core/Src/main.o
- .debug_macro   0x00023870       0x46 ./Core/Src/main.o
- .debug_macro   0x000238b6       0x22 ./Core/Src/main.o
- .debug_macro   0x000238d8       0x16 ./Core/Src/main.o
- .debug_macro   0x000238ee       0x10 ./Core/Src/main.o
- .debug_macro   0x000238fe       0x16 ./Core/Src/main.o
- .debug_macro   0x00023914       0x2e ./Core/Src/main.o
- .debug_macro   0x00023942       0x2e ./Core/Src/main.o
- .debug_macro   0x00023970       0xea ./Core/Src/main.o
- .debug_macro   0x00023a5a       0x70 ./Core/Src/main.o
- .debug_macro   0x00023aca       0xf9 ./Core/Src/main.o
- .debug_macro   0x00023bc3       0x22 ./Core/Src/main.o
- .debug_macro   0x00023be5       0x58 ./Core/Src/main.o
- .debug_macro   0x00023c3d       0x88 ./Core/Src/main.o
- .debug_macro   0x00023cc5       0x10 ./Core/Src/main.o
- .debug_macro   0x00023cd5      0x356 ./Core/Src/spi_protocol.o
- .debug_macro   0x0002402b       0x10 ./Core/Src/spi_protocol.o
- .debug_macro   0x0002403b       0x20 ./Core/Src/spi_protocol.o
- .debug_macro   0x0002405b      0x219 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_macro   0x00024274      0x223 ./Core/Src/stm32f4xx_it.o
- .debug_macro   0x00024497      0x4f1 ./Core/Src/syscalls.o
- .debug_macro   0x00024988       0x5b ./Core/Src/syscalls.o
- .debug_macro   0x000249e3       0x94 ./Core/Src/syscalls.o
- .debug_macro   0x00024a77       0x57 ./Core/Src/syscalls.o
- .debug_macro   0x00024ace       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00024ade       0xcf ./Core/Src/syscalls.o
- .debug_macro   0x00024bad      0x12c ./Core/Src/syscalls.o
- .debug_macro   0x00024cd9       0x56 ./Core/Src/syscalls.o
- .debug_macro   0x00024d2f       0xa0 ./Core/Src/syscalls.o
- .debug_macro   0x00024dcf       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00024ddf       0xce ./Core/Src/syscalls.o
- .debug_macro   0x00024ead      0x31a ./Core/Src/syscalls.o
- .debug_macro   0x000251c7      0x190 ./Core/Src/syscalls.o
- .debug_macro   0x00025357       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x0002536d      0x4c5 ./Core/Src/sysmem.o
- .debug_macro   0x00025832      0x20a ./Core/Src/system_stm32f4xx.o
- .debug_macro   0x00025a3c       0x78 ./Drivers/BSP/Components/lan8742/lan8742.o
- .debug_macro   0x00025ab4      0x45e ./Drivers/BSP/Components/lan8742/lan8742.o
- .debug_macro   0x00025f12      0x26a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_macro   0x0002617c      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
- .debug_macro   0x00026387      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
- .debug_macro   0x00026591      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_macro   0x0002679b      0x2e4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
- .debug_macro   0x00026a7f      0x210 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_macro   0x00026c8f      0x22e ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_macro   0x00026ebd      0x219 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_macro   0x000270d6      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_macro   0x000272e1      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_macro   0x000274eb      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
- .debug_macro   0x000276f6      0x5f2 ./LWIP/App/lwip.o
- .debug_macro   0x00027ce8       0x5e ./LWIP/App/lwip.o
- .debug_macro   0x00027d46      0x627 ./LWIP/Target/ethernetif.o
- .debug_macro   0x0002836d       0x10 ./LWIP/Target/ethernetif.o
- .debug_macro   0x0002837d       0xb9 ./LWIP/Target/ethernetif.o
- .debug_macro   0x00028436      0x464 ./LWIP/Target/ethernetif.o
- .debug_macro   0x0002889a      0x4e5 ./Middlewares/Third_Party/LwIP/src/core/def.o
- .debug_macro   0x00028d7f      0x6bc ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x0002943b       0x10 ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x0002944b       0x4d ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x00029498       0x7c ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x00029514      0x1d7 ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x000296eb       0x35 ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_macro   0x00029720      0x5a0 ./Middlewares/Third_Party/LwIP/src/core/ip.o
- .debug_macro   0x00029cc0      0x5df ./Middlewares/Third_Party/LwIP/src/core/mem.o
- .debug_macro   0x0002a29f      0x725 ./Middlewares/Third_Party/LwIP/src/core/memp.o
- .debug_macro   0x0002a9c4      0x11b ./Middlewares/Third_Party/LwIP/src/core/memp.o
- .debug_macro   0x0002aadf       0x16 ./Middlewares/Third_Party/LwIP/src/core/memp.o
- .debug_macro   0x0002aaf5      0x69f ./Middlewares/Third_Party/LwIP/src/core/netif.o
- .debug_macro   0x0002b194       0xc0 ./Middlewares/Third_Party/LwIP/src/core/netif.o
- .debug_macro   0x0002b254      0x62a ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
- .debug_macro   0x0002b87e      0x63b ./Middlewares/Third_Party/LwIP/src/core/tcp.o
- .debug_macro   0x0002beb9      0x13b ./Middlewares/Third_Party/LwIP/src/core/tcp.o
- .debug_macro   0x0002bff4      0x628 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
- .debug_macro   0x0002c61c       0x1c ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
- .debug_macro   0x0002c638      0x636 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
- .debug_macro   0x0002cc6e      0x6a1 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
- .debug_macro   0x0002d30f      0x639 ./Middlewares/Third_Party/LwIP/src/core/udp.o
- .debug_macro   0x0002d948      0x636 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
- .debug_macro   0x0002df7e      0x5f4 ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
- .debug_macro   0x0002e572      0x673 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
- .debug_macro   0x0002ebe5      0x560 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
- .debug_macro   0x0002f145      0x61b ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
- .debug_macro   0x0002f760       0x10 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
- .debug_macro   0x0002f770      0x619 ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
- .debug_macro   0x0002fd89      0x1fd ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
- .debug_macro   0x0002ff86      0x1c7 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
- .debug_macro   0x0003014d      0x227 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
- .debug_macro   0x00030374      0x1cd ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
- .debug_macro   0x00030541      0x1af ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
- .debug_macro   0x000306f0      0x1a3 ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_macro   0x00030893      0x1cc ./Middlewares/Third_Party/modbus/mb.o
- .debug_macro   0x00030a5f      0x376 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_macro   0x00030dd5      0x5f3 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_macro   0x000313c8      0x1dc ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+.debug_macro    0x00000000    0x315fc
+ .debug_macro   0x00000000      0x6a5 ./Core/Src/main.o
+ .debug_macro   0x000006a5      0xad8 ./Core/Src/main.o
+ .debug_macro   0x0000117d      0x2bb ./Core/Src/main.o
+ .debug_macro   0x00001438       0x2e ./Core/Src/main.o
+ .debug_macro   0x00001466       0x2f ./Core/Src/main.o
+ .debug_macro   0x00001495       0x22 ./Core/Src/main.o
+ .debug_macro   0x000014b7       0x8e ./Core/Src/main.o
+ .debug_macro   0x00001545       0x51 ./Core/Src/main.o
+ .debug_macro   0x00001596      0x103 ./Core/Src/main.o
+ .debug_macro   0x00001699       0x6a ./Core/Src/main.o
+ .debug_macro   0x00001703      0x1df ./Core/Src/main.o
+ .debug_macro   0x000018e2       0x1c ./Core/Src/main.o
+ .debug_macro   0x000018fe       0x22 ./Core/Src/main.o
+ .debug_macro   0x00001920       0xfb ./Core/Src/main.o
+ .debug_macro   0x00001a1b     0x1011 ./Core/Src/main.o
+ .debug_macro   0x00002a2c      0x11f ./Core/Src/main.o
+ .debug_macro   0x00002b4b    0x15ea5 ./Core/Src/main.o
+ .debug_macro   0x000189f0       0x6d ./Core/Src/main.o
+ .debug_macro   0x00018a5d     0x3693 ./Core/Src/main.o
+ .debug_macro   0x0001c0f0      0x190 ./Core/Src/main.o
+ .debug_macro   0x0001c280       0x5c ./Core/Src/main.o
+ .debug_macro   0x0001c2dc      0x980 ./Core/Src/main.o
+ .debug_macro   0x0001cc5c      0x9e9 ./Core/Src/main.o
+ .debug_macro   0x0001d645      0x115 ./Core/Src/main.o
+ .debug_macro   0x0001d75a      0x13e ./Core/Src/main.o
+ .debug_macro   0x0001d898       0xa5 ./Core/Src/main.o
+ .debug_macro   0x0001d93d      0x174 ./Core/Src/main.o
+ .debug_macro   0x0001dab1      0x287 ./Core/Src/main.o
+ .debug_macro   0x0001dd38       0x5f ./Core/Src/main.o
+ .debug_macro   0x0001dd97      0x236 ./Core/Src/main.o
+ .debug_macro   0x0001dfcd      0xb5b ./Core/Src/main.o
+ .debug_macro   0x0001eb28      0x38b ./Core/Src/main.o
+ .debug_macro   0x0001eeb3      0x176 ./Core/Src/main.o
+ .debug_macro   0x0001f029       0xf9 ./Core/Src/main.o
+ .debug_macro   0x0001f122      0xb99 ./Core/Src/main.o
+ .debug_macro   0x0001fcbb      0x12c ./Core/Src/main.o
+ .debug_macro   0x0001fde7      0x21e ./Core/Src/main.o
+ .debug_macro   0x00020005       0x2e ./Core/Src/main.o
+ .debug_macro   0x00020033      0x127 ./Core/Src/main.o
+ .debug_macro   0x0002015a       0x7e ./Core/Src/main.o
+ .debug_macro   0x000201d8       0x89 ./Core/Src/main.o
+ .debug_macro   0x00020261      0x225 ./Core/Src/main.o
+ .debug_macro   0x00020486      0x8ed ./Core/Src/main.o
+ .debug_macro   0x00020d73       0x4d ./Core/Src/main.o
+ .debug_macro   0x00020dc0      0x2aa ./Core/Src/main.o
+ .debug_macro   0x0002106a      0x12d ./Core/Src/main.o
+ .debug_macro   0x00021197       0x46 ./Core/Src/main.o
+ .debug_macro   0x000211dd       0xa6 ./Core/Src/main.o
+ .debug_macro   0x00021283       0x16 ./Core/Src/main.o
+ .debug_macro   0x00021299       0x10 ./Core/Src/main.o
+ .debug_macro   0x000212a9       0x2a ./Core/Src/main.o
+ .debug_macro   0x000212d3       0x61 ./Core/Src/main.o
+ .debug_macro   0x00021334       0x43 ./Core/Src/main.o
+ .debug_macro   0x00021377       0x34 ./Core/Src/main.o
+ .debug_macro   0x000213ab       0x16 ./Core/Src/main.o
+ .debug_macro   0x000213c1       0x3c ./Core/Src/main.o
+ .debug_macro   0x000213fd      0x370 ./Core/Src/main.o
+ .debug_macro   0x0002176d       0x16 ./Core/Src/main.o
+ .debug_macro   0x00021783       0x4a ./Core/Src/main.o
+ .debug_macro   0x000217cd       0x34 ./Core/Src/main.o
+ .debug_macro   0x00021801       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021811       0x58 ./Core/Src/main.o
+ .debug_macro   0x00021869       0x8e ./Core/Src/main.o
+ .debug_macro   0x000218f7       0x1c ./Core/Src/main.o
+ .debug_macro   0x00021913      0x185 ./Core/Src/main.o
+ .debug_macro   0x00021a98       0x16 ./Core/Src/main.o
+ .debug_macro   0x00021aae       0x29 ./Core/Src/main.o
+ .debug_macro   0x00021ad7       0x1c ./Core/Src/main.o
+ .debug_macro   0x00021af3       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021b03       0x1c ./Core/Src/main.o
+ .debug_macro   0x00021b1f       0x16 ./Core/Src/main.o
+ .debug_macro   0x00021b35      0x146 ./Core/Src/main.o
+ .debug_macro   0x00021c7b       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021c8b       0x22 ./Core/Src/main.o
+ .debug_macro   0x00021cad       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021cbd       0x1c ./Core/Src/main.o
+ .debug_macro   0x00021cd9       0x52 ./Core/Src/main.o
+ .debug_macro   0x00021d2b       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021d3b       0x52 ./Core/Src/main.o
+ .debug_macro   0x00021d8d       0xc1 ./Core/Src/main.o
+ .debug_macro   0x00021e4e       0x1c ./Core/Src/main.o
+ .debug_macro   0x00021e6a       0x3d ./Core/Src/main.o
+ .debug_macro   0x00021ea7       0xc8 ./Core/Src/main.o
+ .debug_macro   0x00021f6f       0x16 ./Core/Src/main.o
+ .debug_macro   0x00021f85       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021f95       0x10 ./Core/Src/main.o
+ .debug_macro   0x00021fa5       0x35 ./Core/Src/main.o
+ .debug_macro   0x00021fda       0x28 ./Core/Src/main.o
+ .debug_macro   0x00022002       0x10 ./Core/Src/main.o
+ .debug_macro   0x00022012       0x17 ./Core/Src/main.o
+ .debug_macro   0x00022029       0x10 ./Core/Src/main.o
+ .debug_macro   0x00022039      0x460 ./Core/Src/main.o
+ .debug_macro   0x00022499       0x43 ./Core/Src/main.o
+ .debug_macro   0x000224dc       0x7c ./Core/Src/main.o
+ .debug_macro   0x00022558       0x17 ./Core/Src/main.o
+ .debug_macro   0x0002256f      0x118 ./Core/Src/main.o
+ .debug_macro   0x00022687       0x19 ./Core/Src/main.o
+ .debug_macro   0x000226a0      0x11f ./Core/Src/main.o
+ .debug_macro   0x000227bf       0x82 ./Core/Src/main.o
+ .debug_macro   0x00022841       0x66 ./Core/Src/main.o
+ .debug_macro   0x000228a7      0x772 ./Core/Src/main.o
+ .debug_macro   0x00023019       0x10 ./Core/Src/main.o
+ .debug_macro   0x00023029       0x10 ./Core/Src/main.o
+ .debug_macro   0x00023039       0x3f ./Core/Src/main.o
+ .debug_macro   0x00023078       0x25 ./Core/Src/main.o
+ .debug_macro   0x0002309d      0x15b ./Core/Src/main.o
+ .debug_macro   0x000231f8       0x22 ./Core/Src/main.o
+ .debug_macro   0x0002321a       0x10 ./Core/Src/main.o
+ .debug_macro   0x0002322a       0xb3 ./Core/Src/main.o
+ .debug_macro   0x000232dd       0x6a ./Core/Src/main.o
+ .debug_macro   0x00023347      0x1bd ./Core/Src/main.o
+ .debug_macro   0x00023504       0x10 ./Core/Src/main.o
+ .debug_macro   0x00023514      0x169 ./Core/Src/main.o
+ .debug_macro   0x0002367d      0x12f ./Core/Src/main.o
+ .debug_macro   0x000237ac       0xa0 ./Core/Src/main.o
+ .debug_macro   0x0002384c       0x28 ./Core/Src/main.o
+ .debug_macro   0x00023874       0x46 ./Core/Src/main.o
+ .debug_macro   0x000238ba       0x22 ./Core/Src/main.o
+ .debug_macro   0x000238dc       0x16 ./Core/Src/main.o
+ .debug_macro   0x000238f2       0x10 ./Core/Src/main.o
+ .debug_macro   0x00023902       0x16 ./Core/Src/main.o
+ .debug_macro   0x00023918       0x2e ./Core/Src/main.o
+ .debug_macro   0x00023946       0x2e ./Core/Src/main.o
+ .debug_macro   0x00023974       0xea ./Core/Src/main.o
+ .debug_macro   0x00023a5e       0x70 ./Core/Src/main.o
+ .debug_macro   0x00023ace       0xf9 ./Core/Src/main.o
+ .debug_macro   0x00023bc7       0x22 ./Core/Src/main.o
+ .debug_macro   0x00023be9       0x58 ./Core/Src/main.o
+ .debug_macro   0x00023c41       0x88 ./Core/Src/main.o
+ .debug_macro   0x00023cc9       0x10 ./Core/Src/main.o
+ .debug_macro   0x00023cd9      0x35a ./Core/Src/spi_protocol.o
+ .debug_macro   0x00024033       0x10 ./Core/Src/spi_protocol.o
+ .debug_macro   0x00024043       0x20 ./Core/Src/spi_protocol.o
+ .debug_macro   0x00024063      0x219 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_macro   0x0002427c      0x223 ./Core/Src/stm32f4xx_it.o
+ .debug_macro   0x0002449f      0x4f1 ./Core/Src/syscalls.o
+ .debug_macro   0x00024990       0x5b ./Core/Src/syscalls.o
+ .debug_macro   0x000249eb       0x94 ./Core/Src/syscalls.o
+ .debug_macro   0x00024a7f       0x57 ./Core/Src/syscalls.o
+ .debug_macro   0x00024ad6       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00024ae6       0xcf ./Core/Src/syscalls.o
+ .debug_macro   0x00024bb5      0x12c ./Core/Src/syscalls.o
+ .debug_macro   0x00024ce1       0x56 ./Core/Src/syscalls.o
+ .debug_macro   0x00024d37       0xa0 ./Core/Src/syscalls.o
+ .debug_macro   0x00024dd7       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00024de7       0xce ./Core/Src/syscalls.o
+ .debug_macro   0x00024eb5      0x31a ./Core/Src/syscalls.o
+ .debug_macro   0x000251cf      0x190 ./Core/Src/syscalls.o
+ .debug_macro   0x0002535f       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x00025375      0x4c5 ./Core/Src/sysmem.o
+ .debug_macro   0x0002583a      0x20a ./Core/Src/system_stm32f4xx.o
+ .debug_macro   0x00025a44       0x78 ./Drivers/BSP/Components/lan8742/lan8742.o
+ .debug_macro   0x00025abc      0x45e ./Drivers/BSP/Components/lan8742/lan8742.o
+ .debug_macro   0x00025f1a      0x26a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_macro   0x00026184      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
+ .debug_macro   0x0002638f      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
+ .debug_macro   0x00026599      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_macro   0x000267a3      0x2e4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
+ .debug_macro   0x00026a87      0x210 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_macro   0x00026c97      0x22e ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_macro   0x00026ec5      0x219 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_macro   0x000270de      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_macro   0x000272e9      0x20a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_macro   0x000274f3      0x20b ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+ .debug_macro   0x000276fe      0x5f2 ./LWIP/App/lwip.o
+ .debug_macro   0x00027cf0       0x5e ./LWIP/App/lwip.o
+ .debug_macro   0x00027d4e      0x627 ./LWIP/Target/ethernetif.o
+ .debug_macro   0x00028375       0x10 ./LWIP/Target/ethernetif.o
+ .debug_macro   0x00028385       0xb9 ./LWIP/Target/ethernetif.o
+ .debug_macro   0x0002843e      0x464 ./LWIP/Target/ethernetif.o
+ .debug_macro   0x000288a2      0x4e5 ./Middlewares/Third_Party/LwIP/src/core/def.o
+ .debug_macro   0x00028d87      0x6bc ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x00029443       0x10 ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x00029453       0x4d ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x000294a0       0x7c ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x0002951c      0x1d7 ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x000296f3       0x35 ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_macro   0x00029728      0x5a0 ./Middlewares/Third_Party/LwIP/src/core/ip.o
+ .debug_macro   0x00029cc8      0x5df ./Middlewares/Third_Party/LwIP/src/core/mem.o
+ .debug_macro   0x0002a2a7      0x725 ./Middlewares/Third_Party/LwIP/src/core/memp.o
+ .debug_macro   0x0002a9cc      0x11b ./Middlewares/Third_Party/LwIP/src/core/memp.o
+ .debug_macro   0x0002aae7       0x16 ./Middlewares/Third_Party/LwIP/src/core/memp.o
+ .debug_macro   0x0002aafd      0x69f ./Middlewares/Third_Party/LwIP/src/core/netif.o
+ .debug_macro   0x0002b19c       0xc0 ./Middlewares/Third_Party/LwIP/src/core/netif.o
+ .debug_macro   0x0002b25c      0x62a ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
+ .debug_macro   0x0002b886      0x63b ./Middlewares/Third_Party/LwIP/src/core/tcp.o
+ .debug_macro   0x0002bec1      0x13b ./Middlewares/Third_Party/LwIP/src/core/tcp.o
+ .debug_macro   0x0002bffc      0x628 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
+ .debug_macro   0x0002c624       0x1c ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
+ .debug_macro   0x0002c640      0x636 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
+ .debug_macro   0x0002cc76      0x6a1 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
+ .debug_macro   0x0002d317      0x639 ./Middlewares/Third_Party/LwIP/src/core/udp.o
+ .debug_macro   0x0002d950      0x636 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
+ .debug_macro   0x0002df86      0x5f4 ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
+ .debug_macro   0x0002e57a      0x673 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
+ .debug_macro   0x0002ebed      0x560 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
+ .debug_macro   0x0002f14d      0x61b ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
+ .debug_macro   0x0002f768       0x10 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
+ .debug_macro   0x0002f778      0x619 ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
+ .debug_macro   0x0002fd91      0x206 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
+ .debug_macro   0x0002ff97      0x1d0 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
+ .debug_macro   0x00030167      0x230 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
+ .debug_macro   0x00030397      0x1d6 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
+ .debug_macro   0x0003056d      0x1b8 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
+ .debug_macro   0x00030725      0x1ac ./Middlewares/Third_Party/modbus/functions/mbutils.o
+ .debug_macro   0x000308d1      0x1d5 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_macro   0x00030aa6      0x37a ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_macro   0x00030e20      0x5f7 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_macro   0x00031417      0x1e5 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
-.debug_line     0x00000000    0x325d5
+.debug_line     0x00000000    0x32388
  .debug_line    0x00000000     0x10b5 ./Core/Src/main.o
  .debug_line    0x000010b5      0xb56 ./Core/Src/spi_protocol.o
  .debug_line    0x00001c0b      0x8da ./Core/Src/stm32f4xx_hal_msp.o
@@ -27358,101 +27382,101 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00003a9e      0xb13 ./Core/Src/sysmem.o
  .debug_line    0x000045b1      0x831 ./Core/Src/system_stm32f4xx.o
  .debug_line    0x00004de2       0x7a ./Core/Startup/startup_stm32f407vgtx.o
- .debug_line    0x00004e5c      0x86f ./Drivers/BSP/Components/lan8742/lan8742.o
- .debug_line    0x000056cb      0xaad ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_line    0x00006178     0x12c4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
- .debug_line    0x0000743c      0xef8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
- .debug_line    0x00008334      0xd7d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_line    0x000090b1     0x1ac2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
- .debug_line    0x0000ab73      0xc05 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_line    0x0000b778      0xeba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_line    0x0000c632     0x1d48 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_line    0x0000e37a     0x3822 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_line    0x00011b9c     0x1a0d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_line    0x000135a9     0x25f5 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
- .debug_line    0x00015b9e      0xd2f ./LWIP/App/lwip.o
- .debug_line    0x000168cd     0x10dc ./LWIP/Target/ethernetif.o
- .debug_line    0x000179a9      0xccf ./Middlewares/Third_Party/LwIP/src/core/def.o
- .debug_line    0x00018678      0xd78 ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_line    0x000193f0      0xc15 ./Middlewares/Third_Party/LwIP/src/core/ip.o
- .debug_line    0x0001a005     0x100a ./Middlewares/Third_Party/LwIP/src/core/mem.o
- .debug_line    0x0001b00f      0xf77 ./Middlewares/Third_Party/LwIP/src/core/memp.o
- .debug_line    0x0001bf86     0x12e7 ./Middlewares/Third_Party/LwIP/src/core/netif.o
- .debug_line    0x0001d26d     0x173d ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
- .debug_line    0x0001e9aa     0x1eee ./Middlewares/Third_Party/LwIP/src/core/tcp.o
- .debug_line    0x00020898     0x2086 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
- .debug_line    0x0002291e     0x1cd5 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
- .debug_line    0x000245f3      0xfe7 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
- .debug_line    0x000255da     0x1328 ./Middlewares/Third_Party/LwIP/src/core/udp.o
- .debug_line    0x00026902     0x1375 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
- .debug_line    0x00027c77      0xe02 ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
- .debug_line    0x00028a79     0x1020 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
- .debug_line    0x00029a99      0xeac ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
- .debug_line    0x0002a945     0x133e ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
- .debug_line    0x0002bc83      0xe10 ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
- .debug_line    0x0002ca93      0x7c6 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
- .debug_line    0x0002d259      0x6e3 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
- .debug_line    0x0002d93c      0x83d ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
- .debug_line    0x0002e179      0x6d2 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
- .debug_line    0x0002e84b      0x6c5 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
- .debug_line    0x0002ef10      0x70d ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_line    0x0002f61d      0x90f ./Middlewares/Third_Party/modbus/mb.o
- .debug_line    0x0002ff2c      0xe88 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_line    0x00030db4     0x10f6 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_line    0x00031eaa      0x72b ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_line    0x00004e5c      0x804 ./Drivers/BSP/Components/lan8742/lan8742.o
+ .debug_line    0x00005660      0xaad ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_line    0x0000610d     0x12c4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
+ .debug_line    0x000073d1      0xef8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
+ .debug_line    0x000082c9      0xd7d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_line    0x00009046     0x1ac2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
+ .debug_line    0x0000ab08      0xc05 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_line    0x0000b70d      0xeba ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_line    0x0000c5c7     0x1d48 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_line    0x0000e30f     0x3822 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_line    0x00011b31     0x1a0d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_line    0x0001353e     0x25f5 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+ .debug_line    0x00015b33      0xd2f ./LWIP/App/lwip.o
+ .debug_line    0x00016862     0x10dc ./LWIP/Target/ethernetif.o
+ .debug_line    0x0001793e      0xccf ./Middlewares/Third_Party/LwIP/src/core/def.o
+ .debug_line    0x0001860d      0xd78 ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_line    0x00019385      0xc15 ./Middlewares/Third_Party/LwIP/src/core/ip.o
+ .debug_line    0x00019f9a     0x100a ./Middlewares/Third_Party/LwIP/src/core/mem.o
+ .debug_line    0x0001afa4      0xf77 ./Middlewares/Third_Party/LwIP/src/core/memp.o
+ .debug_line    0x0001bf1b     0x12e7 ./Middlewares/Third_Party/LwIP/src/core/netif.o
+ .debug_line    0x0001d202     0x173d ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
+ .debug_line    0x0001e93f     0x1eee ./Middlewares/Third_Party/LwIP/src/core/tcp.o
+ .debug_line    0x0002082d     0x2086 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
+ .debug_line    0x000228b3     0x1cd5 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
+ .debug_line    0x00024588      0xfe7 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
+ .debug_line    0x0002556f     0x1328 ./Middlewares/Third_Party/LwIP/src/core/udp.o
+ .debug_line    0x00026897     0x1375 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
+ .debug_line    0x00027c0c      0xe02 ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
+ .debug_line    0x00028a0e     0x1020 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
+ .debug_line    0x00029a2e      0xeac ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
+ .debug_line    0x0002a8da     0x133e ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
+ .debug_line    0x0002bc18      0xe10 ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
+ .debug_line    0x0002ca28      0x787 ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
+ .debug_line    0x0002d1af      0x6a4 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
+ .debug_line    0x0002d853      0x7fe ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
+ .debug_line    0x0002e051      0x693 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
+ .debug_line    0x0002e6e4      0x686 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
+ .debug_line    0x0002ed6a      0x6ce ./Middlewares/Third_Party/modbus/functions/mbutils.o
+ .debug_line    0x0002f438      0x8e6 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_line    0x0002fd1e      0xe88 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_line    0x00030ba6     0x10f6 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_line    0x00031c9c      0x6ec ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
-.debug_str      0x00000000    0xf4358
- .debug_str     0x00000000    0xf4358 ./Core/Src/main.o
+.debug_str      0x00000000    0xf43a9
+ .debug_str     0x00000000    0xf43a9 ./Core/Src/main.o
                               0xe52e5 (size before relaxing)
- .debug_str     0x000f4358    0xd9f7c ./Core/Src/spi_protocol.o
- .debug_str     0x000f4358    0xd70ca ./Core/Src/stm32f4xx_hal_msp.o
- .debug_str     0x000f4358    0xd6986 ./Core/Src/stm32f4xx_it.o
- .debug_str     0x000f4358    0xdfbf4 ./Core/Src/syscalls.o
- .debug_str     0x000f4358    0xdf23a ./Core/Src/sysmem.o
- .debug_str     0x000f4358    0xd5ece ./Core/Src/system_stm32f4xx.o
- .debug_str     0x000f4358       0x91 ./Core/Startup/startup_stm32f407vgtx.o
- .debug_str     0x000f4358     0x5cb7 ./Drivers/BSP/Components/lan8742/lan8742.o
- .debug_str     0x000f4358    0xd6a52 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_str     0x000f4358    0xd64bb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
- .debug_str     0x000f4358    0xd650f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
- .debug_str     0x000f4358    0xd67ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_str     0x000f4358    0xd77ca ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
- .debug_str     0x000f4358    0xd6049 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_str     0x000f4358    0xd6302 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_str     0x000f4358    0xd678c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_str     0x000f4358    0xd7258 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_str     0x000f4358    0xd6a64 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_str     0x000f4358    0xd68e3 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
- .debug_str     0x000f4358    0xe2d69 ./LWIP/App/lwip.o
- .debug_str     0x000f4358    0xe5cdd ./LWIP/Target/ethernetif.o
- .debug_str     0x000f4358    0xdf056 ./Middlewares/Third_Party/LwIP/src/core/def.o
- .debug_str     0x000f4358    0xe58bc ./Middlewares/Third_Party/LwIP/src/core/init.o
- .debug_str     0x000f4358    0xe2e59 ./Middlewares/Third_Party/LwIP/src/core/ip.o
- .debug_str     0x000f4358    0xe04bd ./Middlewares/Third_Party/LwIP/src/core/mem.o
- .debug_str     0x000f4358    0xe5f04 ./Middlewares/Third_Party/LwIP/src/core/memp.o
- .debug_str     0x000f4358    0xe5f0a ./Middlewares/Third_Party/LwIP/src/core/netif.o
- .debug_str     0x000f4358    0xe5966 ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
- .debug_str     0x000f4358    0xe56de ./Middlewares/Third_Party/LwIP/src/core/tcp.o
- .debug_str     0x000f4358    0xe5515 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
- .debug_str     0x000f4358    0xe5537 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
- .debug_str     0x000f4358    0xe59d0 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
- .debug_str     0x000f4358    0xe3d35 ./Middlewares/Third_Party/LwIP/src/core/udp.o
- .debug_str     0x000f4358    0xe3538 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
- .debug_str     0x000f4358    0xe338c ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
- .debug_str     0x000f4358    0xe5211 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
- .debug_str     0x000f4358    0xe21a0 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
- .debug_str     0x000f4358    0xe3711 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
- .debug_str     0x000f4358    0xe396a ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
- .debug_str     0x000f4358     0x801f ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
- .debug_str     0x000f4358     0x7df8 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
- .debug_str     0x000f4358     0x8231 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
- .debug_str     0x000f4358     0x7e1c ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
- .debug_str     0x000f4358     0x7d55 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
- .debug_str     0x000f4358     0x7a71 ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_str     0x000f4358     0x81b0 ./Middlewares/Third_Party/modbus/mb.o
- .debug_str     0x000f4358    0xd99b4 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_str     0x000f4358    0xe4214 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_str     0x000f4358     0x7d39 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_str     0x000f43a9    0xd9f7c ./Core/Src/spi_protocol.o
+ .debug_str     0x000f43a9    0xd70ca ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_str     0x000f43a9    0xd6986 ./Core/Src/stm32f4xx_it.o
+ .debug_str     0x000f43a9    0xdfbf4 ./Core/Src/syscalls.o
+ .debug_str     0x000f43a9    0xdf23a ./Core/Src/sysmem.o
+ .debug_str     0x000f43a9    0xd5ece ./Core/Src/system_stm32f4xx.o
+ .debug_str     0x000f43a9       0x91 ./Core/Startup/startup_stm32f407vgtx.o
+ .debug_str     0x000f43a9     0x5cbb ./Drivers/BSP/Components/lan8742/lan8742.o
+ .debug_str     0x000f43a9    0xd6a52 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_str     0x000f43a9    0xd64bb ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o
+ .debug_str     0x000f43a9    0xd650f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o
+ .debug_str     0x000f43a9    0xd67ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_str     0x000f43a9    0xd77ca ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.o
+ .debug_str     0x000f43a9    0xd6049 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_str     0x000f43a9    0xd6302 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_str     0x000f43a9    0xd678c ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_str     0x000f43a9    0xd7258 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_str     0x000f43a9    0xd6a64 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x000f43a9    0xd68e3 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+ .debug_str     0x000f43a9    0xe2d69 ./LWIP/App/lwip.o
+ .debug_str     0x000f43a9    0xe5cdd ./LWIP/Target/ethernetif.o
+ .debug_str     0x000f43a9    0xdf056 ./Middlewares/Third_Party/LwIP/src/core/def.o
+ .debug_str     0x000f43a9    0xe58bc ./Middlewares/Third_Party/LwIP/src/core/init.o
+ .debug_str     0x000f43a9    0xe2e59 ./Middlewares/Third_Party/LwIP/src/core/ip.o
+ .debug_str     0x000f43a9    0xe04bd ./Middlewares/Third_Party/LwIP/src/core/mem.o
+ .debug_str     0x000f43a9    0xe5f04 ./Middlewares/Third_Party/LwIP/src/core/memp.o
+ .debug_str     0x000f43a9    0xe5f0a ./Middlewares/Third_Party/LwIP/src/core/netif.o
+ .debug_str     0x000f43a9    0xe5966 ./Middlewares/Third_Party/LwIP/src/core/pbuf.o
+ .debug_str     0x000f43a9    0xe56de ./Middlewares/Third_Party/LwIP/src/core/tcp.o
+ .debug_str     0x000f43a9    0xe5515 ./Middlewares/Third_Party/LwIP/src/core/tcp_in.o
+ .debug_str     0x000f43a9    0xe5537 ./Middlewares/Third_Party/LwIP/src/core/tcp_out.o
+ .debug_str     0x000f43a9    0xe59d0 ./Middlewares/Third_Party/LwIP/src/core/timeouts.o
+ .debug_str     0x000f43a9    0xe3d35 ./Middlewares/Third_Party/LwIP/src/core/udp.o
+ .debug_str     0x000f43a9    0xe3538 ./Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.o
+ .debug_str     0x000f43a9    0xe338c ./Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.o
+ .debug_str     0x000f43a9    0xe5211 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.o
+ .debug_str     0x000f43a9    0xe21a0 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.o
+ .debug_str     0x000f43a9    0xe3711 ./Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.o
+ .debug_str     0x000f43a9    0xe396a ./Middlewares/Third_Party/LwIP/src/netif/ethernet.o
+ .debug_str     0x000f43a9     0x8a0f ./Middlewares/Third_Party/modbus/functions/mbfunccoils.o
+ .debug_str     0x000f43a9     0x87e8 ./Middlewares/Third_Party/modbus/functions/mbfuncdisc.o
+ .debug_str     0x000f43a9     0x8c21 ./Middlewares/Third_Party/modbus/functions/mbfuncholding.o
+ .debug_str     0x000f43a9     0x880c ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
+ .debug_str     0x000f43a9     0x8745 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
+ .debug_str     0x000f43a9     0x8461 ./Middlewares/Third_Party/modbus/functions/mbutils.o
+ .debug_str     0x000f43a9     0x8ba0 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_str     0x000f43a9    0xd99b4 ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_str     0x000f43a9    0xe4214 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_str     0x000f43a9     0x8729 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
 .comment        0x00000000       0x43
  .comment       0x00000000       0x43 ./Core/Src/main.o
@@ -27506,7 +27530,7 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .comment       0x00000043       0x44 ./Middlewares/Third_Party/modbus/port/port.o
  .comment       0x00000043       0x44 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
 
-.debug_frame    0x00000000     0x8bf0
+.debug_frame    0x00000000     0x8bf4
  .debug_frame   0x00000000      0x134 ./Core/Src/main.o
  .debug_frame   0x00000134      0x120 ./Core/Src/spi_protocol.o
  .debug_frame   0x00000254      0x160 ./Core/Src/stm32f4xx_hal_msp.o
@@ -27551,52 +27575,52 @@ LOAD D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_frame   0x00007738       0x34 ./Middlewares/Third_Party/modbus/functions/mbfuncinput.o
  .debug_frame   0x0000776c       0x58 ./Middlewares/Third_Party/modbus/functions/mbfuncother.o
  .debug_frame   0x000077c4       0x84 ./Middlewares/Third_Party/modbus/functions/mbutils.o
- .debug_frame   0x00007848      0x110 ./Middlewares/Third_Party/modbus/mb.o
- .debug_frame   0x00007958      0x24c ./Middlewares/Third_Party/modbus/modbus_callbacks.o
- .debug_frame   0x00007ba4      0x308 ./Middlewares/Third_Party/modbus/port/port.o
- .debug_frame   0x00007eac       0xb8 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
- .debug_frame   0x00007f64       0x40 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-assert.o)
- .debug_frame   0x00007fa4       0x44 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-rand.o)
- .debug_frame   0x00007fe8      0x144 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000812c       0x64 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fprintf.o)
- .debug_frame   0x00008190       0x34 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
- .debug_frame   0x000081c4       0x6c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-printf.o)
- .debug_frame   0x00008230       0x7c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-snprintf.o)
- .debug_frame   0x000082ac       0x88 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
- .debug_frame   0x00008334       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcmp.o)
- .debug_frame   0x0000835c       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memmove.o)
- .debug_frame   0x00008384       0x20 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
- .debug_frame   0x000083a4       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strncmp.o)
- .debug_frame   0x000083cc       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strncpy.o)
- .debug_frame   0x000083f4       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
- .debug_frame   0x00008420       0x38 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
- .debug_frame   0x00008458       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
- .debug_frame   0x00008484       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
- .debug_frame   0x000084b0       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
- .debug_frame   0x000084dc       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
- .debug_frame   0x00008508       0xb0 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
- .debug_frame   0x000085b8       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
- .debug_frame   0x000085e0       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-abort.o)
- .debug_frame   0x00008608       0x38 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
- .debug_frame   0x00008640       0x30 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
- .debug_frame   0x00008670       0x50 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x000086c0       0x30 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x000086f0       0x90 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
- .debug_frame   0x00008780       0xa8 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
- .debug_frame   0x00008828       0x60 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_frame   0x00008888       0x5c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
- .debug_frame   0x000088e4       0x40 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-wbuf.o)
- .debug_frame   0x00008924       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-wsetup.o)
- .debug_frame   0x00008950       0xcc D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-signal.o)
- .debug_frame   0x00008a1c       0x3c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-signalr.o)
- .debug_frame   0x00008a58       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00008a84       0x3c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reallocr.o)
- .debug_frame   0x00008ac0       0x58 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-makebuf.o)
- .debug_frame   0x00008b18       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fstatr.o)
- .debug_frame   0x00008b44       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-isattyr.o)
- .debug_frame   0x00008b70       0x20 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-msizer.o)
- .debug_frame   0x00008b90       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00008bbc       0x34 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00007848      0x114 ./Middlewares/Third_Party/modbus/mb.o
+ .debug_frame   0x0000795c      0x24c ./Middlewares/Third_Party/modbus/modbus_callbacks.o
+ .debug_frame   0x00007ba8      0x308 ./Middlewares/Third_Party/modbus/port/port.o
+ .debug_frame   0x00007eb0       0xb8 ./Middlewares/Third_Party/modbus/tcp/mbtcp.o
+ .debug_frame   0x00007f68       0x40 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-assert.o)
+ .debug_frame   0x00007fa8       0x44 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-rand.o)
+ .debug_frame   0x00007fec      0x144 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00008130       0x64 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fprintf.o)
+ .debug_frame   0x00008194       0x34 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x000081c8       0x6c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-printf.o)
+ .debug_frame   0x00008234       0x7c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-snprintf.o)
+ .debug_frame   0x000082b0       0x88 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x00008338       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcmp.o)
+ .debug_frame   0x00008360       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memmove.o)
+ .debug_frame   0x00008388       0x20 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x000083a8       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strncmp.o)
+ .debug_frame   0x000083d0       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strncpy.o)
+ .debug_frame   0x000083f8       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x00008424       0x38 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x0000845c       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00008488       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x000084b4       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x000084e0       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x0000850c       0xb0 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x000085bc       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x000085e4       0x28 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-abort.o)
+ .debug_frame   0x0000860c       0x38 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00008644       0x30 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00008674       0x50 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x000086c4       0x30 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x000086f4       0x90 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
+ .debug_frame   0x00008784       0xa8 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
+ .debug_frame   0x0000882c       0x60 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000888c       0x5c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x000088e8       0x40 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-wbuf.o)
+ .debug_frame   0x00008928       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-wsetup.o)
+ .debug_frame   0x00008954       0xcc D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-signal.o)
+ .debug_frame   0x00008a20       0x3c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-signalr.o)
+ .debug_frame   0x00008a5c       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00008a88       0x3c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reallocr.o)
+ .debug_frame   0x00008ac4       0x58 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-makebuf.o)
+ .debug_frame   0x00008b1c       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-fstatr.o)
+ .debug_frame   0x00008b48       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-isattyr.o)
+ .debug_frame   0x00008b74       0x20 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-msizer.o)
+ .debug_frame   0x00008b94       0x2c D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00008bc0       0x34 D:/ST/STM32CubeIDE_1.19.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
 
 .debug_line_str
                 0x00000000       0x75

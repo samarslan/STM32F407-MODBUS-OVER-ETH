@@ -73,6 +73,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h \
  ../Core/Inc/main.h ../Middlewares/Third_Party/modbus/include/mb.h \
  ../Middlewares/Third_Party/modbus/port/port.h \
+ ../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
  ../Middlewares/Third_Party/modbus/include/mbproto.h \
  ../Middlewares/Third_Party/modbus/tcp/mbtcp.h \
@@ -156,6 +157,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/main.h:
 ../Middlewares/Third_Party/modbus/include/mb.h:
 ../Middlewares/Third_Party/modbus/port/port.h:
+../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:
 ../Middlewares/Third_Party/modbus/include/mbproto.h:
 ../Middlewares/Third_Party/modbus/tcp/mbtcp.h:

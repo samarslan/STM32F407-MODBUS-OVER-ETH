@@ -35,6 +35,7 @@ Middlewares/Third_Party/modbus/modbus_callbacks.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Middlewares/Third_Party/modbus/include/mb.h \
  ../Middlewares/Third_Party/modbus/port/port.h \
+ ../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
  ../Middlewares/Third_Party/modbus/include/mbproto.h \
  ../Middlewares/Third_Party/modbus/include/mbport.h \
@@ -76,6 +77,7 @@ Middlewares/Third_Party/modbus/modbus_callbacks.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Middlewares/Third_Party/modbus/include/mb.h:
 ../Middlewares/Third_Party/modbus/port/port.h:
+../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:
 ../Middlewares/Third_Party/modbus/include/mbproto.h:
 ../Middlewares/Third_Party/modbus/include/mbport.h:

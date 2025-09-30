@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00018108  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00027f28  00000000  00000000  00018138  2**0
+ 13 .debug_info   00027f0e  00000000  00000000  00018138  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00006c40  00000000  00000000  00040060  2**0
+ 14 .debug_abbrev 00006c4e  00000000  00000000  00040046  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00001fa0  00000000  00000000  00046ca0  2**3
+ 15 .debug_aranges 00001fa0  00000000  00000000  00046c98  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00001914  00000000  00000000  00048c40  2**0
+ 16 .debug_rnglists 00001914  00000000  00000000  00048c38  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  000315a4  00000000  00000000  0004a554  2**0
+ 17 .debug_macro  000315fc  00000000  00000000  0004a54c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   000325d5  00000000  00000000  0007baf8  2**0
+ 18 .debug_line   00032388  00000000  00000000  0007bb48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000f4358  00000000  00000000  000ae0cd  2**0
+ 19 .debug_str    000f43a9  00000000  00000000  000aded0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  001a2425  2**0
+ 20 .comment      00000043  00000000  00000000  001a2279  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00008bf0  00000000  00000000  001a2468  2**2
+ 21 .debug_frame  00008bf4  00000000  00000000  001a22bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000075  00000000  00000000  001ab058  2**0
+ 22 .debug_line_str 00000075  00000000  00000000  001aaeb0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2935,18 +2935,11 @@ Infinite_Loop:
  8001374:	e7fe      	b.n	8001374 <CAN1_RX0_IRQHandler>
 
 08001376 <LAN8742_RegisterBusIO>:
-  * @param  ioctx: holds device IO functions.
-  * @retval LAN8742_STATUS_OK  if OK
-  *         LAN8742_STATUS_ERROR if missing mandatory function
-  */
-int32_t  LAN8742_RegisterBusIO(lan8742_Object_t *pObj, lan8742_IOCtx_t *ioctx)
-{
  8001376:	b480      	push	{r7}
  8001378:	b083      	sub	sp, #12
  800137a:	af00      	add	r7, sp, #0
  800137c:	6078      	str	r0, [r7, #4]
  800137e:	6039      	str	r1, [r7, #0]
-  if(!pObj || !ioctx->ReadReg || !ioctx->WriteReg || !ioctx->GetTick)
  8001380:	687b      	ldr	r3, [r7, #4]
  8001382:	2b00      	cmp	r3, #0
  8001384:	d00b      	beq.n	800139e <LAN8742_RegisterBusIO+0x28>
@@ -2962,41 +2955,29 @@ int32_t  LAN8742_RegisterBusIO(lan8742_Object_t *pObj, lan8742_IOCtx_t *ioctx)
  8001398:	691b      	ldr	r3, [r3, #16]
  800139a:	2b00      	cmp	r3, #0
  800139c:	d102      	bne.n	80013a4 <LAN8742_RegisterBusIO+0x2e>
-  {
-    return LAN8742_STATUS_ERROR;
  800139e:	f04f 33ff 	mov.w	r3, #4294967295
  80013a2:	e014      	b.n	80013ce <LAN8742_RegisterBusIO+0x58>
-  }
-
-  pObj->IO.Init = ioctx->Init;
  80013a4:	683b      	ldr	r3, [r7, #0]
  80013a6:	681a      	ldr	r2, [r3, #0]
  80013a8:	687b      	ldr	r3, [r7, #4]
  80013aa:	609a      	str	r2, [r3, #8]
-  pObj->IO.DeInit = ioctx->DeInit;
  80013ac:	683b      	ldr	r3, [r7, #0]
  80013ae:	685a      	ldr	r2, [r3, #4]
  80013b0:	687b      	ldr	r3, [r7, #4]
  80013b2:	60da      	str	r2, [r3, #12]
-  pObj->IO.ReadReg = ioctx->ReadReg;
  80013b4:	683b      	ldr	r3, [r7, #0]
  80013b6:	68da      	ldr	r2, [r3, #12]
  80013b8:	687b      	ldr	r3, [r7, #4]
  80013ba:	615a      	str	r2, [r3, #20]
-  pObj->IO.WriteReg = ioctx->WriteReg;
  80013bc:	683b      	ldr	r3, [r7, #0]
  80013be:	689a      	ldr	r2, [r3, #8]
  80013c0:	687b      	ldr	r3, [r7, #4]
  80013c2:	611a      	str	r2, [r3, #16]
-  pObj->IO.GetTick = ioctx->GetTick;
  80013c4:	683b      	ldr	r3, [r7, #0]
  80013c6:	691a      	ldr	r2, [r3, #16]
  80013c8:	687b      	ldr	r3, [r7, #4]
  80013ca:	619a      	str	r2, [r3, #24]
-
-  return LAN8742_STATUS_OK;
  80013cc:	2300      	movs	r3, #0
-}
  80013ce:	4618      	mov	r0, r3
  80013d0:	370c      	adds	r7, #12
  80013d2:	46bd      	mov	sp, r7
@@ -3004,57 +2985,33 @@ int32_t  LAN8742_RegisterBusIO(lan8742_Object_t *pObj, lan8742_IOCtx_t *ioctx)
  80013d8:	4770      	bx	lr
 
 080013da <LAN8742_Init>:
-  * @retval LAN8742_STATUS_OK  if OK
-  *         LAN8742_STATUS_ADDRESS_ERROR if cannot find device address
-  *         LAN8742_STATUS_READ_ERROR if cannot read register
-  */
- int32_t LAN8742_Init(lan8742_Object_t *pObj)
- {
  80013da:	b580      	push	{r7, lr}
  80013dc:	b086      	sub	sp, #24
  80013de:	af00      	add	r7, sp, #0
  80013e0:	6078      	str	r0, [r7, #4]
-   uint32_t regvalue = 0, addr = 0;
  80013e2:	2300      	movs	r3, #0
  80013e4:	60fb      	str	r3, [r7, #12]
  80013e6:	2300      	movs	r3, #0
  80013e8:	617b      	str	r3, [r7, #20]
-   int32_t status = LAN8742_STATUS_OK;
  80013ea:	2300      	movs	r3, #0
  80013ec:	613b      	str	r3, [r7, #16]
-
-   if(pObj->Is_Initialized == 0)
  80013ee:	687b      	ldr	r3, [r7, #4]
  80013f0:	685b      	ldr	r3, [r3, #4]
  80013f2:	2b00      	cmp	r3, #0
  80013f4:	d139      	bne.n	800146a <LAN8742_Init+0x90>
-   {
-     if(pObj->IO.Init != 0)
  80013f6:	687b      	ldr	r3, [r7, #4]
  80013f8:	689b      	ldr	r3, [r3, #8]
  80013fa:	2b00      	cmp	r3, #0
  80013fc:	d002      	beq.n	8001404 <LAN8742_Init+0x2a>
-     {
-       /* GPIO and Clocks initialization */
-       pObj->IO.Init();
  80013fe:	687b      	ldr	r3, [r7, #4]
  8001400:	689b      	ldr	r3, [r3, #8]
  8001402:	4798      	blx	r3
-     }
-
-     /* for later check */
-     pObj->DevAddr = LAN8742_MAX_DEV_ADDR + 1;
  8001404:	687b      	ldr	r3, [r7, #4]
  8001406:	2220      	movs	r2, #32
  8001408:	601a      	str	r2, [r3, #0]
-
-     /* Get the device address from special mode register */
-     for(addr = 0; addr <= LAN8742_MAX_DEV_ADDR; addr ++)
  800140a:	2300      	movs	r3, #0
  800140c:	617b      	str	r3, [r7, #20]
  800140e:	e01c      	b.n	800144a <LAN8742_Init+0x70>
-     {
-       if(pObj->IO.ReadReg(addr, LAN8742_SMR, &regvalue) < 0)
  8001410:	687b      	ldr	r3, [r7, #4]
  8001412:	695b      	ldr	r3, [r3, #20]
  8001414:	f107 020c 	add.w	r2, r7, #12
@@ -3064,91 +3021,51 @@ int32_t  LAN8742_RegisterBusIO(lan8742_Object_t *pObj, lan8742_IOCtx_t *ioctx)
  800141e:	4603      	mov	r3, r0
  8001420:	2b00      	cmp	r3, #0
  8001422:	da03      	bge.n	800142c <LAN8742_Init+0x52>
-       {
-         status = LAN8742_STATUS_READ_ERROR;
  8001424:	f06f 0304 	mvn.w	r3, #4
  8001428:	613b      	str	r3, [r7, #16]
-         /* Can't read from this device address
-            continue with next address */
-         continue;
  800142a:	e00b      	b.n	8001444 <LAN8742_Init+0x6a>
-       }
-
-       if((regvalue & LAN8742_SMR_PHY_ADDR) == addr)
  800142c:	68fb      	ldr	r3, [r7, #12]
  800142e:	f003 031f 	and.w	r3, r3, #31
  8001432:	697a      	ldr	r2, [r7, #20]
  8001434:	429a      	cmp	r2, r3
  8001436:	d105      	bne.n	8001444 <LAN8742_Init+0x6a>
-       {
-         pObj->DevAddr = addr;
  8001438:	687b      	ldr	r3, [r7, #4]
  800143a:	697a      	ldr	r2, [r7, #20]
  800143c:	601a      	str	r2, [r3, #0]
-         status = LAN8742_STATUS_OK;
  800143e:	2300      	movs	r3, #0
  8001440:	613b      	str	r3, [r7, #16]
-         break;
  8001442:	e005      	b.n	8001450 <LAN8742_Init+0x76>
-     for(addr = 0; addr <= LAN8742_MAX_DEV_ADDR; addr ++)
  8001444:	697b      	ldr	r3, [r7, #20]
  8001446:	3301      	adds	r3, #1
  8001448:	617b      	str	r3, [r7, #20]
  800144a:	697b      	ldr	r3, [r7, #20]
  800144c:	2b1f      	cmp	r3, #31
  800144e:	d9df      	bls.n	8001410 <LAN8742_Init+0x36>
-       }
-     }
-
-     if(pObj->DevAddr > LAN8742_MAX_DEV_ADDR)
  8001450:	687b      	ldr	r3, [r7, #4]
  8001452:	681b      	ldr	r3, [r3, #0]
  8001454:	2b1f      	cmp	r3, #31
  8001456:	d902      	bls.n	800145e <LAN8742_Init+0x84>
-     {
-       status = LAN8742_STATUS_ADDRESS_ERROR;
  8001458:	f06f 0302 	mvn.w	r3, #2
  800145c:	613b      	str	r3, [r7, #16]
-     }
-
-     /* if device address is matched */
-     if(status == LAN8742_STATUS_OK)
  800145e:	693b      	ldr	r3, [r7, #16]
  8001460:	2b00      	cmp	r3, #0
  8001462:	d102      	bne.n	800146a <LAN8742_Init+0x90>
-     {
-       pObj->Is_Initialized = 1;
  8001464:	687b      	ldr	r3, [r7, #4]
  8001466:	2201      	movs	r2, #1
  8001468:	605a      	str	r2, [r3, #4]
-     }
-   }
-
-   return status;
  800146a:	693b      	ldr	r3, [r7, #16]
- }
  800146c:	4618      	mov	r0, r3
  800146e:	3718      	adds	r7, #24
  8001470:	46bd      	mov	sp, r7
  8001472:	bd80      	pop	{r7, pc}
 
 08001474 <LAN8742_GetLinkState>:
-  *         LAN8742_STATUS_10MBITS_HALFDUPLEX  if 10Mb/s HD
-  *         LAN8742_STATUS_READ_ERROR if cannot read register
-  *         LAN8742_STATUS_WRITE_ERROR if cannot write to register
-  */
-int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
-{
  8001474:	b580      	push	{r7, lr}
  8001476:	b084      	sub	sp, #16
  8001478:	af00      	add	r7, sp, #0
  800147a:	6078      	str	r0, [r7, #4]
-  uint32_t readval = 0;
  800147c:	2300      	movs	r3, #0
  800147e:	60fb      	str	r3, [r7, #12]
-
-  /* Read Status register  */
-  if(pObj->IO.ReadReg(pObj->DevAddr, LAN8742_BSR, &readval) < 0)
  8001480:	687b      	ldr	r3, [r7, #4]
  8001482:	695b      	ldr	r3, [r3, #20]
  8001484:	687a      	ldr	r2, [r7, #4]
@@ -3159,14 +3076,8 @@ int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
  8001490:	4603      	mov	r3, r0
  8001492:	2b00      	cmp	r3, #0
  8001494:	da02      	bge.n	800149c <LAN8742_GetLinkState+0x28>
-  {
-    return LAN8742_STATUS_READ_ERROR;
  8001496:	f06f 0304 	mvn.w	r3, #4
  800149a:	e06e      	b.n	800157a <LAN8742_GetLinkState+0x106>
-  }
-
-  /* Read Status register again */
-  if(pObj->IO.ReadReg(pObj->DevAddr, LAN8742_BSR, &readval) < 0)
  800149c:	687b      	ldr	r3, [r7, #4]
  800149e:	695b      	ldr	r3, [r3, #20]
  80014a0:	687a      	ldr	r2, [r7, #4]
@@ -3177,26 +3088,14 @@ int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
  80014ac:	4603      	mov	r3, r0
  80014ae:	2b00      	cmp	r3, #0
  80014b0:	da02      	bge.n	80014b8 <LAN8742_GetLinkState+0x44>
-  {
-    return LAN8742_STATUS_READ_ERROR;
  80014b2:	f06f 0304 	mvn.w	r3, #4
  80014b6:	e060      	b.n	800157a <LAN8742_GetLinkState+0x106>
-  }
-
-  if((readval & LAN8742_BSR_LINK_STATUS) == 0)
  80014b8:	68fb      	ldr	r3, [r7, #12]
  80014ba:	f003 0304 	and.w	r3, r3, #4
  80014be:	2b00      	cmp	r3, #0
  80014c0:	d101      	bne.n	80014c6 <LAN8742_GetLinkState+0x52>
-  {
-    /* Return Link Down status */
-    return LAN8742_STATUS_LINK_DOWN;
  80014c2:	2301      	movs	r3, #1
  80014c4:	e059      	b.n	800157a <LAN8742_GetLinkState+0x106>
-  }
-
-  /* Check Auto negotiation */
-  if(pObj->IO.ReadReg(pObj->DevAddr, LAN8742_BCR, &readval) < 0)
  80014c6:	687b      	ldr	r3, [r7, #4]
  80014c8:	695b      	ldr	r3, [r3, #20]
  80014ca:	687a      	ldr	r2, [r7, #4]
@@ -3207,19 +3106,12 @@ int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
  80014d6:	4603      	mov	r3, r0
  80014d8:	2b00      	cmp	r3, #0
  80014da:	da02      	bge.n	80014e2 <LAN8742_GetLinkState+0x6e>
-  {
-    return LAN8742_STATUS_READ_ERROR;
  80014dc:	f06f 0304 	mvn.w	r3, #4
  80014e0:	e04b      	b.n	800157a <LAN8742_GetLinkState+0x106>
-  }
-
-  if((readval & LAN8742_BCR_AUTONEGO_EN) != LAN8742_BCR_AUTONEGO_EN)
  80014e2:	68fb      	ldr	r3, [r7, #12]
  80014e4:	f403 5380 	and.w	r3, r3, #4096	@ 0x1000
  80014e8:	2b00      	cmp	r3, #0
  80014ea:	d11b      	bne.n	8001524 <LAN8742_GetLinkState+0xb0>
-  {
-    if(((readval & LAN8742_BCR_SPEED_SELECT) == LAN8742_BCR_SPEED_SELECT) && ((readval & LAN8742_BCR_DUPLEX_MODE) == LAN8742_BCR_DUPLEX_MODE))
  80014ec:	68fb      	ldr	r3, [r7, #12]
  80014ee:	f403 5300 	and.w	r3, r3, #8192	@ 0x2000
  80014f2:	2b00      	cmp	r3, #0
@@ -3228,41 +3120,22 @@ int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
  80014f8:	f403 7380 	and.w	r3, r3, #256	@ 0x100
  80014fc:	2b00      	cmp	r3, #0
  80014fe:	d001      	beq.n	8001504 <LAN8742_GetLinkState+0x90>
-    {
-      return LAN8742_STATUS_100MBITS_FULLDUPLEX;
  8001500:	2302      	movs	r3, #2
  8001502:	e03a      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else if ((readval & LAN8742_BCR_SPEED_SELECT) == LAN8742_BCR_SPEED_SELECT)
  8001504:	68fb      	ldr	r3, [r7, #12]
  8001506:	f403 5300 	and.w	r3, r3, #8192	@ 0x2000
  800150a:	2b00      	cmp	r3, #0
  800150c:	d001      	beq.n	8001512 <LAN8742_GetLinkState+0x9e>
-    {
-      return LAN8742_STATUS_100MBITS_HALFDUPLEX;
  800150e:	2303      	movs	r3, #3
  8001510:	e033      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else if ((readval & LAN8742_BCR_DUPLEX_MODE) == LAN8742_BCR_DUPLEX_MODE)
  8001512:	68fb      	ldr	r3, [r7, #12]
  8001514:	f403 7380 	and.w	r3, r3, #256	@ 0x100
  8001518:	2b00      	cmp	r3, #0
  800151a:	d001      	beq.n	8001520 <LAN8742_GetLinkState+0xac>
-    {
-      return LAN8742_STATUS_10MBITS_FULLDUPLEX;
  800151c:	2304      	movs	r3, #4
  800151e:	e02c      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else
-    {
-      return LAN8742_STATUS_10MBITS_HALFDUPLEX;
  8001520:	2305      	movs	r3, #5
  8001522:	e02a      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-  }
-  else /* Auto Nego enabled */
-  {
-    if(pObj->IO.ReadReg(pObj->DevAddr, LAN8742_PHYSCSR, &readval) < 0)
  8001524:	687b      	ldr	r3, [r7, #4]
  8001526:	695b      	ldr	r3, [r3, #20]
  8001528:	687a      	ldr	r2, [r7, #4]
@@ -3273,61 +3146,33 @@ int32_t LAN8742_GetLinkState(lan8742_Object_t *pObj)
  8001534:	4603      	mov	r3, r0
  8001536:	2b00      	cmp	r3, #0
  8001538:	da02      	bge.n	8001540 <LAN8742_GetLinkState+0xcc>
-    {
-      return LAN8742_STATUS_READ_ERROR;
  800153a:	f06f 0304 	mvn.w	r3, #4
  800153e:	e01c      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-
-    /* Check if auto nego not done */
-    if((readval & LAN8742_PHYSCSR_AUTONEGO_DONE) == 0)
  8001540:	68fb      	ldr	r3, [r7, #12]
  8001542:	f403 5380 	and.w	r3, r3, #4096	@ 0x1000
  8001546:	2b00      	cmp	r3, #0
  8001548:	d101      	bne.n	800154e <LAN8742_GetLinkState+0xda>
-    {
-      return LAN8742_STATUS_AUTONEGO_NOTDONE;
  800154a:	2306      	movs	r3, #6
  800154c:	e015      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-
-    if((readval & LAN8742_PHYSCSR_HCDSPEEDMASK) == LAN8742_PHYSCSR_100BTX_FD)
  800154e:	68fb      	ldr	r3, [r7, #12]
  8001550:	f003 031c 	and.w	r3, r3, #28
  8001554:	2b18      	cmp	r3, #24
  8001556:	d101      	bne.n	800155c <LAN8742_GetLinkState+0xe8>
-    {
-      return LAN8742_STATUS_100MBITS_FULLDUPLEX;
  8001558:	2302      	movs	r3, #2
  800155a:	e00e      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else if ((readval & LAN8742_PHYSCSR_HCDSPEEDMASK) == LAN8742_PHYSCSR_100BTX_HD)
  800155c:	68fb      	ldr	r3, [r7, #12]
  800155e:	f003 031c 	and.w	r3, r3, #28
  8001562:	2b08      	cmp	r3, #8
  8001564:	d101      	bne.n	800156a <LAN8742_GetLinkState+0xf6>
-    {
-      return LAN8742_STATUS_100MBITS_HALFDUPLEX;
  8001566:	2303      	movs	r3, #3
  8001568:	e007      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else if ((readval & LAN8742_PHYSCSR_HCDSPEEDMASK) == LAN8742_PHYSCSR_10BT_FD)
  800156a:	68fb      	ldr	r3, [r7, #12]
  800156c:	f003 031c 	and.w	r3, r3, #28
  8001570:	2b14      	cmp	r3, #20
  8001572:	d101      	bne.n	8001578 <LAN8742_GetLinkState+0x104>
-    {
-      return LAN8742_STATUS_10MBITS_FULLDUPLEX;
  8001574:	2304      	movs	r3, #4
  8001576:	e000      	b.n	800157a <LAN8742_GetLinkState+0x106>
-    }
-    else
-    {
-      return LAN8742_STATUS_10MBITS_HALFDUPLEX;
  8001578:	2305      	movs	r3, #5
-    }
-  }
-}
  800157a:	4618      	mov	r0, r3
  800157c:	3710      	adds	r7, #16
  800157e:	46bd      	mov	sp, r7
@@ -43831,40 +43676,22 @@ pbuf_header_failed:
  8010834:	08015da4 	.word	0x08015da4
 
 08010838 <eMBFuncReadCoils>:
-
-#if MB_FUNC_READ_COILS_ENABLED > 0
-
-eMBException
-eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
-{
  8010838:	b580      	push	{r7, lr}
  801083a:	b086      	sub	sp, #24
  801083c:	af00      	add	r7, sp, #0
  801083e:	6078      	str	r0, [r7, #4]
  8010840:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usCoilCount;
-    UCHAR           ucNBytes;
-    UCHAR          *pucFrameCur;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010842:	2300      	movs	r3, #0
  8010844:	75bb      	strb	r3, [r7, #22]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
  8010846:	683b      	ldr	r3, [r7, #0]
  8010848:	881b      	ldrh	r3, [r3, #0]
  801084a:	2b05      	cmp	r3, #5
  801084c:	d16a      	bne.n	8010924 <eMBFuncReadCoils+0xec>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
  801084e:	687b      	ldr	r3, [r7, #4]
  8010850:	3301      	adds	r3, #1
  8010852:	781b      	ldrb	r3, [r3, #0]
  8010854:	021b      	lsls	r3, r3, #8
  8010856:	82bb      	strh	r3, [r7, #20]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
  8010858:	687b      	ldr	r3, [r7, #4]
  801085a:	3302      	adds	r3, #2
  801085c:	781b      	ldrb	r3, [r3, #0]
@@ -43872,18 +43699,14 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
  8010860:	8abb      	ldrh	r3, [r7, #20]
  8010862:	4313      	orrs	r3, r2
  8010864:	82bb      	strh	r3, [r7, #20]
-        usRegAddress++;
  8010866:	8abb      	ldrh	r3, [r7, #20]
  8010868:	3301      	adds	r3, #1
  801086a:	82bb      	strh	r3, [r7, #20]
-
-        usCoilCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF] << 8 );
  801086c:	687b      	ldr	r3, [r7, #4]
  801086e:	3303      	adds	r3, #3
  8010870:	781b      	ldrb	r3, [r3, #0]
  8010872:	021b      	lsls	r3, r3, #8
  8010874:	827b      	strh	r3, [r7, #18]
-        usCoilCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_COILCNT_OFF + 1] );
  8010876:	687b      	ldr	r3, [r7, #4]
  8010878:	3304      	adds	r3, #4
  801087a:	781b      	ldrb	r3, [r3, #0]
@@ -43891,52 +43714,32 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
  801087e:	8a7b      	ldrh	r3, [r7, #18]
  8010880:	4313      	orrs	r3, r2
  8010882:	827b      	strh	r3, [r7, #18]
-
-        /* Check if the number of registers to read is valid. If not
-         * return Modbus illegal data value exception. 
-         */
-        if( ( usCoilCount >= 1 ) &&
  8010884:	8a7b      	ldrh	r3, [r7, #18]
  8010886:	2b00      	cmp	r3, #0
  8010888:	d049      	beq.n	801091e <eMBFuncReadCoils+0xe6>
  801088a:	8a7b      	ldrh	r3, [r7, #18]
  801088c:	f5b3 6ffa 	cmp.w	r3, #2000	@ 0x7d0
  8010890:	d245      	bcs.n	801091e <eMBFuncReadCoils+0xe6>
-            ( usCoilCount < MB_PDU_FUNC_READ_COILCNT_MAX ) )
-        {
-            /* Set the current PDU data pointer to the beginning. */
-            pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
  8010892:	687b      	ldr	r3, [r7, #4]
  8010894:	60fb      	str	r3, [r7, #12]
-            *usLen = MB_PDU_FUNC_OFF;
  8010896:	683b      	ldr	r3, [r7, #0]
  8010898:	2200      	movs	r2, #0
  801089a:	801a      	strh	r2, [r3, #0]
-
-            /* First byte contains the function code. */
-            *pucFrameCur++ = MB_FUNC_READ_COILS;
  801089c:	68fb      	ldr	r3, [r7, #12]
  801089e:	1c5a      	adds	r2, r3, #1
  80108a0:	60fa      	str	r2, [r7, #12]
  80108a2:	2201      	movs	r2, #1
  80108a4:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  80108a6:	683b      	ldr	r3, [r7, #0]
  80108a8:	881b      	ldrh	r3, [r3, #0]
  80108aa:	3301      	adds	r3, #1
  80108ac:	b29a      	uxth	r2, r3
  80108ae:	683b      	ldr	r3, [r7, #0]
  80108b0:	801a      	strh	r2, [r3, #0]
-
-            /* Test if the quantity of coils is a multiple of 8. If not last
-             * byte is only partially field with unused coils set to zero. */
-            if( ( usCoilCount & 0x0007 ) != 0 )
  80108b2:	8a7b      	ldrh	r3, [r7, #18]
  80108b4:	f003 0307 	and.w	r3, r3, #7
  80108b8:	2b00      	cmp	r3, #0
  80108ba:	d006      	beq.n	80108ca <eMBFuncReadCoils+0x92>
-            {
-                ucNBytes = ( UCHAR )( usCoilCount / 8 + 1 );
  80108bc:	8a7b      	ldrh	r3, [r7, #18]
  80108be:	08db      	lsrs	r3, r3, #3
  80108c0:	b29b      	uxth	r3, r3
@@ -43944,31 +43747,21 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
  80108c4:	3301      	adds	r3, #1
  80108c6:	75fb      	strb	r3, [r7, #23]
  80108c8:	e003      	b.n	80108d2 <eMBFuncReadCoils+0x9a>
-            }
-            else
-            {
-                ucNBytes = ( UCHAR )( usCoilCount / 8 );
  80108ca:	8a7b      	ldrh	r3, [r7, #18]
  80108cc:	08db      	lsrs	r3, r3, #3
  80108ce:	b29b      	uxth	r3, r3
  80108d0:	75fb      	strb	r3, [r7, #23]
-            }
-            *pucFrameCur++ = ucNBytes;
  80108d2:	68fb      	ldr	r3, [r7, #12]
  80108d4:	1c5a      	adds	r2, r3, #1
  80108d6:	60fa      	str	r2, [r7, #12]
  80108d8:	7dfa      	ldrb	r2, [r7, #23]
  80108da:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  80108dc:	683b      	ldr	r3, [r7, #0]
  80108de:	881b      	ldrh	r3, [r3, #0]
  80108e0:	3301      	adds	r3, #1
  80108e2:	b29a      	uxth	r2, r3
  80108e4:	683b      	ldr	r3, [r7, #0]
  80108e6:	801a      	strh	r2, [r3, #0]
-
-            eRegStatus =
-                eMBRegCoilsCB( pucFrameCur, usRegAddress, usCoilCount,
  80108e8:	8a7a      	ldrh	r2, [r7, #18]
  80108ea:	8ab9      	ldrh	r1, [r7, #20]
  80108ec:	2300      	movs	r3, #0
@@ -43976,28 +43769,15 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
  80108f0:	f000 fe14 	bl	801151c <eMBRegCoilsCB>
  80108f4:	4603      	mov	r3, r0
  80108f6:	72fb      	strb	r3, [r7, #11]
-                               MB_REG_READ );
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  80108f8:	7afb      	ldrb	r3, [r7, #11]
  80108fa:	2b00      	cmp	r3, #0
  80108fc:	d006      	beq.n	801090c <eMBFuncReadCoils+0xd4>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  80108fe:	7afb      	ldrb	r3, [r7, #11]
  8010900:	4618      	mov	r0, r3
  8010902:	f000 fb77 	bl	8010ff4 <prveMBError2Exception>
  8010906:	4603      	mov	r3, r0
  8010908:	75bb      	strb	r3, [r7, #22]
-            if( eRegStatus != MB_ENOERR )
  801090a:	e00d      	b.n	8010928 <eMBFuncReadCoils+0xf0>
-            else
-            {
-                /* The response contains the function code, the starting address
-                 * and the quantity of registers. We reuse the old values in the 
-                 * buffer because they are still valid. */
-                *usLen += ucNBytes;;
  801090c:	683b      	ldr	r3, [r7, #0]
  801090e:	881a      	ldrh	r2, [r3, #0]
  8010910:	7dfb      	ldrb	r3, [r7, #23]
@@ -44006,65 +43786,35 @@ eMBFuncReadCoils( UCHAR * pucFrame, USHORT * usLen )
  8010916:	b29a      	uxth	r2, r3
  8010918:	683b      	ldr	r3, [r7, #0]
  801091a:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  801091c:	e004      	b.n	8010928 <eMBFuncReadCoils+0xf0>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  801091e:	2303      	movs	r3, #3
  8010920:	75bb      	strb	r3, [r7, #22]
  8010922:	e001      	b.n	8010928 <eMBFuncReadCoils+0xf0>
-    }
-    else
-    {
-        /* Can't be a valid read coil register request because the length
-         * is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010924:	2303      	movs	r3, #3
  8010926:	75bb      	strb	r3, [r7, #22]
-    }
-    return eStatus;
  8010928:	7dbb      	ldrb	r3, [r7, #22]
-}
  801092a:	4618      	mov	r0, r3
  801092c:	3718      	adds	r7, #24
  801092e:	46bd      	mov	sp, r7
  8010930:	bd80      	pop	{r7, pc}
 
 08010932 <eMBFuncWriteCoil>:
-
-#if MB_FUNC_WRITE_COIL_ENABLED > 0
-eMBException
-eMBFuncWriteCoil( UCHAR * pucFrame, USHORT * usLen )
-{
  8010932:	b580      	push	{r7, lr}
  8010934:	b084      	sub	sp, #16
  8010936:	af00      	add	r7, sp, #0
  8010938:	6078      	str	r0, [r7, #4]
  801093a:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    UCHAR           ucBuf[2];
-
-    eMBException    eStatus = MB_EX_NONE;
  801093c:	2300      	movs	r3, #0
  801093e:	73fb      	strb	r3, [r7, #15]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
  8010940:	683b      	ldr	r3, [r7, #0]
  8010942:	881b      	ldrh	r3, [r3, #0]
  8010944:	2b05      	cmp	r3, #5
  8010946:	d13f      	bne.n	80109c8 <eMBFuncWriteCoil+0x96>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8 );
  8010948:	687b      	ldr	r3, [r7, #4]
  801094a:	3301      	adds	r3, #1
  801094c:	781b      	ldrb	r3, [r3, #0]
  801094e:	021b      	lsls	r3, r3, #8
  8010950:	81bb      	strh	r3, [r7, #12]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
  8010952:	687b      	ldr	r3, [r7, #4]
  8010954:	3302      	adds	r3, #2
  8010956:	781b      	ldrb	r3, [r3, #0]
@@ -44072,55 +43822,36 @@ eMBFuncWriteCoil( UCHAR * pucFrame, USHORT * usLen )
  801095a:	89bb      	ldrh	r3, [r7, #12]
  801095c:	4313      	orrs	r3, r2
  801095e:	81bb      	strh	r3, [r7, #12]
-        usRegAddress++;
  8010960:	89bb      	ldrh	r3, [r7, #12]
  8010962:	3301      	adds	r3, #1
  8010964:	81bb      	strh	r3, [r7, #12]
-
-        if( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF + 1] == 0x00 ) &&
  8010966:	687b      	ldr	r3, [r7, #4]
  8010968:	3304      	adds	r3, #4
  801096a:	781b      	ldrb	r3, [r3, #0]
  801096c:	2b00      	cmp	r3, #0
  801096e:	d128      	bne.n	80109c2 <eMBFuncWriteCoil+0x90>
-            ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
  8010970:	687b      	ldr	r3, [r7, #4]
  8010972:	3303      	adds	r3, #3
  8010974:	781b      	ldrb	r3, [r3, #0]
-        if( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF + 1] == 0x00 ) &&
  8010976:	2bff      	cmp	r3, #255	@ 0xff
  8010978:	d004      	beq.n	8010984 <eMBFuncWriteCoil+0x52>
-              ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0x00 ) ) )
  801097a:	687b      	ldr	r3, [r7, #4]
  801097c:	3303      	adds	r3, #3
  801097e:	781b      	ldrb	r3, [r3, #0]
-            ( ( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF ) ||
  8010980:	2b00      	cmp	r3, #0
  8010982:	d11e      	bne.n	80109c2 <eMBFuncWriteCoil+0x90>
-        {
-            ucBuf[1] = 0;
  8010984:	2300      	movs	r3, #0
  8010986:	727b      	strb	r3, [r7, #9]
-            if( pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF] == 0xFF )
  8010988:	687b      	ldr	r3, [r7, #4]
  801098a:	3303      	adds	r3, #3
  801098c:	781b      	ldrb	r3, [r3, #0]
  801098e:	2bff      	cmp	r3, #255	@ 0xff
  8010990:	d102      	bne.n	8010998 <eMBFuncWriteCoil+0x66>
-            {
-                ucBuf[0] = 1;
  8010992:	2301      	movs	r3, #1
  8010994:	723b      	strb	r3, [r7, #8]
  8010996:	e001      	b.n	801099c <eMBFuncWriteCoil+0x6a>
-            }
-            else
-            {
-                ucBuf[0] = 0;
  8010998:	2300      	movs	r3, #0
  801099a:	723b      	strb	r3, [r7, #8]
-            }
-            eRegStatus =
-                eMBRegCoilsCB( &ucBuf[0], usRegAddress, 1, MB_REG_WRITE );
  801099c:	89b9      	ldrh	r1, [r7, #12]
  801099e:	f107 0008 	add.w	r0, r7, #8
  80109a2:	2301      	movs	r3, #1
@@ -44128,81 +43859,43 @@ eMBFuncWriteCoil( UCHAR * pucFrame, USHORT * usLen )
  80109a6:	f000 fdb9 	bl	801151c <eMBRegCoilsCB>
  80109aa:	4603      	mov	r3, r0
  80109ac:	72fb      	strb	r3, [r7, #11]
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  80109ae:	7afb      	ldrb	r3, [r7, #11]
  80109b0:	2b00      	cmp	r3, #0
  80109b2:	d00b      	beq.n	80109cc <eMBFuncWriteCoil+0x9a>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  80109b4:	7afb      	ldrb	r3, [r7, #11]
  80109b6:	4618      	mov	r0, r3
  80109b8:	f000 fb1c 	bl	8010ff4 <prveMBError2Exception>
  80109bc:	4603      	mov	r3, r0
  80109be:	73fb      	strb	r3, [r7, #15]
-            if( eRegStatus != MB_ENOERR )
  80109c0:	e004      	b.n	80109cc <eMBFuncWriteCoil+0x9a>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  80109c2:	2303      	movs	r3, #3
  80109c4:	73fb      	strb	r3, [r7, #15]
  80109c6:	e001      	b.n	80109cc <eMBFuncWriteCoil+0x9a>
-    }
-    else
-    {
-        /* Can't be a valid write coil register request because the length
-         * is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  80109c8:	2303      	movs	r3, #3
  80109ca:	73fb      	strb	r3, [r7, #15]
-    }
-    return eStatus;
  80109cc:	7bfb      	ldrb	r3, [r7, #15]
-}
  80109ce:	4618      	mov	r0, r3
  80109d0:	3710      	adds	r7, #16
  80109d2:	46bd      	mov	sp, r7
  80109d4:	bd80      	pop	{r7, pc}
 
 080109d6 <eMBFuncWriteMultipleCoils>:
-#endif
-
-#if MB_FUNC_WRITE_MULTIPLE_COILS_ENABLED > 0
-eMBException
-eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
-{
  80109d6:	b580      	push	{r7, lr}
  80109d8:	b084      	sub	sp, #16
  80109da:	af00      	add	r7, sp, #0
  80109dc:	6078      	str	r0, [r7, #4]
  80109de:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usCoilCnt;
-    UCHAR           ucByteCount;
-    UCHAR           ucByteCountVerify;
-
-    eMBException    eStatus = MB_EX_NONE;
  80109e0:	2300      	movs	r3, #0
  80109e2:	73bb      	strb	r3, [r7, #14]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen > ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
  80109e4:	683b      	ldr	r3, [r7, #0]
  80109e6:	881b      	ldrh	r3, [r3, #0]
  80109e8:	2b05      	cmp	r3, #5
  80109ea:	d952      	bls.n	8010a92 <eMBFuncWriteMultipleCoils+0xbc>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF] << 8 );
  80109ec:	687b      	ldr	r3, [r7, #4]
  80109ee:	3301      	adds	r3, #1
  80109f0:	781b      	ldrb	r3, [r3, #0]
  80109f2:	021b      	lsls	r3, r3, #8
  80109f4:	81bb      	strh	r3, [r7, #12]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF + 1] );
  80109f6:	687b      	ldr	r3, [r7, #4]
  80109f8:	3302      	adds	r3, #2
  80109fa:	781b      	ldrb	r3, [r3, #0]
@@ -44210,18 +43903,14 @@ eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
  80109fe:	89bb      	ldrh	r3, [r7, #12]
  8010a00:	4313      	orrs	r3, r2
  8010a02:	81bb      	strh	r3, [r7, #12]
-        usRegAddress++;
  8010a04:	89bb      	ldrh	r3, [r7, #12]
  8010a06:	3301      	adds	r3, #1
  8010a08:	81bb      	strh	r3, [r7, #12]
-
-        usCoilCnt = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_COILCNT_OFF] << 8 );
  8010a0a:	687b      	ldr	r3, [r7, #4]
  8010a0c:	3303      	adds	r3, #3
  8010a0e:	781b      	ldrb	r3, [r3, #0]
  8010a10:	021b      	lsls	r3, r3, #8
  8010a12:	817b      	strh	r3, [r7, #10]
-        usCoilCnt |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_COILCNT_OFF + 1] );
  8010a14:	687b      	ldr	r3, [r7, #4]
  8010a16:	3304      	adds	r3, #4
  8010a18:	781b      	ldrb	r3, [r3, #0]
@@ -44229,20 +43918,13 @@ eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
  8010a1c:	897b      	ldrh	r3, [r7, #10]
  8010a1e:	4313      	orrs	r3, r2
  8010a20:	817b      	strh	r3, [r7, #10]
-
-        ucByteCount = pucFrame[MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF];
  8010a22:	687b      	ldr	r3, [r7, #4]
  8010a24:	795b      	ldrb	r3, [r3, #5]
  8010a26:	727b      	strb	r3, [r7, #9]
-
-        /* Compute the number of expected bytes in the request. */
-        if( ( usCoilCnt & 0x0007 ) != 0 )
  8010a28:	897b      	ldrh	r3, [r7, #10]
  8010a2a:	f003 0307 	and.w	r3, r3, #7
  8010a2e:	2b00      	cmp	r3, #0
  8010a30:	d006      	beq.n	8010a40 <eMBFuncWriteMultipleCoils+0x6a>
-        {
-            ucByteCountVerify = ( UCHAR )( usCoilCnt / 8 + 1 );
  8010a32:	897b      	ldrh	r3, [r7, #10]
  8010a34:	08db      	lsrs	r3, r3, #3
  8010a36:	b29b      	uxth	r3, r3
@@ -44250,32 +43932,20 @@ eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
  8010a3a:	3301      	adds	r3, #1
  8010a3c:	73fb      	strb	r3, [r7, #15]
  8010a3e:	e003      	b.n	8010a48 <eMBFuncWriteMultipleCoils+0x72>
-        }
-        else
-        {
-            ucByteCountVerify = ( UCHAR )( usCoilCnt / 8 );
  8010a40:	897b      	ldrh	r3, [r7, #10]
  8010a42:	08db      	lsrs	r3, r3, #3
  8010a44:	b29b      	uxth	r3, r3
  8010a46:	73fb      	strb	r3, [r7, #15]
-        }
-
-        if( ( usCoilCnt >= 1 ) &&
  8010a48:	897b      	ldrh	r3, [r7, #10]
  8010a4a:	2b00      	cmp	r3, #0
  8010a4c:	d01e      	beq.n	8010a8c <eMBFuncWriteMultipleCoils+0xb6>
  8010a4e:	897b      	ldrh	r3, [r7, #10]
  8010a50:	f5b3 6ff6 	cmp.w	r3, #1968	@ 0x7b0
  8010a54:	d81a      	bhi.n	8010a8c <eMBFuncWriteMultipleCoils+0xb6>
-            ( usCoilCnt <= MB_PDU_FUNC_WRITE_MUL_COILCNT_MAX ) &&
  8010a56:	7bfa      	ldrb	r2, [r7, #15]
  8010a58:	7a7b      	ldrb	r3, [r7, #9]
  8010a5a:	429a      	cmp	r2, r3
  8010a5c:	d116      	bne.n	8010a8c <eMBFuncWriteMultipleCoils+0xb6>
-            ( ucByteCountVerify == ucByteCount ) )
-        {
-            eRegStatus =
-                eMBRegCoilsCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
  8010a5e:	687b      	ldr	r3, [r7, #4]
  8010a60:	1d98      	adds	r0, r3, #6
  8010a62:	897a      	ldrh	r2, [r7, #10]
@@ -44284,93 +43954,47 @@ eMBFuncWriteMultipleCoils( UCHAR * pucFrame, USHORT * usLen )
  8010a68:	f000 fd58 	bl	801151c <eMBRegCoilsCB>
  8010a6c:	4603      	mov	r3, r0
  8010a6e:	723b      	strb	r3, [r7, #8]
-                               usRegAddress, usCoilCnt, MB_REG_WRITE );
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  8010a70:	7a3b      	ldrb	r3, [r7, #8]
  8010a72:	2b00      	cmp	r3, #0
  8010a74:	d006      	beq.n	8010a84 <eMBFuncWriteMultipleCoils+0xae>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010a76:	7a3b      	ldrb	r3, [r7, #8]
  8010a78:	4618      	mov	r0, r3
  8010a7a:	f000 fabb 	bl	8010ff4 <prveMBError2Exception>
  8010a7e:	4603      	mov	r3, r0
  8010a80:	73bb      	strb	r3, [r7, #14]
-            if( eRegStatus != MB_ENOERR )
  8010a82:	e008      	b.n	8010a96 <eMBFuncWriteMultipleCoils+0xc0>
-            else
-            {
-                /* The response contains the function code, the starting address
-                 * and the quantity of registers. We reuse the old values in the 
-                 * buffer because they are still valid. */
-                *usLen = MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF;
  8010a84:	683b      	ldr	r3, [r7, #0]
  8010a86:	2205      	movs	r2, #5
  8010a88:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  8010a8a:	e004      	b.n	8010a96 <eMBFuncWriteMultipleCoils+0xc0>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010a8c:	2303      	movs	r3, #3
  8010a8e:	73bb      	strb	r3, [r7, #14]
  8010a90:	e001      	b.n	8010a96 <eMBFuncWriteMultipleCoils+0xc0>
-    }
-    else
-    {
-        /* Can't be a valid write coil register request because the length
-         * is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010a92:	2303      	movs	r3, #3
  8010a94:	73bb      	strb	r3, [r7, #14]
-    }
-    return eStatus;
  8010a96:	7bbb      	ldrb	r3, [r7, #14]
-}
  8010a98:	4618      	mov	r0, r3
  8010a9a:	3710      	adds	r7, #16
  8010a9c:	46bd      	mov	sp, r7
  8010a9e:	bd80      	pop	{r7, pc}
 
 08010aa0 <eMBFuncReadDiscreteInputs>:
-
-#if MB_FUNC_READ_COILS_ENABLED > 0
-
-eMBException
-eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
-{
  8010aa0:	b580      	push	{r7, lr}
  8010aa2:	b086      	sub	sp, #24
  8010aa4:	af00      	add	r7, sp, #0
  8010aa6:	6078      	str	r0, [r7, #4]
  8010aa8:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usDiscreteCnt;
-    UCHAR           ucNBytes;
-    UCHAR          *pucFrameCur;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010aaa:	2300      	movs	r3, #0
  8010aac:	75bb      	strb	r3, [r7, #22]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
  8010aae:	683b      	ldr	r3, [r7, #0]
  8010ab0:	881b      	ldrh	r3, [r3, #0]
  8010ab2:	2b05      	cmp	r3, #5
  8010ab4:	d16a      	bne.n	8010b8c <eMBFuncReadDiscreteInputs+0xec>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
  8010ab6:	687b      	ldr	r3, [r7, #4]
  8010ab8:	3301      	adds	r3, #1
  8010aba:	781b      	ldrb	r3, [r3, #0]
  8010abc:	021b      	lsls	r3, r3, #8
  8010abe:	82bb      	strh	r3, [r7, #20]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
  8010ac0:	687b      	ldr	r3, [r7, #4]
  8010ac2:	3302      	adds	r3, #2
  8010ac4:	781b      	ldrb	r3, [r3, #0]
@@ -44378,18 +44002,14 @@ eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
  8010ac8:	8abb      	ldrh	r3, [r7, #20]
  8010aca:	4313      	orrs	r3, r2
  8010acc:	82bb      	strh	r3, [r7, #20]
-        usRegAddress++;
  8010ace:	8abb      	ldrh	r3, [r7, #20]
  8010ad0:	3301      	adds	r3, #1
  8010ad2:	82bb      	strh	r3, [r7, #20]
-
-        usDiscreteCnt = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_DISCCNT_OFF] << 8 );
  8010ad4:	687b      	ldr	r3, [r7, #4]
  8010ad6:	3303      	adds	r3, #3
  8010ad8:	781b      	ldrb	r3, [r3, #0]
  8010ada:	021b      	lsls	r3, r3, #8
  8010adc:	827b      	strh	r3, [r7, #18]
-        usDiscreteCnt |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_DISCCNT_OFF + 1] );
  8010ade:	687b      	ldr	r3, [r7, #4]
  8010ae0:	3304      	adds	r3, #4
  8010ae2:	781b      	ldrb	r3, [r3, #0]
@@ -44397,52 +44017,32 @@ eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
  8010ae6:	8a7b      	ldrh	r3, [r7, #18]
  8010ae8:	4313      	orrs	r3, r2
  8010aea:	827b      	strh	r3, [r7, #18]
-
-        /* Check if the number of registers to read is valid. If not
-         * return Modbus illegal data value exception. 
-         */
-        if( ( usDiscreteCnt >= 1 ) &&
  8010aec:	8a7b      	ldrh	r3, [r7, #18]
  8010aee:	2b00      	cmp	r3, #0
  8010af0:	d049      	beq.n	8010b86 <eMBFuncReadDiscreteInputs+0xe6>
  8010af2:	8a7b      	ldrh	r3, [r7, #18]
  8010af4:	f5b3 6ffa 	cmp.w	r3, #2000	@ 0x7d0
  8010af8:	d245      	bcs.n	8010b86 <eMBFuncReadDiscreteInputs+0xe6>
-            ( usDiscreteCnt < MB_PDU_FUNC_READ_DISCCNT_MAX ) )
-        {
-            /* Set the current PDU data pointer to the beginning. */
-            pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
  8010afa:	687b      	ldr	r3, [r7, #4]
  8010afc:	60fb      	str	r3, [r7, #12]
-            *usLen = MB_PDU_FUNC_OFF;
  8010afe:	683b      	ldr	r3, [r7, #0]
  8010b00:	2200      	movs	r2, #0
  8010b02:	801a      	strh	r2, [r3, #0]
-
-            /* First byte contains the function code. */
-            *pucFrameCur++ = MB_FUNC_READ_DISCRETE_INPUTS;
  8010b04:	68fb      	ldr	r3, [r7, #12]
  8010b06:	1c5a      	adds	r2, r3, #1
  8010b08:	60fa      	str	r2, [r7, #12]
  8010b0a:	2202      	movs	r2, #2
  8010b0c:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010b0e:	683b      	ldr	r3, [r7, #0]
  8010b10:	881b      	ldrh	r3, [r3, #0]
  8010b12:	3301      	adds	r3, #1
  8010b14:	b29a      	uxth	r2, r3
  8010b16:	683b      	ldr	r3, [r7, #0]
  8010b18:	801a      	strh	r2, [r3, #0]
-
-            /* Test if the quantity of coils is a multiple of 8. If not last
-             * byte is only partially field with unused coils set to zero. */
-            if( ( usDiscreteCnt & 0x0007 ) != 0 )
  8010b1a:	8a7b      	ldrh	r3, [r7, #18]
  8010b1c:	f003 0307 	and.w	r3, r3, #7
  8010b20:	2b00      	cmp	r3, #0
  8010b22:	d006      	beq.n	8010b32 <eMBFuncReadDiscreteInputs+0x92>
-            {
-                ucNBytes = ( UCHAR ) ( usDiscreteCnt / 8 + 1 );
  8010b24:	8a7b      	ldrh	r3, [r7, #18]
  8010b26:	08db      	lsrs	r3, r3, #3
  8010b28:	b29b      	uxth	r3, r3
@@ -44450,31 +44050,21 @@ eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
  8010b2c:	3301      	adds	r3, #1
  8010b2e:	75fb      	strb	r3, [r7, #23]
  8010b30:	e003      	b.n	8010b3a <eMBFuncReadDiscreteInputs+0x9a>
-            }
-            else
-            {
-                ucNBytes = ( UCHAR ) ( usDiscreteCnt / 8 );
  8010b32:	8a7b      	ldrh	r3, [r7, #18]
  8010b34:	08db      	lsrs	r3, r3, #3
  8010b36:	b29b      	uxth	r3, r3
  8010b38:	75fb      	strb	r3, [r7, #23]
-            }
-            *pucFrameCur++ = ucNBytes;
  8010b3a:	68fb      	ldr	r3, [r7, #12]
  8010b3c:	1c5a      	adds	r2, r3, #1
  8010b3e:	60fa      	str	r2, [r7, #12]
  8010b40:	7dfa      	ldrb	r2, [r7, #23]
  8010b42:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010b44:	683b      	ldr	r3, [r7, #0]
  8010b46:	881b      	ldrh	r3, [r3, #0]
  8010b48:	3301      	adds	r3, #1
  8010b4a:	b29a      	uxth	r2, r3
  8010b4c:	683b      	ldr	r3, [r7, #0]
  8010b4e:	801a      	strh	r2, [r3, #0]
-
-            eRegStatus =
-                eMBRegDiscreteCB( pucFrameCur, usRegAddress, usDiscreteCnt );
  8010b50:	8a7a      	ldrh	r2, [r7, #18]
  8010b52:	8abb      	ldrh	r3, [r7, #20]
  8010b54:	4619      	mov	r1, r3
@@ -44482,27 +44072,15 @@ eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
  8010b58:	f000 fdf4 	bl	8011744 <eMBRegDiscreteCB>
  8010b5c:	4603      	mov	r3, r0
  8010b5e:	72fb      	strb	r3, [r7, #11]
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  8010b60:	7afb      	ldrb	r3, [r7, #11]
  8010b62:	2b00      	cmp	r3, #0
  8010b64:	d006      	beq.n	8010b74 <eMBFuncReadDiscreteInputs+0xd4>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010b66:	7afb      	ldrb	r3, [r7, #11]
  8010b68:	4618      	mov	r0, r3
  8010b6a:	f000 fa43 	bl	8010ff4 <prveMBError2Exception>
  8010b6e:	4603      	mov	r3, r0
  8010b70:	75bb      	strb	r3, [r7, #22]
-            if( eRegStatus != MB_ENOERR )
  8010b72:	e00d      	b.n	8010b90 <eMBFuncReadDiscreteInputs+0xf0>
-            else
-            {
-                /* The response contains the function code, the starting address
-                 * and the quantity of registers. We reuse the old values in the 
-                 * buffer because they are still valid. */
-                *usLen += ucNBytes;;
  8010b74:	683b      	ldr	r3, [r7, #0]
  8010b76:	881a      	ldrh	r2, [r3, #0]
  8010b78:	7dfb      	ldrb	r3, [r7, #23]
@@ -44511,64 +44089,35 @@ eMBFuncReadDiscreteInputs( UCHAR * pucFrame, USHORT * usLen )
  8010b7e:	b29a      	uxth	r2, r3
  8010b80:	683b      	ldr	r3, [r7, #0]
  8010b82:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  8010b84:	e004      	b.n	8010b90 <eMBFuncReadDiscreteInputs+0xf0>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010b86:	2303      	movs	r3, #3
  8010b88:	75bb      	strb	r3, [r7, #22]
  8010b8a:	e001      	b.n	8010b90 <eMBFuncReadDiscreteInputs+0xf0>
-    }
-    else
-    {
-        /* Can't be a valid read coil register request because the length
-         * is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010b8c:	2303      	movs	r3, #3
  8010b8e:	75bb      	strb	r3, [r7, #22]
-    }
-    return eStatus;
  8010b90:	7dbb      	ldrb	r3, [r7, #22]
-}
  8010b92:	4618      	mov	r0, r3
  8010b94:	3718      	adds	r7, #24
  8010b96:	46bd      	mov	sp, r7
  8010b98:	bd80      	pop	{r7, pc}
 
 08010b9a <eMBFuncWriteHoldingRegister>:
-
-#if MB_FUNC_WRITE_HOLDING_ENABLED > 0
-
-eMBException
-eMBFuncWriteHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
-{
  8010b9a:	b580      	push	{r7, lr}
  8010b9c:	b084      	sub	sp, #16
  8010b9e:	af00      	add	r7, sp, #0
  8010ba0:	6078      	str	r0, [r7, #4]
  8010ba2:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    eMBException    eStatus = MB_EX_NONE;
  8010ba4:	2300      	movs	r3, #0
  8010ba6:	73fb      	strb	r3, [r7, #15]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN ) )
  8010ba8:	683b      	ldr	r3, [r7, #0]
  8010baa:	881b      	ldrh	r3, [r3, #0]
  8010bac:	2b05      	cmp	r3, #5
  8010bae:	d121      	bne.n	8010bf4 <eMBFuncWriteHoldingRegister+0x5a>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8 );
  8010bb0:	687b      	ldr	r3, [r7, #4]
  8010bb2:	3301      	adds	r3, #1
  8010bb4:	781b      	ldrb	r3, [r3, #0]
  8010bb6:	021b      	lsls	r3, r3, #8
  8010bb8:	81bb      	strh	r3, [r7, #12]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1] );
  8010bba:	687b      	ldr	r3, [r7, #4]
  8010bbc:	3302      	adds	r3, #2
  8010bbe:	781b      	ldrb	r3, [r3, #0]
@@ -44576,13 +44125,9 @@ eMBFuncWriteHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010bc2:	89bb      	ldrh	r3, [r7, #12]
  8010bc4:	4313      	orrs	r3, r2
  8010bc6:	81bb      	strh	r3, [r7, #12]
-        usRegAddress++;
  8010bc8:	89bb      	ldrh	r3, [r7, #12]
  8010bca:	3301      	adds	r3, #1
  8010bcc:	81bb      	strh	r3, [r7, #12]
-
-        /* Make callback to update the value. */
-        eRegStatus = eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_WRITE_VALUE_OFF],
  8010bce:	687b      	ldr	r3, [r7, #4]
  8010bd0:	1cd8      	adds	r0, r3, #3
  8010bd2:	89b9      	ldrh	r1, [r7, #12]
@@ -44591,72 +44136,40 @@ eMBFuncWriteHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010bd8:	f000 fbfc 	bl	80113d4 <eMBRegHoldingCB>
  8010bdc:	4603      	mov	r3, r0
  8010bde:	72fb      	strb	r3, [r7, #11]
-                                      usRegAddress, 1, MB_REG_WRITE );
-
-        /* If an error occured convert it into a Modbus exception. */
-        if( eRegStatus != MB_ENOERR )
  8010be0:	7afb      	ldrb	r3, [r7, #11]
  8010be2:	2b00      	cmp	r3, #0
  8010be4:	d008      	beq.n	8010bf8 <eMBFuncWriteHoldingRegister+0x5e>
-        {
-            eStatus = prveMBError2Exception( eRegStatus );
  8010be6:	7afb      	ldrb	r3, [r7, #11]
  8010be8:	4618      	mov	r0, r3
  8010bea:	f000 fa03 	bl	8010ff4 <prveMBError2Exception>
  8010bee:	4603      	mov	r3, r0
  8010bf0:	73fb      	strb	r3, [r7, #15]
  8010bf2:	e001      	b.n	8010bf8 <eMBFuncWriteHoldingRegister+0x5e>
-        }
-    }
-    else
-    {
-        /* Can't be a valid request because the length is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010bf4:	2303      	movs	r3, #3
  8010bf6:	73fb      	strb	r3, [r7, #15]
-    }
-    return eStatus;
  8010bf8:	7bfb      	ldrb	r3, [r7, #15]
-}
  8010bfa:	4618      	mov	r0, r3
  8010bfc:	3710      	adds	r7, #16
  8010bfe:	46bd      	mov	sp, r7
  8010c00:	bd80      	pop	{r7, pc}
 
 08010c02 <eMBFuncWriteMultipleHoldingRegister>:
-#endif
-
-#if MB_FUNC_WRITE_MULTIPLE_HOLDING_ENABLED > 0
-eMBException
-eMBFuncWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
-{
  8010c02:	b580      	push	{r7, lr}
  8010c04:	b084      	sub	sp, #16
  8010c06:	af00      	add	r7, sp, #0
  8010c08:	6078      	str	r0, [r7, #4]
  8010c0a:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usRegCount;
-    UCHAR           ucRegByteCount;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010c0c:	2300      	movs	r3, #0
  8010c0e:	73fb      	strb	r3, [r7, #15]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen >= ( MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + MB_PDU_SIZE_MIN ) )
  8010c10:	683b      	ldr	r3, [r7, #0]
  8010c12:	881b      	ldrh	r3, [r3, #0]
  8010c14:	2b05      	cmp	r3, #5
  8010c16:	d944      	bls.n	8010ca2 <eMBFuncWriteMultipleHoldingRegister+0xa0>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF] << 8 );
  8010c18:	687b      	ldr	r3, [r7, #4]
  8010c1a:	3301      	adds	r3, #1
  8010c1c:	781b      	ldrb	r3, [r3, #0]
  8010c1e:	021b      	lsls	r3, r3, #8
  8010c20:	81bb      	strh	r3, [r7, #12]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF + 1] );
  8010c22:	687b      	ldr	r3, [r7, #4]
  8010c24:	3302      	adds	r3, #2
  8010c26:	781b      	ldrb	r3, [r3, #0]
@@ -44664,18 +44177,14 @@ eMBFuncWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010c2a:	89bb      	ldrh	r3, [r7, #12]
  8010c2c:	4313      	orrs	r3, r2
  8010c2e:	81bb      	strh	r3, [r7, #12]
-        usRegAddress++;
  8010c30:	89bb      	ldrh	r3, [r7, #12]
  8010c32:	3301      	adds	r3, #1
  8010c34:	81bb      	strh	r3, [r7, #12]
-
-        usRegCount = ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_REGCNT_OFF] << 8 );
  8010c36:	687b      	ldr	r3, [r7, #4]
  8010c38:	3303      	adds	r3, #3
  8010c3a:	781b      	ldrb	r3, [r3, #0]
  8010c3c:	021b      	lsls	r3, r3, #8
  8010c3e:	817b      	strh	r3, [r7, #10]
-        usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_WRITE_MUL_REGCNT_OFF + 1] );
  8010c40:	687b      	ldr	r3, [r7, #4]
  8010c42:	3304      	adds	r3, #4
  8010c44:	781b      	ldrb	r3, [r3, #0]
@@ -44683,33 +44192,22 @@ eMBFuncWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010c48:	897b      	ldrh	r3, [r7, #10]
  8010c4a:	4313      	orrs	r3, r2
  8010c4c:	817b      	strh	r3, [r7, #10]
-
-        ucRegByteCount = pucFrame[MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF];
  8010c4e:	687b      	ldr	r3, [r7, #4]
  8010c50:	795b      	ldrb	r3, [r3, #5]
  8010c52:	727b      	strb	r3, [r7, #9]
-
-        if( ( usRegCount >= 1 ) &&
  8010c54:	897b      	ldrh	r3, [r7, #10]
  8010c56:	2b00      	cmp	r3, #0
  8010c58:	d020      	beq.n	8010c9c <eMBFuncWriteMultipleHoldingRegister+0x9a>
  8010c5a:	897b      	ldrh	r3, [r7, #10]
  8010c5c:	2b78      	cmp	r3, #120	@ 0x78
  8010c5e:	d81d      	bhi.n	8010c9c <eMBFuncWriteMultipleHoldingRegister+0x9a>
-            ( usRegCount <= MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX ) &&
-            ( ucRegByteCount == ( UCHAR ) ( 2 * usRegCount ) ) )
  8010c60:	897b      	ldrh	r3, [r7, #10]
  8010c62:	b2db      	uxtb	r3, r3
  8010c64:	005b      	lsls	r3, r3, #1
  8010c66:	b2db      	uxtb	r3, r3
-            ( usRegCount <= MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX ) &&
  8010c68:	7a7a      	ldrb	r2, [r7, #9]
  8010c6a:	429a      	cmp	r2, r3
  8010c6c:	d116      	bne.n	8010c9c <eMBFuncWriteMultipleHoldingRegister+0x9a>
-        {
-            /* Make callback to update the register values. */
-            eRegStatus =
-                eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_WRITE_MUL_VALUES_OFF],
  8010c6e:	687b      	ldr	r3, [r7, #4]
  8010c70:	1d98      	adds	r0, r3, #6
  8010c72:	897a      	ldrh	r2, [r7, #10]
@@ -44718,92 +44216,47 @@ eMBFuncWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010c78:	f000 fbac 	bl	80113d4 <eMBRegHoldingCB>
  8010c7c:	4603      	mov	r3, r0
  8010c7e:	723b      	strb	r3, [r7, #8]
-                                 usRegAddress, usRegCount, MB_REG_WRITE );
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  8010c80:	7a3b      	ldrb	r3, [r7, #8]
  8010c82:	2b00      	cmp	r3, #0
  8010c84:	d006      	beq.n	8010c94 <eMBFuncWriteMultipleHoldingRegister+0x92>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010c86:	7a3b      	ldrb	r3, [r7, #8]
  8010c88:	4618      	mov	r0, r3
  8010c8a:	f000 f9b3 	bl	8010ff4 <prveMBError2Exception>
  8010c8e:	4603      	mov	r3, r0
  8010c90:	73fb      	strb	r3, [r7, #15]
-            if( eRegStatus != MB_ENOERR )
  8010c92:	e008      	b.n	8010ca6 <eMBFuncWriteMultipleHoldingRegister+0xa4>
-            {
-                /* The response contains the function code, the starting
-                 * address and the quantity of registers. We reuse the
-                 * old values in the buffer because they are still valid.
-                 */
-                *usLen = MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF;
  8010c94:	683b      	ldr	r3, [r7, #0]
  8010c96:	2205      	movs	r2, #5
  8010c98:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  8010c9a:	e004      	b.n	8010ca6 <eMBFuncWriteMultipleHoldingRegister+0xa4>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010c9c:	2303      	movs	r3, #3
  8010c9e:	73fb      	strb	r3, [r7, #15]
  8010ca0:	e001      	b.n	8010ca6 <eMBFuncWriteMultipleHoldingRegister+0xa4>
-        }
-    }
-    else
-    {
-        /* Can't be a valid request because the length is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010ca2:	2303      	movs	r3, #3
  8010ca4:	73fb      	strb	r3, [r7, #15]
-    }
-    return eStatus;
  8010ca6:	7bfb      	ldrb	r3, [r7, #15]
-}
  8010ca8:	4618      	mov	r0, r3
  8010caa:	3710      	adds	r7, #16
  8010cac:	46bd      	mov	sp, r7
  8010cae:	bd80      	pop	{r7, pc}
 
 08010cb0 <eMBFuncReadHoldingRegister>:
-
-#if MB_FUNC_READ_HOLDING_ENABLED > 0
-
-eMBException
-eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
-{
  8010cb0:	b580      	push	{r7, lr}
  8010cb2:	b086      	sub	sp, #24
  8010cb4:	af00      	add	r7, sp, #0
  8010cb6:	6078      	str	r0, [r7, #4]
  8010cb8:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usRegCount;
-    UCHAR          *pucFrameCur;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010cba:	2300      	movs	r3, #0
  8010cbc:	75fb      	strb	r3, [r7, #23]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
  8010cbe:	683b      	ldr	r3, [r7, #0]
  8010cc0:	881b      	ldrh	r3, [r3, #0]
  8010cc2:	2b05      	cmp	r3, #5
  8010cc4:	d15d      	bne.n	8010d82 <eMBFuncReadHoldingRegister+0xd2>
-    {
-        usRegAddress  = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
  8010cc6:	687b      	ldr	r3, [r7, #4]
  8010cc8:	3301      	adds	r3, #1
  8010cca:	781b      	ldrb	r3, [r3, #0]
  8010ccc:	021b      	lsls	r3, r3, #8
  8010cce:	82bb      	strh	r3, [r7, #20]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
  8010cd0:	687b      	ldr	r3, [r7, #4]
  8010cd2:	3302      	adds	r3, #2
  8010cd4:	781b      	ldrb	r3, [r3, #0]
@@ -44811,18 +44264,14 @@ eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010cd8:	8abb      	ldrh	r3, [r7, #20]
  8010cda:	4313      	orrs	r3, r2
  8010cdc:	82bb      	strh	r3, [r7, #20]
-        usRegAddress++;
  8010cde:	8abb      	ldrh	r3, [r7, #20]
  8010ce0:	3301      	adds	r3, #1
  8010ce2:	82bb      	strh	r3, [r7, #20]
-
-        usRegCount  = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF] << 8 );
  8010ce4:	687b      	ldr	r3, [r7, #4]
  8010ce6:	3303      	adds	r3, #3
  8010ce8:	781b      	ldrb	r3, [r3, #0]
  8010cea:	021b      	lsls	r3, r3, #8
  8010cec:	827b      	strh	r3, [r7, #18]
-        usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );
  8010cee:	687b      	ldr	r3, [r7, #4]
  8010cf0:	3304      	adds	r3, #4
  8010cf2:	781b      	ldrb	r3, [r3, #0]
@@ -44830,44 +44279,28 @@ eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010cf6:	8a7b      	ldrh	r3, [r7, #18]
  8010cf8:	4313      	orrs	r3, r2
  8010cfa:	827b      	strh	r3, [r7, #18]
-
-        /* Check if the number of registers to read is valid. If not
-         * return Modbus illegal data value exception. 
-         */
-        if( ( usRegCount >= 1 ) && ( usRegCount <= MB_PDU_FUNC_READ_REGCNT_MAX ) )
  8010cfc:	8a7b      	ldrh	r3, [r7, #18]
  8010cfe:	2b00      	cmp	r3, #0
  8010d00:	d03c      	beq.n	8010d7c <eMBFuncReadHoldingRegister+0xcc>
  8010d02:	8a7b      	ldrh	r3, [r7, #18]
  8010d04:	2b7d      	cmp	r3, #125	@ 0x7d
  8010d06:	d839      	bhi.n	8010d7c <eMBFuncReadHoldingRegister+0xcc>
-        {
-            /* Set the current PDU data pointer to the beginning. */
-            pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
  8010d08:	687b      	ldr	r3, [r7, #4]
  8010d0a:	60fb      	str	r3, [r7, #12]
-            *usLen = MB_PDU_FUNC_OFF;
  8010d0c:	683b      	ldr	r3, [r7, #0]
  8010d0e:	2200      	movs	r2, #0
  8010d10:	801a      	strh	r2, [r3, #0]
-
-            /* First byte contains the function code. */
-            *pucFrameCur++ = MB_FUNC_READ_HOLDING_REGISTER;
  8010d12:	68fb      	ldr	r3, [r7, #12]
  8010d14:	1c5a      	adds	r2, r3, #1
  8010d16:	60fa      	str	r2, [r7, #12]
  8010d18:	2203      	movs	r2, #3
  8010d1a:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010d1c:	683b      	ldr	r3, [r7, #0]
  8010d1e:	881b      	ldrh	r3, [r3, #0]
  8010d20:	3301      	adds	r3, #1
  8010d22:	b29a      	uxth	r2, r3
  8010d24:	683b      	ldr	r3, [r7, #0]
  8010d26:	801a      	strh	r2, [r3, #0]
-
-            /* Second byte in the response contain the number of bytes. */
-            *pucFrameCur++ = ( UCHAR ) ( usRegCount * 2 );
  8010d28:	8a7b      	ldrh	r3, [r7, #18]
  8010d2a:	b2da      	uxtb	r2, r3
  8010d2c:	68fb      	ldr	r3, [r7, #12]
@@ -44876,16 +44309,12 @@ eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010d32:	0052      	lsls	r2, r2, #1
  8010d34:	b2d2      	uxtb	r2, r2
  8010d36:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010d38:	683b      	ldr	r3, [r7, #0]
  8010d3a:	881b      	ldrh	r3, [r3, #0]
  8010d3c:	3301      	adds	r3, #1
  8010d3e:	b29a      	uxth	r2, r3
  8010d40:	683b      	ldr	r3, [r7, #0]
  8010d42:	801a      	strh	r2, [r3, #0]
-
-            /* Make callback to fill the buffer. */
-            eRegStatus = eMBRegHoldingCB( pucFrameCur, usRegAddress, usRegCount, MB_REG_READ );
  8010d44:	8a7a      	ldrh	r2, [r7, #18]
  8010d46:	8ab9      	ldrh	r1, [r7, #20]
  8010d48:	2300      	movs	r3, #0
@@ -44893,24 +44322,15 @@ eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010d4c:	f000 fb42 	bl	80113d4 <eMBRegHoldingCB>
  8010d50:	4603      	mov	r3, r0
  8010d52:	72fb      	strb	r3, [r7, #11]
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  8010d54:	7afb      	ldrb	r3, [r7, #11]
  8010d56:	2b00      	cmp	r3, #0
  8010d58:	d006      	beq.n	8010d68 <eMBFuncReadHoldingRegister+0xb8>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010d5a:	7afb      	ldrb	r3, [r7, #11]
  8010d5c:	4618      	mov	r0, r3
  8010d5e:	f000 f949 	bl	8010ff4 <prveMBError2Exception>
  8010d62:	4603      	mov	r3, r0
  8010d64:	75fb      	strb	r3, [r7, #23]
-            if( eRegStatus != MB_ENOERR )
  8010d66:	e00e      	b.n	8010d86 <eMBFuncReadHoldingRegister+0xd6>
-            }
-            else
-            {
-                *usLen += usRegCount * 2;
  8010d68:	683b      	ldr	r3, [r7, #0]
  8010d6a:	881a      	ldrh	r2, [r3, #0]
  8010d6c:	8a7b      	ldrh	r3, [r7, #18]
@@ -44920,68 +44340,35 @@ eMBFuncReadHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010d74:	b29a      	uxth	r2, r3
  8010d76:	683b      	ldr	r3, [r7, #0]
  8010d78:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  8010d7a:	e004      	b.n	8010d86 <eMBFuncReadHoldingRegister+0xd6>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010d7c:	2303      	movs	r3, #3
  8010d7e:	75fb      	strb	r3, [r7, #23]
  8010d80:	e001      	b.n	8010d86 <eMBFuncReadHoldingRegister+0xd6>
-        }
-    }
-    else
-    {
-        /* Can't be a valid request because the length is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010d82:	2303      	movs	r3, #3
  8010d84:	75fb      	strb	r3, [r7, #23]
-    }
-    return eStatus;
  8010d86:	7dfb      	ldrb	r3, [r7, #23]
-}
  8010d88:	4618      	mov	r0, r3
  8010d8a:	3718      	adds	r7, #24
  8010d8c:	46bd      	mov	sp, r7
  8010d8e:	bd80      	pop	{r7, pc}
 
 08010d90 <eMBFuncReadWriteMultipleHoldingRegister>:
-
-#if MB_FUNC_READWRITE_HOLDING_ENABLED > 0
-
-eMBException
-eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
-{
  8010d90:	b580      	push	{r7, lr}
  8010d92:	b086      	sub	sp, #24
  8010d94:	af00      	add	r7, sp, #0
  8010d96:	6078      	str	r0, [r7, #4]
  8010d98:	6039      	str	r1, [r7, #0]
-    USHORT          usRegWriteAddress;
-    USHORT          usRegWriteCount;
-    UCHAR           ucRegWriteByteCount;
-    UCHAR          *pucFrameCur;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010d9a:	2300      	movs	r3, #0
  8010d9c:	75fb      	strb	r3, [r7, #23]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen >= ( MB_PDU_FUNC_READWRITE_SIZE_MIN + MB_PDU_SIZE_MIN ) )
  8010d9e:	683b      	ldr	r3, [r7, #0]
  8010da0:	881b      	ldrh	r3, [r3, #0]
  8010da2:	2b09      	cmp	r3, #9
  8010da4:	f240 8095 	bls.w	8010ed2 <eMBFuncReadWriteMultipleHoldingRegister+0x142>
-    {
-        usRegReadAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF] << 8U );
  8010da8:	687b      	ldr	r3, [r7, #4]
  8010daa:	3301      	adds	r3, #1
  8010dac:	781b      	ldrb	r3, [r3, #0]
  8010dae:	021b      	lsls	r3, r3, #8
  8010db0:	82bb      	strh	r3, [r7, #20]
-        usRegReadAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF + 1] );
  8010db2:	687b      	ldr	r3, [r7, #4]
  8010db4:	3302      	adds	r3, #2
  8010db6:	781b      	ldrb	r3, [r3, #0]
@@ -44989,18 +44376,14 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010dba:	8abb      	ldrh	r3, [r7, #20]
  8010dbc:	4313      	orrs	r3, r2
  8010dbe:	82bb      	strh	r3, [r7, #20]
-        usRegReadAddress++;
  8010dc0:	8abb      	ldrh	r3, [r7, #20]
  8010dc2:	3301      	adds	r3, #1
  8010dc4:	82bb      	strh	r3, [r7, #20]
-
-        usRegReadCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_REGCNT_OFF] << 8U );
  8010dc6:	687b      	ldr	r3, [r7, #4]
  8010dc8:	3303      	adds	r3, #3
  8010dca:	781b      	ldrb	r3, [r3, #0]
  8010dcc:	021b      	lsls	r3, r3, #8
  8010dce:	827b      	strh	r3, [r7, #18]
-        usRegReadCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_READ_REGCNT_OFF + 1] );
  8010dd0:	687b      	ldr	r3, [r7, #4]
  8010dd2:	3304      	adds	r3, #4
  8010dd4:	781b      	ldrb	r3, [r3, #0]
@@ -45008,14 +44391,11 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010dd8:	8a7b      	ldrh	r3, [r7, #18]
  8010dda:	4313      	orrs	r3, r2
  8010ddc:	827b      	strh	r3, [r7, #18]
-
-        usRegWriteAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_ADDR_OFF] << 8U );
  8010dde:	687b      	ldr	r3, [r7, #4]
  8010de0:	3305      	adds	r3, #5
  8010de2:	781b      	ldrb	r3, [r3, #0]
  8010de4:	021b      	lsls	r3, r3, #8
  8010de6:	823b      	strh	r3, [r7, #16]
-        usRegWriteAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_ADDR_OFF + 1] );
  8010de8:	687b      	ldr	r3, [r7, #4]
  8010dea:	3306      	adds	r3, #6
  8010dec:	781b      	ldrb	r3, [r3, #0]
@@ -45023,18 +44403,14 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010df0:	8a3b      	ldrh	r3, [r7, #16]
  8010df2:	4313      	orrs	r3, r2
  8010df4:	823b      	strh	r3, [r7, #16]
-        usRegWriteAddress++;
  8010df6:	8a3b      	ldrh	r3, [r7, #16]
  8010df8:	3301      	adds	r3, #1
  8010dfa:	823b      	strh	r3, [r7, #16]
-
-        usRegWriteCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_REGCNT_OFF] << 8U );
  8010dfc:	687b      	ldr	r3, [r7, #4]
  8010dfe:	3307      	adds	r3, #7
  8010e00:	781b      	ldrb	r3, [r3, #0]
  8010e02:	021b      	lsls	r3, r3, #8
  8010e04:	81fb      	strh	r3, [r7, #14]
-        usRegWriteCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READWRITE_WRITE_REGCNT_OFF + 1] );
  8010e06:	687b      	ldr	r3, [r7, #4]
  8010e08:	3308      	adds	r3, #8
  8010e0a:	781b      	ldrb	r3, [r3, #0]
@@ -45042,13 +44418,9 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010e0e:	89fb      	ldrh	r3, [r7, #14]
  8010e10:	4313      	orrs	r3, r2
  8010e12:	81fb      	strh	r3, [r7, #14]
-
-        ucRegWriteByteCount = pucFrame[MB_PDU_FUNC_READWRITE_BYTECNT_OFF];
  8010e14:	687b      	ldr	r3, [r7, #4]
  8010e16:	7a5b      	ldrb	r3, [r3, #9]
  8010e18:	737b      	strb	r3, [r7, #13]
-
-        if( ( usRegReadCount >= 1 ) && ( usRegReadCount <= 0x7D ) &&
  8010e1a:	8a7b      	ldrh	r3, [r7, #18]
  8010e1c:	2b00      	cmp	r3, #0
  8010e1e:	d056      	beq.n	8010ece <eMBFuncReadWriteMultipleHoldingRegister+0x13e>
@@ -45058,20 +44430,14 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010e26:	89fb      	ldrh	r3, [r7, #14]
  8010e28:	2b00      	cmp	r3, #0
  8010e2a:	d050      	beq.n	8010ece <eMBFuncReadWriteMultipleHoldingRegister+0x13e>
-            ( usRegWriteCount >= 1 ) && ( usRegWriteCount <= 0x79 ) &&
  8010e2c:	89fb      	ldrh	r3, [r7, #14]
  8010e2e:	2b79      	cmp	r3, #121	@ 0x79
  8010e30:	d84d      	bhi.n	8010ece <eMBFuncReadWriteMultipleHoldingRegister+0x13e>
-            ( ( 2 * usRegWriteCount ) == ucRegWriteByteCount ) )
  8010e32:	89fb      	ldrh	r3, [r7, #14]
  8010e34:	005a      	lsls	r2, r3, #1
  8010e36:	7b7b      	ldrb	r3, [r7, #13]
-            ( usRegWriteCount >= 1 ) && ( usRegWriteCount <= 0x79 ) &&
  8010e38:	429a      	cmp	r2, r3
  8010e3a:	d148      	bne.n	8010ece <eMBFuncReadWriteMultipleHoldingRegister+0x13e>
-        {
-            /* Make callback to update the register values. */
-            eRegStatus = eMBRegHoldingCB( &pucFrame[MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF],
  8010e3c:	687b      	ldr	r3, [r7, #4]
  8010e3e:	f103 000a 	add.w	r0, r3, #10
  8010e42:	89fa      	ldrh	r2, [r7, #14]
@@ -45080,39 +44446,25 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010e48:	f000 fac4 	bl	80113d4 <eMBRegHoldingCB>
  8010e4c:	4603      	mov	r3, r0
  8010e4e:	75bb      	strb	r3, [r7, #22]
-                                          usRegWriteAddress, usRegWriteCount, MB_REG_WRITE );
-
-            if( eRegStatus == MB_ENOERR )
  8010e50:	7dbb      	ldrb	r3, [r7, #22]
  8010e52:	2b00      	cmp	r3, #0
  8010e54:	d131      	bne.n	8010eba <eMBFuncReadWriteMultipleHoldingRegister+0x12a>
-            {
-                /* Set the current PDU data pointer to the beginning. */
-                pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
  8010e56:	687b      	ldr	r3, [r7, #4]
  8010e58:	60bb      	str	r3, [r7, #8]
-                *usLen = MB_PDU_FUNC_OFF;
  8010e5a:	683b      	ldr	r3, [r7, #0]
  8010e5c:	2200      	movs	r2, #0
  8010e5e:	801a      	strh	r2, [r3, #0]
-
-                /* First byte contains the function code. */
-                *pucFrameCur++ = MB_FUNC_READWRITE_MULTIPLE_REGISTERS;
  8010e60:	68bb      	ldr	r3, [r7, #8]
  8010e62:	1c5a      	adds	r2, r3, #1
  8010e64:	60ba      	str	r2, [r7, #8]
  8010e66:	2217      	movs	r2, #23
  8010e68:	701a      	strb	r2, [r3, #0]
-                *usLen += 1;
  8010e6a:	683b      	ldr	r3, [r7, #0]
  8010e6c:	881b      	ldrh	r3, [r3, #0]
  8010e6e:	3301      	adds	r3, #1
  8010e70:	b29a      	uxth	r2, r3
  8010e72:	683b      	ldr	r3, [r7, #0]
  8010e74:	801a      	strh	r2, [r3, #0]
-
-                /* Second byte in the response contain the number of bytes. */
-                *pucFrameCur++ = ( UCHAR ) ( usRegReadCount * 2 );
  8010e76:	8a7b      	ldrh	r3, [r7, #18]
  8010e78:	b2da      	uxtb	r2, r3
  8010e7a:	68bb      	ldr	r3, [r7, #8]
@@ -45121,17 +44473,12 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010e80:	0052      	lsls	r2, r2, #1
  8010e82:	b2d2      	uxtb	r2, r2
  8010e84:	701a      	strb	r2, [r3, #0]
-                *usLen += 1;
  8010e86:	683b      	ldr	r3, [r7, #0]
  8010e88:	881b      	ldrh	r3, [r3, #0]
  8010e8a:	3301      	adds	r3, #1
  8010e8c:	b29a      	uxth	r2, r3
  8010e8e:	683b      	ldr	r3, [r7, #0]
  8010e90:	801a      	strh	r2, [r3, #0]
-
-                /* Make the read callback. */
-                eRegStatus =
-                    eMBRegHoldingCB( pucFrameCur, usRegReadAddress, usRegReadCount, MB_REG_READ );
  8010e92:	8a7a      	ldrh	r2, [r7, #18]
  8010e94:	8ab9      	ldrh	r1, [r7, #20]
  8010e96:	2300      	movs	r3, #0
@@ -45139,12 +44486,9 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010e9a:	f000 fa9b 	bl	80113d4 <eMBRegHoldingCB>
  8010e9e:	4603      	mov	r3, r0
  8010ea0:	75bb      	strb	r3, [r7, #22]
-                if( eRegStatus == MB_ENOERR )
  8010ea2:	7dbb      	ldrb	r3, [r7, #22]
  8010ea4:	2b00      	cmp	r3, #0
  8010ea6:	d108      	bne.n	8010eba <eMBFuncReadWriteMultipleHoldingRegister+0x12a>
-                {
-                    *usLen += 2 * usRegReadCount;
  8010ea8:	683b      	ldr	r3, [r7, #0]
  8010eaa:	881a      	ldrh	r2, [r3, #0]
  8010eac:	8a7b      	ldrh	r3, [r7, #18]
@@ -45154,72 +44498,40 @@ eMBFuncReadWriteMultipleHoldingRegister( UCHAR * pucFrame, USHORT * usLen )
  8010eb4:	b29a      	uxth	r2, r3
  8010eb6:	683b      	ldr	r3, [r7, #0]
  8010eb8:	801a      	strh	r2, [r3, #0]
-                }
-            }
-            if( eRegStatus != MB_ENOERR )
  8010eba:	7dbb      	ldrb	r3, [r7, #22]
  8010ebc:	2b00      	cmp	r3, #0
  8010ebe:	d008      	beq.n	8010ed2 <eMBFuncReadWriteMultipleHoldingRegister+0x142>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010ec0:	7dbb      	ldrb	r3, [r7, #22]
  8010ec2:	4618      	mov	r0, r3
  8010ec4:	f000 f896 	bl	8010ff4 <prveMBError2Exception>
  8010ec8:	4603      	mov	r3, r0
  8010eca:	75fb      	strb	r3, [r7, #23]
-            if( eRegStatus != MB_ENOERR )
  8010ecc:	e001      	b.n	8010ed2 <eMBFuncReadWriteMultipleHoldingRegister+0x142>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010ece:	2303      	movs	r3, #3
  8010ed0:	75fb      	strb	r3, [r7, #23]
-        }
-    }
-    return eStatus;
  8010ed2:	7dfb      	ldrb	r3, [r7, #23]
-}
  8010ed4:	4618      	mov	r0, r3
  8010ed6:	3718      	adds	r7, #24
  8010ed8:	46bd      	mov	sp, r7
  8010eda:	bd80      	pop	{r7, pc}
 
 08010edc <eMBFuncReadInputRegister>:
-/* ----------------------- Start implementation -----------------------------*/
-#if MB_FUNC_READ_INPUT_ENABLED > 0
-
-eMBException
-eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
-{
  8010edc:	b580      	push	{r7, lr}
  8010ede:	b086      	sub	sp, #24
  8010ee0:	af00      	add	r7, sp, #0
  8010ee2:	6078      	str	r0, [r7, #4]
  8010ee4:	6039      	str	r1, [r7, #0]
-    USHORT          usRegAddress;
-    USHORT          usRegCount;
-    UCHAR          *pucFrameCur;
-
-    eMBException    eStatus = MB_EX_NONE;
  8010ee6:	2300      	movs	r3, #0
  8010ee8:	75fb      	strb	r3, [r7, #23]
-    eMBErrorCode    eRegStatus;
-
-    if( *usLen == ( MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN ) )
  8010eea:	683b      	ldr	r3, [r7, #0]
  8010eec:	881b      	ldrh	r3, [r3, #0]
  8010eee:	2b05      	cmp	r3, #5
  8010ef0:	d15d      	bne.n	8010fae <eMBFuncReadInputRegister+0xd2>
-    {
-        usRegAddress = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8 );
  8010ef2:	687b      	ldr	r3, [r7, #4]
  8010ef4:	3301      	adds	r3, #1
  8010ef6:	781b      	ldrb	r3, [r3, #0]
  8010ef8:	021b      	lsls	r3, r3, #8
  8010efa:	82bb      	strh	r3, [r7, #20]
-        usRegAddress |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1] );
  8010efc:	687b      	ldr	r3, [r7, #4]
  8010efe:	3302      	adds	r3, #2
  8010f00:	781b      	ldrb	r3, [r3, #0]
@@ -45227,18 +44539,14 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
  8010f04:	8abb      	ldrh	r3, [r7, #20]
  8010f06:	4313      	orrs	r3, r2
  8010f08:	82bb      	strh	r3, [r7, #20]
-        usRegAddress++;
  8010f0a:	8abb      	ldrh	r3, [r7, #20]
  8010f0c:	3301      	adds	r3, #1
  8010f0e:	82bb      	strh	r3, [r7, #20]
-
-        usRegCount = ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF] << 8 );
  8010f10:	687b      	ldr	r3, [r7, #4]
  8010f12:	3303      	adds	r3, #3
  8010f14:	781b      	ldrb	r3, [r3, #0]
  8010f16:	021b      	lsls	r3, r3, #8
  8010f18:	827b      	strh	r3, [r7, #18]
-        usRegCount |= ( USHORT )( pucFrame[MB_PDU_FUNC_READ_REGCNT_OFF + 1] );
  8010f1a:	687b      	ldr	r3, [r7, #4]
  8010f1c:	3304      	adds	r3, #4
  8010f1e:	781b      	ldrb	r3, [r3, #0]
@@ -45246,45 +44554,28 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
  8010f22:	8a7b      	ldrh	r3, [r7, #18]
  8010f24:	4313      	orrs	r3, r2
  8010f26:	827b      	strh	r3, [r7, #18]
-
-        /* Check if the number of registers to read is valid. If not
-         * return Modbus illegal data value exception. 
-         */
-        if( ( usRegCount >= 1 )
  8010f28:	8a7b      	ldrh	r3, [r7, #18]
  8010f2a:	2b00      	cmp	r3, #0
  8010f2c:	d03c      	beq.n	8010fa8 <eMBFuncReadInputRegister+0xcc>
-            && ( usRegCount < MB_PDU_FUNC_READ_REGCNT_MAX ) )
  8010f2e:	8a7b      	ldrh	r3, [r7, #18]
  8010f30:	2b7c      	cmp	r3, #124	@ 0x7c
  8010f32:	d839      	bhi.n	8010fa8 <eMBFuncReadInputRegister+0xcc>
-        {
-            /* Set the current PDU data pointer to the beginning. */
-            pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
  8010f34:	687b      	ldr	r3, [r7, #4]
  8010f36:	60fb      	str	r3, [r7, #12]
-            *usLen = MB_PDU_FUNC_OFF;
  8010f38:	683b      	ldr	r3, [r7, #0]
  8010f3a:	2200      	movs	r2, #0
  8010f3c:	801a      	strh	r2, [r3, #0]
-
-            /* First byte contains the function code. */
-            *pucFrameCur++ = MB_FUNC_READ_INPUT_REGISTER;
  8010f3e:	68fb      	ldr	r3, [r7, #12]
  8010f40:	1c5a      	adds	r2, r3, #1
  8010f42:	60fa      	str	r2, [r7, #12]
  8010f44:	2204      	movs	r2, #4
  8010f46:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010f48:	683b      	ldr	r3, [r7, #0]
  8010f4a:	881b      	ldrh	r3, [r3, #0]
  8010f4c:	3301      	adds	r3, #1
  8010f4e:	b29a      	uxth	r2, r3
  8010f50:	683b      	ldr	r3, [r7, #0]
  8010f52:	801a      	strh	r2, [r3, #0]
-
-            /* Second byte in the response contain the number of bytes. */
-            *pucFrameCur++ = ( UCHAR )( usRegCount * 2 );
  8010f54:	8a7b      	ldrh	r3, [r7, #18]
  8010f56:	b2da      	uxtb	r2, r3
  8010f58:	68fb      	ldr	r3, [r7, #12]
@@ -45293,16 +44584,12 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
  8010f5e:	0052      	lsls	r2, r2, #1
  8010f60:	b2d2      	uxtb	r2, r2
  8010f62:	701a      	strb	r2, [r3, #0]
-            *usLen += 1;
  8010f64:	683b      	ldr	r3, [r7, #0]
  8010f66:	881b      	ldrh	r3, [r3, #0]
  8010f68:	3301      	adds	r3, #1
  8010f6a:	b29a      	uxth	r2, r3
  8010f6c:	683b      	ldr	r3, [r7, #0]
  8010f6e:	801a      	strh	r2, [r3, #0]
-
-            eRegStatus =
-                eMBRegInputCB( pucFrameCur, usRegAddress, usRegCount );
  8010f70:	8a7a      	ldrh	r2, [r7, #18]
  8010f72:	8abb      	ldrh	r3, [r7, #20]
  8010f74:	4619      	mov	r1, r3
@@ -45310,25 +44597,15 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
  8010f78:	f000 fba6 	bl	80116c8 <eMBRegInputCB>
  8010f7c:	4603      	mov	r3, r0
  8010f7e:	72fb      	strb	r3, [r7, #11]
-
-            /* If an error occured convert it into a Modbus exception. */
-            if( eRegStatus != MB_ENOERR )
  8010f80:	7afb      	ldrb	r3, [r7, #11]
  8010f82:	2b00      	cmp	r3, #0
  8010f84:	d006      	beq.n	8010f94 <eMBFuncReadInputRegister+0xb8>
-            {
-                eStatus = prveMBError2Exception( eRegStatus );
  8010f86:	7afb      	ldrb	r3, [r7, #11]
  8010f88:	4618      	mov	r0, r3
  8010f8a:	f000 f833 	bl	8010ff4 <prveMBError2Exception>
  8010f8e:	4603      	mov	r3, r0
  8010f90:	75fb      	strb	r3, [r7, #23]
-            if( eRegStatus != MB_ENOERR )
  8010f92:	e00e      	b.n	8010fb2 <eMBFuncReadInputRegister+0xd6>
-            }
-            else
-            {
-                *usLen += usRegCount * 2;
  8010f94:	683b      	ldr	r3, [r7, #0]
  8010f96:	881a      	ldrh	r2, [r3, #0]
  8010f98:	8a7b      	ldrh	r3, [r7, #18]
@@ -45338,46 +44615,24 @@ eMBFuncReadInputRegister( UCHAR * pucFrame, USHORT * usLen )
  8010fa0:	b29a      	uxth	r2, r3
  8010fa2:	683b      	ldr	r3, [r7, #0]
  8010fa4:	801a      	strh	r2, [r3, #0]
-            if( eRegStatus != MB_ENOERR )
  8010fa6:	e004      	b.n	8010fb2 <eMBFuncReadInputRegister+0xd6>
-            }
-        }
-        else
-        {
-            eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010fa8:	2303      	movs	r3, #3
  8010faa:	75fb      	strb	r3, [r7, #23]
  8010fac:	e001      	b.n	8010fb2 <eMBFuncReadInputRegister+0xd6>
-    }
-    else
-    {
-        /* Can't be a valid read input register request because the length
-         * is incorrect. */
-        eStatus = MB_EX_ILLEGAL_DATA_VALUE;
  8010fae:	2303      	movs	r3, #3
  8010fb0:	75fb      	strb	r3, [r7, #23]
-    }
-    return eStatus;
  8010fb2:	7dfb      	ldrb	r3, [r7, #23]
-}
  8010fb4:	4618      	mov	r0, r3
  8010fb6:	3718      	adds	r7, #24
  8010fb8:	46bd      	mov	sp, r7
  8010fba:	bd80      	pop	{r7, pc}
 
 08010fbc <eMBFuncReportSlaveID>:
-    return eStatus;
-}
-
-eMBException
-eMBFuncReportSlaveID( UCHAR * pucFrame, USHORT * usLen )
-{
  8010fbc:	b580      	push	{r7, lr}
  8010fbe:	b082      	sub	sp, #8
  8010fc0:	af00      	add	r7, sp, #0
  8010fc2:	6078      	str	r0, [r7, #4]
  8010fc4:	6039      	str	r1, [r7, #0]
-    memcpy( &pucFrame[MB_PDU_DATA_OFF], &ucMBSlaveID[0], ( size_t )usMBSlaveIDLen );
  8010fc6:	687b      	ldr	r3, [r7, #4]
  8010fc8:	3301      	adds	r3, #1
  8010fca:	4a08      	ldr	r2, [pc, #32]	@ (8010fec <eMBFuncReportSlaveID+0x30>)
@@ -45385,16 +44640,13 @@ eMBFuncReportSlaveID( UCHAR * pucFrame, USHORT * usLen )
  8010fce:	4908      	ldr	r1, [pc, #32]	@ (8010ff0 <eMBFuncReportSlaveID+0x34>)
  8010fd0:	4618      	mov	r0, r3
  8010fd2:	f001 fa18 	bl	8012406 <memcpy>
-    *usLen = ( USHORT )( MB_PDU_DATA_OFF + usMBSlaveIDLen );
  8010fd6:	4b05      	ldr	r3, [pc, #20]	@ (8010fec <eMBFuncReportSlaveID+0x30>)
  8010fd8:	881b      	ldrh	r3, [r3, #0]
  8010fda:	3301      	adds	r3, #1
  8010fdc:	b29a      	uxth	r2, r3
  8010fde:	683b      	ldr	r3, [r7, #0]
  8010fe0:	801a      	strh	r2, [r3, #0]
-    return MB_EX_NONE;
  8010fe2:	2300      	movs	r3, #0
-}
  8010fe4:	4618      	mov	r0, r3
  8010fe6:	3708      	adds	r7, #8
  8010fe8:	46bd      	mov	sp, r7
@@ -45403,20 +44655,11 @@ eMBFuncReportSlaveID( UCHAR * pucFrame, USHORT * usLen )
  8010ff0:	2000858c 	.word	0x2000858c
 
 08010ff4 <prveMBError2Exception>:
-    return ( UCHAR ) usWordBuf;
-}
-
-eMBException
-prveMBError2Exception( eMBErrorCode eErrorCode )
-{
  8010ff4:	b480      	push	{r7}
  8010ff6:	b085      	sub	sp, #20
  8010ff8:	af00      	add	r7, sp, #0
  8010ffa:	4603      	mov	r3, r0
  8010ffc:	71fb      	strb	r3, [r7, #7]
-    eMBException    eStatus;
-
-    switch ( eErrorCode )
  8010ffe:	79fb      	ldrb	r3, [r7, #7]
  8011000:	2b07      	cmp	r3, #7
  8011002:	d00c      	beq.n	801101e <prveMBError2Exception+0x2a>
@@ -45427,39 +44670,19 @@ prveMBError2Exception( eMBErrorCode eErrorCode )
  801100c:	2b01      	cmp	r3, #1
  801100e:	d003      	beq.n	8011018 <prveMBError2Exception+0x24>
  8011010:	e008      	b.n	8011024 <prveMBError2Exception+0x30>
-    {
-        case MB_ENOERR:
-            eStatus = MB_EX_NONE;
  8011012:	2300      	movs	r3, #0
  8011014:	73fb      	strb	r3, [r7, #15]
-            break;
  8011016:	e008      	b.n	801102a <prveMBError2Exception+0x36>
-
-        case MB_ENOREG:
-            eStatus = MB_EX_ILLEGAL_DATA_ADDRESS;
  8011018:	2302      	movs	r3, #2
  801101a:	73fb      	strb	r3, [r7, #15]
-            break;
  801101c:	e005      	b.n	801102a <prveMBError2Exception+0x36>
-
-        case MB_ETIMEDOUT:
-            eStatus = MB_EX_SLAVE_BUSY;
  801101e:	2306      	movs	r3, #6
  8011020:	73fb      	strb	r3, [r7, #15]
-            break;
  8011022:	e002      	b.n	801102a <prveMBError2Exception+0x36>
-
-        default:
-            eStatus = MB_EX_SLAVE_DEVICE_FAILURE;
  8011024:	2304      	movs	r3, #4
  8011026:	73fb      	strb	r3, [r7, #15]
-            break;
  8011028:	bf00      	nop
-    }
-
-    return eStatus;
  801102a:	7bfb      	ldrb	r3, [r7, #15]
-}
  801102c:	4618      	mov	r0, r3
  801102e:	3714      	adds	r7, #20
  8011030:	46bd      	mov	sp, r7
@@ -45467,22 +44690,13 @@ prveMBError2Exception( eMBErrorCode eErrorCode )
  8011036:	4770      	bx	lr
 
 08011038 <eMBTCPInit>:
-}
-
-#if MB_TCP_ENABLED > 0
-eMBErrorCode
-eMBTCPInit( USHORT ucTCPPort )
-{
  8011038:	b580      	push	{r7, lr}
  801103a:	b084      	sub	sp, #16
  801103c:	af00      	add	r7, sp, #0
  801103e:	4603      	mov	r3, r0
  8011040:	80fb      	strh	r3, [r7, #6]
-    eMBErrorCode    eStatus = MB_ENOERR;
  8011042:	2300      	movs	r3, #0
  8011044:	73fb      	strb	r3, [r7, #15]
-
-    if( ( eStatus = eMBTCPDoInit( ucTCPPort ) ) != MB_ENOERR )
  8011046:	88fb      	ldrh	r3, [r7, #6]
  8011048:	4618      	mov	r0, r3
  801104a:	f000 fed5 	bl	8011df8 <eMBTCPDoInit>
@@ -45491,63 +44705,42 @@ eMBTCPInit( USHORT ucTCPPort )
  8011052:	7bfb      	ldrb	r3, [r7, #15]
  8011054:	2b00      	cmp	r3, #0
  8011056:	d003      	beq.n	8011060 <eMBTCPInit+0x28>
-    {
-        eMBState = STATE_DISABLED;
  8011058:	4b14      	ldr	r3, [pc, #80]	@ (80110ac <eMBTCPInit+0x74>)
  801105a:	2201      	movs	r2, #1
  801105c:	701a      	strb	r2, [r3, #0]
  801105e:	e01f      	b.n	80110a0 <eMBTCPInit+0x68>
-    }
-    else if( !xMBPortEventInit(  ) )
  8011060:	f000 fbe0 	bl	8011824 <xMBPortEventInit>
  8011064:	4603      	mov	r3, r0
  8011066:	2b00      	cmp	r3, #0
  8011068:	d102      	bne.n	8011070 <eMBTCPInit+0x38>
-    {
-        /* Port dependent event module initalization failed. */
-        eStatus = MB_EPORTERR;
  801106a:	2303      	movs	r3, #3
  801106c:	73fb      	strb	r3, [r7, #15]
  801106e:	e017      	b.n	80110a0 <eMBTCPInit+0x68>
-    }
-    else
-    {
-        pvMBFrameStartCur = eMBTCPStart;
  8011070:	4b0f      	ldr	r3, [pc, #60]	@ (80110b0 <eMBTCPInit+0x78>)
  8011072:	4a10      	ldr	r2, [pc, #64]	@ (80110b4 <eMBTCPInit+0x7c>)
  8011074:	601a      	str	r2, [r3, #0]
-        pvMBFrameStopCur = eMBTCPStop;
  8011076:	4b10      	ldr	r3, [pc, #64]	@ (80110b8 <eMBTCPInit+0x80>)
  8011078:	4a10      	ldr	r2, [pc, #64]	@ (80110bc <eMBTCPInit+0x84>)
  801107a:	601a      	str	r2, [r3, #0]
-        peMBFrameReceiveCur = eMBTCPReceive;
  801107c:	4b10      	ldr	r3, [pc, #64]	@ (80110c0 <eMBTCPInit+0x88>)
  801107e:	4a11      	ldr	r2, [pc, #68]	@ (80110c4 <eMBTCPInit+0x8c>)
  8011080:	601a      	str	r2, [r3, #0]
-        peMBFrameSendCur = eMBTCPSend;
  8011082:	4b11      	ldr	r3, [pc, #68]	@ (80110c8 <eMBTCPInit+0x90>)
  8011084:	4a11      	ldr	r2, [pc, #68]	@ (80110cc <eMBTCPInit+0x94>)
  8011086:	601a      	str	r2, [r3, #0]
-        pvMBFrameCloseCur = MB_PORT_HAS_CLOSE ? vMBTCPPortClose : NULL;
  8011088:	4b11      	ldr	r3, [pc, #68]	@ (80110d0 <eMBTCPInit+0x98>)
  801108a:	2200      	movs	r2, #0
  801108c:	601a      	str	r2, [r3, #0]
-        ucMBAddress = MB_TCP_PSEUDO_ADDRESS;
  801108e:	4b11      	ldr	r3, [pc, #68]	@ (80110d4 <eMBTCPInit+0x9c>)
  8011090:	22ff      	movs	r2, #255	@ 0xff
  8011092:	701a      	strb	r2, [r3, #0]
-        eMBCurrentMode = MB_TCP;
  8011094:	4b10      	ldr	r3, [pc, #64]	@ (80110d8 <eMBTCPInit+0xa0>)
  8011096:	2202      	movs	r2, #2
  8011098:	701a      	strb	r2, [r3, #0]
-        eMBState = STATE_DISABLED;
  801109a:	4b04      	ldr	r3, [pc, #16]	@ (80110ac <eMBTCPInit+0x74>)
  801109c:	2201      	movs	r2, #1
  801109e:	701a      	strb	r2, [r3, #0]
-    }
-    return eStatus;
  80110a0:	7bfb      	ldrb	r3, [r7, #15]
-}
  80110a2:	4618      	mov	r0, r3
  80110a4:	3710      	adds	r7, #16
  80110a6:	46bd      	mov	sp, r7
@@ -45567,45 +44760,25 @@ eMBTCPInit( USHORT ucTCPPort )
  80110d8:	200085af 	.word	0x200085af
 
 080110dc <eMBEnable>:
-    return eStatus;
-}
-
-eMBErrorCode
-eMBEnable( void )
-{
  80110dc:	b580      	push	{r7, lr}
  80110de:	b082      	sub	sp, #8
  80110e0:	af00      	add	r7, sp, #0
-    eMBErrorCode    eStatus = MB_ENOERR;
  80110e2:	2300      	movs	r3, #0
  80110e4:	71fb      	strb	r3, [r7, #7]
-
-    if( eMBState == STATE_DISABLED )
  80110e6:	4b09      	ldr	r3, [pc, #36]	@ (801110c <eMBEnable+0x30>)
  80110e8:	781b      	ldrb	r3, [r3, #0]
  80110ea:	2b01      	cmp	r3, #1
  80110ec:	d106      	bne.n	80110fc <eMBEnable+0x20>
-    {
-        /* Activate the protocol stack. */
-        pvMBFrameStartCur(  );
  80110ee:	4b08      	ldr	r3, [pc, #32]	@ (8011110 <eMBEnable+0x34>)
  80110f0:	681b      	ldr	r3, [r3, #0]
  80110f2:	4798      	blx	r3
-        eMBState = STATE_ENABLED;
  80110f4:	4b05      	ldr	r3, [pc, #20]	@ (801110c <eMBEnable+0x30>)
  80110f6:	2200      	movs	r2, #0
  80110f8:	701a      	strb	r2, [r3, #0]
  80110fa:	e001      	b.n	8011100 <eMBEnable+0x24>
-    }
-    else
-    {
-        eStatus = MB_EILLSTATE;
  80110fc:	2306      	movs	r3, #6
  80110fe:	71fb      	strb	r3, [r7, #7]
-    }
-    return eStatus;
  8011100:	79fb      	ldrb	r3, [r7, #7]
-}
  8011102:	4618      	mov	r0, r3
  8011104:	3708      	adds	r7, #8
  8011106:	46bd      	mov	sp, r7
@@ -45615,49 +44788,23 @@ eMBEnable( void )
  8011110:	200085b4 	.word	0x200085b4
 
 08011114 <eMBPoll>:
-    return eStatus;
-}
-
-eMBErrorCode
-eMBPoll( void )
-{
  8011114:	b590      	push	{r4, r7, lr}
  8011116:	b083      	sub	sp, #12
  8011118:	af00      	add	r7, sp, #0
-    static UCHAR    ucFunctionCode;
-    static USHORT   usLength;
-    static eMBException eException;
-
-    int             i;
-    eMBErrorCode    eStatus = MB_ENOERR;
  801111a:	2300      	movs	r3, #0
  801111c:	70fb      	strb	r3, [r7, #3]
-    eMBEventType    eEvent;
-
-    /* Check if the protocol stack is ready. */
-    if( eMBState != STATE_ENABLED )
  801111e:	4b50      	ldr	r3, [pc, #320]	@ (8011260 <eMBPoll+0x14c>)
  8011120:	781b      	ldrb	r3, [r3, #0]
  8011122:	2b00      	cmp	r3, #0
  8011124:	d001      	beq.n	801112a <eMBPoll+0x16>
-    {
-        return MB_EILLSTATE;
  8011126:	2306      	movs	r3, #6
  8011128:	e095      	b.n	8011256 <eMBPoll+0x142>
-
-    }
-
-    /* Check if there is a event available. If not return control to caller.
-     * Otherwise we will handle the event. */
-    if( xMBPortEventGet( &eEvent ) == TRUE )
  801112a:	1cbb      	adds	r3, r7, #2
  801112c:	4618      	mov	r0, r3
  801112e:	f000 fbc1 	bl	80118b4 <xMBPortEventGet>
  8011132:	4603      	mov	r3, r0
  8011134:	2b01      	cmp	r3, #1
  8011136:	f040 808d 	bne.w	8011254 <eMBPoll+0x140>
-    {
-        switch ( eEvent )
  801113a:	78bb      	ldrb	r3, [r7, #2]
  801113c:	2b03      	cmp	r3, #3
  801113e:	f200 8089 	bhi.w	8011254 <eMBPoll+0x140>
@@ -45667,12 +44814,6 @@ eMBPoll( void )
  801114c:	08011159 	.word	0x08011159
  8011150:	0801118b 	.word	0x0801118b
  8011154:	08011255 	.word	0x08011255
-        {
-        case EV_READY:
-            break;
-
-        case EV_FRAME_RECEIVED:
-            eStatus = peMBFrameReceiveCur( &ucRcvAddress, &ucMBFrame, &usLength );
  8011158:	4b42      	ldr	r3, [pc, #264]	@ (8011264 <eMBPoll+0x150>)
  801115a:	681b      	ldr	r3, [r3, #0]
  801115c:	4a42      	ldr	r2, [pc, #264]	@ (8011268 <eMBPoll+0x154>)
@@ -45681,13 +44822,9 @@ eMBPoll( void )
  8011162:	4798      	blx	r3
  8011164:	4603      	mov	r3, r0
  8011166:	70fb      	strb	r3, [r7, #3]
-            if( eStatus == MB_ENOERR )
  8011168:	78fb      	ldrb	r3, [r7, #3]
  801116a:	2b00      	cmp	r3, #0
  801116c:	d16f      	bne.n	801124e <eMBPoll+0x13a>
-            {
-                /* Check if the frame is for us. If not ignore the frame. */
-                if( ( ucRcvAddress == ucMBAddress ) || ( ucRcvAddress == MB_ADDRESS_BROADCAST ) )
  801116e:	4b40      	ldr	r3, [pc, #256]	@ (8011270 <eMBPoll+0x15c>)
  8011170:	781a      	ldrb	r2, [r3, #0]
  8011172:	4b40      	ldr	r3, [pc, #256]	@ (8011274 <eMBPoll+0x160>)
@@ -45698,42 +44835,25 @@ eMBPoll( void )
  801117c:	781b      	ldrb	r3, [r3, #0]
  801117e:	2b00      	cmp	r3, #0
  8011180:	d165      	bne.n	801124e <eMBPoll+0x13a>
-                {
-                    ( void )xMBPortEventPost( EV_EXECUTE );
  8011182:	2002      	movs	r0, #2
  8011184:	f000 fb64 	bl	8011850 <xMBPortEventPost>
-                }
-            }
-            break;
  8011188:	e061      	b.n	801124e <eMBPoll+0x13a>
-
-        case EV_EXECUTE:
-            ucFunctionCode = ucMBFrame[MB_PDU_FUNC_OFF];
  801118a:	4b38      	ldr	r3, [pc, #224]	@ (801126c <eMBPoll+0x158>)
  801118c:	681b      	ldr	r3, [r3, #0]
  801118e:	781a      	ldrb	r2, [r3, #0]
  8011190:	4b39      	ldr	r3, [pc, #228]	@ (8011278 <eMBPoll+0x164>)
  8011192:	701a      	strb	r2, [r3, #0]
-            eException = MB_EX_ILLEGAL_FUNCTION;
  8011194:	4b39      	ldr	r3, [pc, #228]	@ (801127c <eMBPoll+0x168>)
  8011196:	2201      	movs	r2, #1
  8011198:	701a      	strb	r2, [r3, #0]
-            for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
  801119a:	2300      	movs	r3, #0
  801119c:	607b      	str	r3, [r7, #4]
  801119e:	e01f      	b.n	80111e0 <eMBPoll+0xcc>
-            {
-                /* No more function handlers registered. Abort. */
-                if( xFuncHandlers[i].ucFunctionCode == 0 )
  80111a0:	4a37      	ldr	r2, [pc, #220]	@ (8011280 <eMBPoll+0x16c>)
  80111a2:	687b      	ldr	r3, [r7, #4]
  80111a4:	f812 3033 	ldrb.w	r3, [r2, r3, lsl #3]
  80111a8:	2b00      	cmp	r3, #0
  80111aa:	d01d      	beq.n	80111e8 <eMBPoll+0xd4>
-                {
-                    break;
-                }
-                else if( xFuncHandlers[i].ucFunctionCode == ucFunctionCode )
  80111ac:	4a34      	ldr	r2, [pc, #208]	@ (8011280 <eMBPoll+0x16c>)
  80111ae:	687b      	ldr	r3, [r7, #4]
  80111b0:	f812 2033 	ldrb.w	r2, [r2, r3, lsl #3]
@@ -45741,8 +44861,6 @@ eMBPoll( void )
  80111b6:	781b      	ldrb	r3, [r3, #0]
  80111b8:	429a      	cmp	r2, r3
  80111ba:	d10e      	bne.n	80111da <eMBPoll+0xc6>
-                {
-                    eException = xFuncHandlers[i].pxHandler( ucMBFrame, &usLength );
  80111bc:	4a30      	ldr	r2, [pc, #192]	@ (8011280 <eMBPoll+0x16c>)
  80111be:	687b      	ldr	r3, [r7, #4]
  80111c0:	00db      	lsls	r3, r3, #3
@@ -45757,9 +44875,7 @@ eMBPoll( void )
  80111d2:	461a      	mov	r2, r3
  80111d4:	4b29      	ldr	r3, [pc, #164]	@ (801127c <eMBPoll+0x168>)
  80111d6:	701a      	strb	r2, [r3, #0]
-                    break;
  80111d8:	e007      	b.n	80111ea <eMBPoll+0xd6>
-            for( i = 0; i < MB_FUNC_HANDLERS_MAX; i++ )
  80111da:	687b      	ldr	r3, [r7, #4]
  80111dc:	3301      	adds	r3, #1
  80111de:	607b      	str	r3, [r7, #4]
@@ -45767,31 +44883,18 @@ eMBPoll( void )
  80111e2:	2b0f      	cmp	r3, #15
  80111e4:	dddc      	ble.n	80111a0 <eMBPoll+0x8c>
  80111e6:	e000      	b.n	80111ea <eMBPoll+0xd6>
-                    break;
  80111e8:	bf00      	nop
-                }
-            }
-
-            /* If the request was not sent to the broadcast address we
-             * return a reply. */
-            if( ucRcvAddress != MB_ADDRESS_BROADCAST )
  80111ea:	4b21      	ldr	r3, [pc, #132]	@ (8011270 <eMBPoll+0x15c>)
  80111ec:	781b      	ldrb	r3, [r3, #0]
  80111ee:	2b00      	cmp	r3, #0
  80111f0:	d02f      	beq.n	8011252 <eMBPoll+0x13e>
-            {
-                if( eException != MB_EX_NONE )
  80111f2:	4b22      	ldr	r3, [pc, #136]	@ (801127c <eMBPoll+0x168>)
  80111f4:	781b      	ldrb	r3, [r3, #0]
  80111f6:	2b00      	cmp	r3, #0
  80111f8:	d01d      	beq.n	8011236 <eMBPoll+0x122>
-                {
-                    /* An exception occured. Build an error frame. */
-                    usLength = 0;
  80111fa:	4b1b      	ldr	r3, [pc, #108]	@ (8011268 <eMBPoll+0x154>)
  80111fc:	2200      	movs	r2, #0
  80111fe:	801a      	strh	r2, [r3, #0]
-                    ucMBFrame[usLength++] = ( UCHAR )( ucFunctionCode | MB_FUNC_ERROR );
  8011200:	4b1d      	ldr	r3, [pc, #116]	@ (8011278 <eMBPoll+0x164>)
  8011202:	781a      	ldrb	r2, [r3, #0]
  8011204:	4b19      	ldr	r3, [pc, #100]	@ (801126c <eMBPoll+0x158>)
@@ -45806,7 +44909,6 @@ eMBPoll( void )
  8011216:	f062 027f 	orn	r2, r2, #127	@ 0x7f
  801121a:	b2d2      	uxtb	r2, r2
  801121c:	701a      	strb	r2, [r3, #0]
-                    ucMBFrame[usLength++] = eException;
  801121e:	4b13      	ldr	r3, [pc, #76]	@ (801126c <eMBPoll+0x158>)
  8011220:	681a      	ldr	r2, [r3, #0]
  8011222:	4b11      	ldr	r3, [pc, #68]	@ (8011268 <eMBPoll+0x154>)
@@ -45819,12 +44921,6 @@ eMBPoll( void )
  8011230:	4a12      	ldr	r2, [pc, #72]	@ (801127c <eMBPoll+0x168>)
  8011232:	7812      	ldrb	r2, [r2, #0]
  8011234:	701a      	strb	r2, [r3, #0]
-                if ( ( eMBCurrentMode == MB_RTU ) && MB_RTU_TIMEOUT_WAIT_BEFORE_SEND_MS )
-                {
-                    vMBPortTimersDelay( MB_RTU_TIMEOUT_WAIT_BEFORE_SEND_MS );
-                }
-#endif
-                eStatus = peMBFrameSendCur( ucMBAddress, ucMBFrame, usLength );
  8011236:	4b13      	ldr	r3, [pc, #76]	@ (8011284 <eMBPoll+0x170>)
  8011238:	681b      	ldr	r3, [r3, #0]
  801123a:	4a0e      	ldr	r2, [pc, #56]	@ (8011274 <eMBPoll+0x160>)
@@ -45836,22 +44932,11 @@ eMBPoll( void )
  8011246:	4798      	blx	r3
  8011248:	4603      	mov	r3, r0
  801124a:	70fb      	strb	r3, [r7, #3]
-            }
-            break;
  801124c:	e001      	b.n	8011252 <eMBPoll+0x13e>
-            break;
  801124e:	bf00      	nop
  8011250:	e000      	b.n	8011254 <eMBPoll+0x140>
-            break;
  8011252:	bf00      	nop
-
-        case EV_FRAME_SENT:
-            break;
-        }
-    }
-    return eStatus;
  8011254:	78fb      	ldrb	r3, [r7, #3]
-}
  8011256:	4618      	mov	r0, r3
  8011258:	370c      	adds	r7, #12
  801125a:	46bd      	mov	sp, r7
@@ -47562,87 +46647,51 @@ static err_t mb_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
  8011df4:	08015eec 	.word	0x08015eec
 
 08011df8 <eMBTCPDoInit>:
-
-
-/* ----------------------- Start implementation -----------------------------*/
-eMBErrorCode
-eMBTCPDoInit( USHORT ucTCPPort )
-{
  8011df8:	b580      	push	{r7, lr}
  8011dfa:	b084      	sub	sp, #16
  8011dfc:	af00      	add	r7, sp, #0
  8011dfe:	4603      	mov	r3, r0
  8011e00:	80fb      	strh	r3, [r7, #6]
-    eMBErrorCode    eStatus = MB_ENOERR;
  8011e02:	2300      	movs	r3, #0
  8011e04:	73fb      	strb	r3, [r7, #15]
-
-    if( xMBTCPPortInit( ucTCPPort ) == FALSE )
  8011e06:	88fb      	ldrh	r3, [r7, #6]
  8011e08:	4618      	mov	r0, r3
  8011e0a:	f7ff fd91 	bl	8011930 <xMBTCPPortInit>
  8011e0e:	4603      	mov	r3, r0
  8011e10:	2b00      	cmp	r3, #0
  8011e12:	d101      	bne.n	8011e18 <eMBTCPDoInit+0x20>
-    {
-        eStatus = MB_EPORTERR;
  8011e14:	2303      	movs	r3, #3
  8011e16:	73fb      	strb	r3, [r7, #15]
-    }
-    return eStatus;
  8011e18:	7bfb      	ldrb	r3, [r7, #15]
-}
  8011e1a:	4618      	mov	r0, r3
  8011e1c:	3710      	adds	r7, #16
  8011e1e:	46bd      	mov	sp, r7
  8011e20:	bd80      	pop	{r7, pc}
 
 08011e22 <eMBTCPStart>:
-
-void
-eMBTCPStart( void )
-{
  8011e22:	b480      	push	{r7}
  8011e24:	af00      	add	r7, sp, #0
-}
  8011e26:	bf00      	nop
  8011e28:	46bd      	mov	sp, r7
  8011e2a:	f85d 7b04 	ldr.w	r7, [sp], #4
  8011e2e:	4770      	bx	lr
 
 08011e30 <eMBTCPStop>:
-
-void
-eMBTCPStop( void )
-{
  8011e30:	b580      	push	{r7, lr}
  8011e32:	af00      	add	r7, sp, #0
-    /* Make sure that no more clients are connected. */
-    vMBTCPPortDisable( );
  8011e34:	f7ff fdda 	bl	80119ec <vMBTCPPortDisable>
-}
  8011e38:	bf00      	nop
  8011e3a:	bd80      	pop	{r7, pc}
 
 08011e3c <eMBTCPReceive>:
-
-eMBErrorCode
-eMBTCPReceive( UCHAR * pucRcvAddress, UCHAR ** ppucFrame, USHORT * pusLength )
-{
  8011e3c:	b580      	push	{r7, lr}
  8011e3e:	b088      	sub	sp, #32
  8011e40:	af00      	add	r7, sp, #0
  8011e42:	60f8      	str	r0, [r7, #12]
  8011e44:	60b9      	str	r1, [r7, #8]
  8011e46:	607a      	str	r2, [r7, #4]
-    eMBErrorCode    eStatus = MB_EIO;
  8011e48:	2305      	movs	r3, #5
  8011e4a:	77fb      	strb	r3, [r7, #31]
-    UCHAR          *pucMBTCPFrame;
-    USHORT          usLength;
-    USHORT          usPID;
-
-    if( xMBTCPPortGetRequest( &pucMBTCPFrame, &usLength ) != FALSE )
  8011e4c:	f107 0216 	add.w	r2, r7, #22
  8011e50:	f107 0318 	add.w	r3, r7, #24
  8011e54:	4611      	mov	r1, r2
@@ -47651,14 +46700,11 @@ eMBTCPReceive( UCHAR * pucRcvAddress, UCHAR ** ppucFrame, USHORT * pusLength )
  8011e5c:	4603      	mov	r3, r0
  8011e5e:	2b00      	cmp	r3, #0
  8011e60:	d01d      	beq.n	8011e9e <eMBTCPReceive+0x62>
-    {
-        usPID = pucMBTCPFrame[MB_TCP_PID] << 8U;
  8011e62:	69bb      	ldr	r3, [r7, #24]
  8011e64:	3302      	adds	r3, #2
  8011e66:	781b      	ldrb	r3, [r3, #0]
  8011e68:	021b      	lsls	r3, r3, #8
  8011e6a:	83bb      	strh	r3, [r7, #28]
-        usPID |= pucMBTCPFrame[MB_TCP_PID + 1];
  8011e6c:	69bb      	ldr	r3, [r7, #24]
  8011e6e:	3303      	adds	r3, #3
  8011e70:	781b      	ldrb	r3, [r3, #0]
@@ -47666,56 +46712,33 @@ eMBTCPReceive( UCHAR * pucRcvAddress, UCHAR ** ppucFrame, USHORT * pusLength )
  8011e74:	8bbb      	ldrh	r3, [r7, #28]
  8011e76:	4313      	orrs	r3, r2
  8011e78:	83bb      	strh	r3, [r7, #28]
-
-        if( usPID == MB_TCP_PROTOCOL_ID )
  8011e7a:	8bbb      	ldrh	r3, [r7, #28]
  8011e7c:	2b00      	cmp	r3, #0
  8011e7e:	d110      	bne.n	8011ea2 <eMBTCPReceive+0x66>
-        {
-            *ppucFrame = &pucMBTCPFrame[MB_TCP_FUNC];
  8011e80:	69bb      	ldr	r3, [r7, #24]
  8011e82:	1dda      	adds	r2, r3, #7
  8011e84:	68bb      	ldr	r3, [r7, #8]
  8011e86:	601a      	str	r2, [r3, #0]
-            *pusLength = usLength - MB_TCP_FUNC;
  8011e88:	8afb      	ldrh	r3, [r7, #22]
  8011e8a:	3b07      	subs	r3, #7
  8011e8c:	b29a      	uxth	r2, r3
  8011e8e:	687b      	ldr	r3, [r7, #4]
  8011e90:	801a      	strh	r2, [r3, #0]
-            eStatus = MB_ENOERR;
  8011e92:	2300      	movs	r3, #0
  8011e94:	77fb      	strb	r3, [r7, #31]
-
-            /* Modbus TCP does not use any addresses. Fake the source address such
-             * that the processing part deals with this frame.
-             */
-            *pucRcvAddress = MB_TCP_PSEUDO_ADDRESS;
  8011e96:	68fb      	ldr	r3, [r7, #12]
  8011e98:	22ff      	movs	r2, #255	@ 0xff
  8011e9a:	701a      	strb	r2, [r3, #0]
  8011e9c:	e001      	b.n	8011ea2 <eMBTCPReceive+0x66>
-        }
-    }
-    else
-    {
-        eStatus = MB_EIO;
  8011e9e:	2305      	movs	r3, #5
  8011ea0:	77fb      	strb	r3, [r7, #31]
-    }
-    return eStatus;
  8011ea2:	7ffb      	ldrb	r3, [r7, #31]
-}
  8011ea4:	4618      	mov	r0, r3
  8011ea6:	3720      	adds	r7, #32
  8011ea8:	46bd      	mov	sp, r7
  8011eaa:	bd80      	pop	{r7, pc}
 
 08011eac <eMBTCPSend>:
-
-eMBErrorCode
-eMBTCPSend( UCHAR _unused, const UCHAR * pucFrame, USHORT usLength )
-{
  8011eac:	b580      	push	{r7, lr}
  8011eae:	b086      	sub	sp, #24
  8011eb0:	af00      	add	r7, sp, #0
@@ -47724,23 +46747,14 @@ eMBTCPSend( UCHAR _unused, const UCHAR * pucFrame, USHORT usLength )
  8011eb6:	71fb      	strb	r3, [r7, #7]
  8011eb8:	4613      	mov	r3, r2
  8011eba:	80bb      	strh	r3, [r7, #4]
-    eMBErrorCode    eStatus = MB_ENOERR;
  8011ebc:	2300      	movs	r3, #0
  8011ebe:	75fb      	strb	r3, [r7, #23]
-    UCHAR          *pucMBTCPFrame = ( UCHAR * ) pucFrame - MB_TCP_FUNC;
  8011ec0:	683b      	ldr	r3, [r7, #0]
  8011ec2:	3b07      	subs	r3, #7
  8011ec4:	613b      	str	r3, [r7, #16]
-    USHORT          usTCPLength = usLength + MB_TCP_FUNC;
  8011ec6:	88bb      	ldrh	r3, [r7, #4]
  8011ec8:	3307      	adds	r3, #7
  8011eca:	81fb      	strh	r3, [r7, #14]
-     * function with the buffer returned by the previous call. Therefore we 
-     * only have to update the length in the header. Note that the length 
-     * header includes the size of the Modbus PDU and the UID Byte. Therefore 
-     * the length is usLength plus one.
-     */
-    pucMBTCPFrame[MB_TCP_LEN] = ( usLength + 1 ) >> 8U;
  8011ecc:	88bb      	ldrh	r3, [r7, #4]
  8011ece:	3301      	adds	r3, #1
  8011ed0:	121a      	asrs	r2, r3, #8
@@ -47748,7 +46762,6 @@ eMBTCPSend( UCHAR _unused, const UCHAR * pucFrame, USHORT usLength )
  8011ed4:	3304      	adds	r3, #4
  8011ed6:	b2d2      	uxtb	r2, r2
  8011ed8:	701a      	strb	r2, [r3, #0]
-    pucMBTCPFrame[MB_TCP_LEN + 1] = ( usLength + 1 ) & 0xFF;
  8011eda:	88bb      	ldrh	r3, [r7, #4]
  8011edc:	b2da      	uxtb	r2, r3
  8011ede:	693b      	ldr	r3, [r7, #16]
@@ -47756,7 +46769,6 @@ eMBTCPSend( UCHAR _unused, const UCHAR * pucFrame, USHORT usLength )
  8011ee2:	3201      	adds	r2, #1
  8011ee4:	b2d2      	uxtb	r2, r2
  8011ee6:	701a      	strb	r2, [r3, #0]
-    if( xMBTCPPortSendResponse( pucMBTCPFrame, usTCPLength ) == FALSE )
  8011ee8:	89fb      	ldrh	r3, [r7, #14]
  8011eea:	4619      	mov	r1, r3
  8011eec:	6938      	ldr	r0, [r7, #16]
@@ -47764,14 +46776,9 @@ eMBTCPSend( UCHAR _unused, const UCHAR * pucFrame, USHORT usLength )
  8011ef2:	4603      	mov	r3, r0
  8011ef4:	2b00      	cmp	r3, #0
  8011ef6:	d101      	bne.n	8011efc <eMBTCPSend+0x50>
-    {
-        eStatus = MB_EIO;
  8011ef8:	2305      	movs	r3, #5
  8011efa:	75fb      	strb	r3, [r7, #23]
-    }
-    return eStatus;
  8011efc:	7dfb      	ldrb	r3, [r7, #23]
-}
  8011efe:	4618      	mov	r0, r3
  8011f00:	3718      	adds	r7, #24
  8011f02:	46bd      	mov	sp, r7
